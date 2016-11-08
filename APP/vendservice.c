@@ -18,6 +18,7 @@
 #include "MdbBillDeviceOperation.h"
 #include "MdbCashlessDeviceOperation.h"
 #include "MdbCoinDeviceOperation.h"
+#include "Menu.h"
 static void VendingService(void);
 static void VendingIdle(void);
 /*********************************************************************************************************
@@ -188,6 +189,8 @@ static void VendingService(void)
 		else
 			API_LCM_Printf(0,0,0,0,"BillDevice is err.\r\n");
 	}
+	//Trace("***Hello world ....hellobillcoin\r\n");
+	API_LCM_Printf(60,6,0,0,UIMenu.welcome[VMCParam.Language]);
 	while(1)
 	{
 		if(API_KEY_ReadKey() == 'M')

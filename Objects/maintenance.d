@@ -28,3 +28,4 @@
 .\objects\maintenance.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 .\objects\maintenance.o: APP\ParamDefine.h
 .\objects\maintenance.o: APP\Menu.h
+.\objects\maintenance.o: APP\MdbBillDeviceOperation.h

@@ -12,6 +12,7 @@
 #define _MDBBILLDEVICEOPERATION_H
 
 void MdbBillResetAndSetup(void);
+uint8_t BillDevProcess(uint32_t *RecvMoney,unsigned char *BillType,unsigned char billOpt,unsigned char *billOptBack);
 void MdbBillGetStackerStatus(void);
 void MdbBillStackBillOrReturn(unsigned char ctrl);
 void MdbBillTypeEscrowEanbleOrDisable(unsigned short EscrowCtrl);

@@ -31,6 +31,7 @@
 #define VMC_TLOG_PAGE_S		512		//TotalTradeLog start page
 #define VMC_SLOG_PAGE_S		1024	//TotalTradeLog start page
 #define VMC_SLOG_PAGE_E		4096	//TotalTradeLog End page
+#define OS_TICKS_PER_SEC                        1000
 /********************************************************************************************************
 ** @Define name:       VMCParam Parameter Define
 ********************************************************************************************************/
@@ -133,6 +134,75 @@ typedef struct
 	unsigned int  BillInStacker;
 } MDBBILLVALIDATORRECYCLER;
 extern volatile MDBBILLVALIDATORRECYCLER MDBBillDevice;
+
+
+/******************************************纸币器硬币器通讯结构体*****************************************************/
+//纸币器收到纸币返回面值
+#define MBOX_BILLMONEY					0x01
+//禁能纸币器命令
+#define MBOX_BILLDISABLEDEV				0x02
+//使能纸币器命令
+#define MBOX_BILLENABLEDEV				0x03
+//重置纸币器命令
+#define MBOX_BILLRESETDEV				0x04
+//启动纸币器命令
+#define MBOX_BILLINITDEV				0x05
+//纸币器压抄命令
+#define MBOX_BILLESCROW					0x06
+//返回纸币器压抄成功命令
+#define MBOX_BILLESCROWSUCC				0x07
+//返回纸币器压抄失败命令
+#define MBOX_BILLESCROWFAIL				0x08
+//纸币器退币命令
+#define MBOX_BILLRETURN					0x09
+//返回纸币器退币成功命令
+#define MBOX_BILLRETURNSUCC				0x0A
+//返回纸币器退币失败命令
+#define MBOX_BILLRETURNFAIL				0x0B
+
+//返回纸币器参数命令
+#define MBOX_BILLSETUPDEV				0x0C
+
+
+//硬币器收到硬币返回面值
+#define MBOX_COINMONEY					0x0D
+//禁能硬币器命令
+#define MBOX_COINDISABLEDEV				0x0E
+//使能硬币器命令
+#define MBOX_COINENABLEDEV				0x0F
+//启动硬币器命令
+#define MBOX_COININITDEV				0x10
+//返回硬币器按下退币键退币请求命令
+#define MBOX_COINRETURN					0x11
+//返回硬币器参数命令
+#define MBOX_COINSETUPDEV				0x12
+
+
+//对于level3的mdb找零器找零命令
+#define MBOX_MDBCHANGELEVEL3			0x13
+//对于level2的mdb找零器找零命令
+#define MBOX_MDBCHANGELEVEL2			0x14
+//对于得到找零器余币量
+#define MBOX_MDBCHANGETUBE				0x15
+//对于hopper的找零器找零命令
+#define MBOX_MDBCHANGEHOPPER			0x16
+//找零器找零返回命令
+#define MBOX_CHANGERBACKMONEY			0x17
+
+typedef struct	
+{
+	uint8_t Communicate;//1代表纸币器通讯不上
+	uint8_t moto;//1代表马达故障
+	uint8_t sensor;//1代表传感器故障
+	uint8_t romchk;//1代表rom出错
+	uint8_t jam;//1代表投币卡币
+	uint8_t removeCash;//1移除纸币钞箱
+	uint8_t cashErr;//1纸币钞箱故障，以及钞箱满
+	uint8_t disable;//1纸币因为各种原因被禁能了
+	uint8_t recyErr;//找零模块异常
+}MDBBILLERROR;
+extern MDBBILLERROR MdbBillErr;
+
 /********************************************************************************************************
 ** @Define name:       RTC Parameter Define
 ********************************************************************************************************/
@@ -151,6 +221,6 @@ extern void LoadNewTotalLog(void);
 extern void InitSingleLog(void);
 extern void LoadNewSingleLog(void);
 extern unsigned short CrcCheck(unsigned char *data,unsigned int len);
-
+char *PrintfMoney(uint32_t dispnum);
 #endif
 /**************************************End Of File*******************************************************/

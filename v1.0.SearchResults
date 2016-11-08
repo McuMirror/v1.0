@@ -1,0 +1,15 @@
+---- LoadDefaultVmcParam Æ¥Åä (15 in 3 ÎÄ¼þ) ----
+LPC1768.htm (objects):<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
+LPC1768.htm (objects):<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
+LPC1768.htm (objects):<LI>Call Chain = InitVmcParam &rArr; LoadDefaultVmcParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+LPC1768.htm (objects):<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
+LPC1768.htm (objects):<P><STRONG><a name="[da]"></a>LoadDefaultVmcParam</STRONG> (Thumb, 330 bytes, Stack size 136 bytes, paramdefine.o(i.LoadDefaultVmcParam))
+LPC1768.htm (objects):<LI>Call Chain = LoadDefaultVmcParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+LPC1768.htm (objects):<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
+LPC1768.htm (objects):<LI>Call Chain = VendService &rArr; InitVmcParam &rArr; LoadDefaultVmcParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+LPC1768.htm (objects):<LI><a href="#[da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
+ParamDefine.c (app):			LoadDefaultVmcParam();
+ParamDefine.c (app):		LoadDefaultVmcParam();
+ParamDefine.c (app):extern void LoadDefaultVmcParam(void)
+ParamDefine.c (app):	Trace("LoadDefaultVmcParam():\r\n");
+ParamDefine.h (app):extern void LoadDefaultVmcParam(void);

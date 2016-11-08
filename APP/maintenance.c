@@ -16,6 +16,7 @@
 #include "..\API\OS.H"
 #include "ParamDefine.h"
 #include "Menu.h"
+#include "MdbBillDeviceOperation.h"
 static void Login(void);
 static void EnterMaintenance(void);
 static void MaintenDevInfo(void);
@@ -23,6 +24,7 @@ static void MaintenDevConfig(void);
 static void MaintenDevTest(void);
 static void MaintenTradeConfig(void);
 static void MaintenTradeLog(void);
+static void TestBillValidator(void);
 /************************************************************************************************************************************************************************************
 ** @APP Function name:   Maintenance
 ** @APP Input para:      None
@@ -694,14 +696,16 @@ static void MaintenDevTest(void)
 				switch(key)
 				{
 					case 'A':
-						API_LCM_Printf(0,0,0,0,BillTest.Theme[VMCParam.Language]);
-						API_LCM_ClearArea(0,3,239,15);
-						API_LCM_Printf(0,14,0,0,BillTest.Exit[VMCParam.Language]);
-						API_LCM_Printf((120 - (strlen(BillTest.Bill[VMCParam.Language]) /2 ) * 8),3,0,0,BillTest.Bill[VMCParam.Language]);
-						while(1)//Ö½±ÒÆ÷²âÊÔ
-						{
-							vTaskDelay(20);
-						}
+						//Ö½±ÒÆ÷²âÊÔ
+						TestBillValidator();	
+						API_LCM_ClearScreen();
+						API_LCM_Printf(0,0,0,0,DevTest.Theme[VMCParam.Language]);
+						API_LCM_DrawLine(0,2);
+						API_LCM_Printf(16,3,0,0,DevTest.TBill[VMCParam.Language]);
+						API_LCM_Printf(16,5,0,0,DevTest.TCoin[VMCParam.Language]);
+						API_LCM_Printf(16,7,0,0,DevTest.TCashless[VMCParam.Language]);
+						API_LCM_Printf(16,9,0,0,DevTest.TGdsChnl[VMCParam.Language]);
+						API_LCM_Printf(0,14,0,0,DevTest.Exit[VMCParam.Language]);
 						break;
 					case 'B':
 						while(1)//Ó²±ÒÆ÷²âÊÔ
@@ -734,6 +738,63 @@ static void MaintenDevTest(void)
 		vTaskDelay(20);
 	}
 }
+
+static void TestBillValidator(void)
+{
+	unsigned char key;
+	uint8_t  billOpt = 0,billOptBack = 0;
+	uint32_t InValue = 0;
+	uint8_t Billtype = 0;
+	uint32_t SumValue = 0;
+	char    *pstr;
+	char	strMoney[10];
+	
+	API_LCM_Printf(0,0,0,0,BillTest.Theme[VMCParam.Language]);
+	API_LCM_ClearArea(0,3,239,15);
+	API_LCM_Printf(0,14,0,0,BillTest.Exit[VMCParam.Language]);
+	API_LCM_Printf((120 - (strlen(BillTest.Bill[VMCParam.Language]) /2 ) * 8),3,0,0,BillTest.Bill[VMCParam.Language]);
+	billOpt=MBOX_BILLENABLEDEV;
+	BillDevProcess(&InValue,&Billtype,billOpt,&billOptBack);
+	billOpt = 0;
+	while(1)
+	{
+		vTaskDelay(20);
+		BillDevProcess(&InValue,&Billtype,billOpt,&billOptBack);
+		if(InValue>0)
+		{
+			Trace("\r\n APP>>Billvalue=%d\r\n",InValue);
+			billOpt=MBOX_BILLESCROW;
+			BillDevProcess(&InValue,&Billtype,billOpt,&billOptBack);
+			billOpt = 0;
+			if(billOptBack==2)
+			{
+				Trace("\r\n TaskEscrowSuccess");			
+				SumValue += InValue;
+				pstr = PrintfMoney(SumValue);
+				strcpy(strMoney, pstr);
+				API_LCM_Printf(0,6,0,0,BillTest.BillMsg6[VMCParam.Language],strMoney);
+				InValue=0;
+				billOptBack=0;
+			}
+			else
+			{
+				Trace("\r\n TaskEscrowFail");
+				InValue=0;
+				billOptBack=0;
+			}
+		}
+		key = API_KEY_ReadKey();
+		if(key == '>')//È¡Ïû°´¼ü
+		{
+			break;						
+		}
+	}
+	billOpt=MBOX_BILLDISABLEDEV;
+	BillDevProcess(&InValue,&Billtype,billOpt,&billOptBack);
+	billOpt=0;
+}
+
+
 /************************************************************************************************************************************************************************************
 ** @APP Function name:   MaintenTradeConfig/½»Ò×ÉèÖÃ
 ** @APP Input para:      None

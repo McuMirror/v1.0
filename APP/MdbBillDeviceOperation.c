@@ -12,6 +12,7 @@
 #include "..\API\OS.H"
 #include "ParamDefine.h"
 #include "MdbBillDeviceOperation.h"
+
 /*********************************************************************************************************
 ** @APP Function name:   InitBillDeviceAndGetInfo
 ** @APP Input para:      None
@@ -315,5 +316,176 @@ void MdbBillResetAndSetup(void)
 			return;
 		}
 	}*/
+}
+
+/*********************************************************************************************************
+** Function name:       BillDevProcess
+** Descriptions:        纸币器收币压钞操作
+** input parameters:    无
+** output parameters:   RecvMoney——收入的纸币金额
+						BillType——收入的纸币通道
+						billOpt--纸币器控制参数
+						billOptBack--纸币器控制返回结果
+** Returned value:      有纸币收入返回1，无返回0
+*********************************************************************************************************/
+uint8_t BillDevProcess(uint32_t *RecvMoney,unsigned char *BillType,unsigned char billOpt,unsigned char *billOptBack)
+{
+	unsigned char BillRdBuff[36],BillRdLen,ComStatus;
+	uint8_t type=0,i=0;
+	static uint8_t billrec=0;
+
+
+	switch(billOpt)
+	{
+		case MBOX_BILLENABLEDEV:
+			//Trace("enable bill\r\n");
+			API_MDB_BillType_BillDevice(0x003F,0x003F);
+			break;
+		case MBOX_BILLDISABLEDEV:
+			//Trace("disable bill\r\n");
+			//Trace("\r\n DrvBILLDISABLEDEV opt");
+			API_MDB_BillType_BillDevice(0,0);
+			break;			
+		case MBOX_BILLESCROW:
+			//Trace("\r\nescrow bill");
+			if(API_MDB_Escrow_BillDevice(1))
+				*billOptBack = 2;	
+			else
+				*billOptBack = 1;	
+			break;	
+		case MBOX_BILLRETURN:
+			//Trace("\r\nescrow bill");
+			if(API_MDB_Escrow_BillDevice(0))
+				*billOptBack = 4;	
+			else
+				*billOptBack = 3;	
+			break;
+		default:break;	
+	}
+	vTaskDelay(OS_TICKS_PER_SEC / 100);
+	//Trace("6\r\n");
+	
+	//轮询纸币器是否有收到纸币，有返回1
+	ComStatus = API_MDB_Poll_BillDevice(&BillRdBuff[0],&BillRdLen);
+	if(ComStatus == 1)
+	{
+		MdbBillErr.Communicate = 0;
+		billrec=0;
+		Trace("\r\nDrvBill= %02d-",BillRdLen);
+		for(i=0;i<BillRdLen;i++)
+		{
+			Trace(" %02x ",BillRdBuff[i]);
+		}
+		Trace("\r\n");
+		vTaskDelay(OS_TICKS_PER_SEC / 100);
+		if(BillRdLen==0)
+		{
+			Trace("\r\n Drvbill default");	
+			vTaskDelay(OS_TICKS_PER_SEC / 100);
+			memset(&MdbBillErr,0,sizeof(MdbBillErr));
+		}
+		for(i = 0; i < BillRdLen; i++) 
+		{
+			if((BillRdBuff[i]&0xf0)==0x90)
+			{
+				type = BillRdBuff[i]&0x0f;				
+				{
+					*RecvMoney = MDBBillDevice.BillTypeCredit[type]*100;
+					*BillType = type;
+					Trace("Drvbill=%ld,%d\r\n",*RecvMoney,*BillType);
+					vTaskDelay(OS_TICKS_PER_SEC / 100);
+					return 1;
+				}
+			}
+			else if((BillRdBuff[i]&0xf0)==0xa0)
+			{
+				Trace("\r\n Drvbill return");
+				*billOptBack = 1;
+			}
+			else if((BillRdBuff[i] & 0xF0) == 0) 
+			{   
+				//validator status
+			    switch(BillRdBuff[i]) 
+				{
+		            case 0x01:			                 //defective motor    
+		            	Trace("\r\n Drvbill motor");
+				        MdbBillErr.moto = 1;
+				        break;
+			
+			        case 0x02:			                 //sensor problem
+			        	Trace("\r\n Drvbill sensor");
+					    MdbBillErr.sensor = 1;
+				        break;
+			
+			        case 0x03:			                 //validator busy
+			        	Trace("\r\n Drvbil busy");
+					MdbBillErr.disable = 1;
+			        	break;
+			
+			        case 0x04:			                 //rom chksum err
+			        	Trace("\r\n Drvbill chksum");
+				    	MdbBillErr.romchk = 1;
+			        break;
+			
+			        case 0x05:			                 //validator jammed
+			        	Trace("\r\n Drvbill jammed");
+					    MdbBillErr.jam = 1;			       
+				        break;
+			
+			        case 0x06:			                 //validator was reset
+			        	Trace("\r\n Drvbil reset");
+						break;
+				 
+			        case 0x07:			                 //bill removed	
+			        	Trace("\r\n Drvbil removed");
+			        	break;
+			 
+			        case 0x08:			                 //cash box out of position
+			        	Trace("\r\n Drvbill removeCash");
+					    MdbBillErr.removeCash = 1;	
+				        break;
+			
+			        case 0x09:			                 //validator disabled	
+			        	Trace("\r\n Drvbill disabled");
+			        	MdbBillErr.disable = 1;
+						break;
+			
+			        case 0x0A:			                 //invalid escrow request
+			        	Trace("\r\n Drvbil invalid");
+			       		break;
+			
+			        case 0x0B:			                 //bill rejected
+			        	Trace("\r\n Drvbil rejected");
+			        	break;
+			
+			        case 0x0C:			                 //possible credited bill removal
+			        	Trace("\r\n Drvbill cashErr");
+					    MdbBillErr.cashErr = 1;	
+				        break;
+				 case 0x29:
+				 	Trace("\r\n Drvbill recyclerErr");
+					   MdbBillErr.recyErr=1;
+				 	break;
+			        default:
+						Trace("\r\n Drvbill default");	
+						memset(&MdbBillErr,0,sizeof(MdbBillErr));
+					    break;
+		         }
+		    }
+		}
+	}
+	else
+	{
+		billrec++;
+		Trace("\r\n Drvbill commuFail=%d,billrec=%d",ComStatus,billrec);
+		if(billrec>=30)
+		{
+			Trace("\r\n Drvbill commReject");
+			//BillDevReject();
+			billrec=0;
+		}
+		MdbBillErr.Communicate = 1;
+	}	
+	return 0;
 }
 /**************************************End Of File*******************************************************/

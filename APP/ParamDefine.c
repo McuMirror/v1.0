@@ -19,6 +19,7 @@ volatile SINGLETRADELOG SingleTradeLog;
 volatile MDBCOINACCEPTORCHANGER MDBCoinDevice;
 volatile MDBBILLVALIDATORRECYCLER MDBBillDevice;
 volatile unsigned char Rtc[7];//年月日时分秒,其中年两字节
+MDBBILLERROR MdbBillErr;
 /***********************************************************************************************************************************************************
 ** @API Function name:   InitVmcParam
 ** @API Input para:      None
@@ -543,5 +544,38 @@ extern unsigned short CrcCheck(unsigned char *data,unsigned int len)
         }
     }
     return crc;
+}
+
+/********************************************************************************************************
+** Function name:     	PrintfMoney
+** Descriptions:	    依据小数位数，显示金额的函数
+** input parameters:    dispnum:投币金额，以分为单位 
+** output parameters:   无
+** Returned value:      显示字符串
+*********************************************************************************************************/
+char *PrintfMoney(uint32_t dispnum)
+{  
+	char strnum[10];
+	uint8_t type=1;
+	
+   switch(type) 
+   {
+      case 2://以分为单位
+	  	  sprintf(strnum,"%d.%02d",dispnum/100,dispnum%100);	
+		  
+		  break;
+
+	  case 1://以角为单位
+	  	  dispnum /= 10;
+		  sprintf(strnum,"%d.%d",dispnum/10,dispnum%10);
+		  break;
+	  
+	  case 0://以元为单位
+		  sprintf(strnum,"%d",dispnum/100);
+		  break;
+	 default:break;	  
+   }
+   //Trace("\r\n pp=%s",strnum);
+   return &strnum[0];
 }
 /****************************************************************End Of File*******************************************************************************/
