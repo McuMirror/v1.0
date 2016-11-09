@@ -224,7 +224,7 @@ unsigned char API_MDB_ExpanPayout_CoinDevice(unsigned char value)
 ** @DRIVER Function name:   API_MDB_ExpanPayoutStatus_CoinDevice
 ** @DRIVER Input para:     	None
 ** @DRIVER Output para:     *Type0Payout:num of Type0 dispensed*Type1Payout:num of Type1 dispensed
-** @DRIVER retrun para:     0x01:Buzy;0x00:Payout Finished;other:err
+** @DRIVER retrun para:     0x01:Payout Finished;0x00:Buzy;other:err
 *********************************************************************************************************/
 unsigned char API_MDB_ExpanPayoutStatus_CoinDevice(unsigned char *ack,unsigned char *acklen)
 {
@@ -233,6 +233,7 @@ unsigned char API_MDB_ExpanPayoutStatus_CoinDevice(unsigned char *ack,unsigned c
 	cmd[0] = EXPANSION_COINACCEPTORCHANGER;
 	cmd[1] = 0x03;
 	err = MDBConversation(cmd,2,ack,acklen);
+	Trace("\r\nDrvChange s = %d,%d,%d,%d\r\n",err,ack[0],ack[1],*acklen);
 	if(err)
 	{
 		if(acklen > 0)
@@ -244,7 +245,7 @@ unsigned char API_MDB_ExpanPayoutStatus_CoinDevice(unsigned char *ack,unsigned c
 			#ifdef DEBUG_MDB
 			Trace("@API MDB Coin ExpanPayoutStatus Ok:Finished\r\n");
 			#endif
-			finished = 0x01;
+			finished = 0;
 		}
 	}
 	else
@@ -268,9 +269,10 @@ unsigned char API_MDB_ExpanPayoutValuePoll_CoinDevice(unsigned char *value)
 	cmd[0] = EXPANSION_COINACCEPTORCHANGER;
 	cmd[1] = 0x04;
 	err = MDBConversation(cmd,2,ack,&acklen);
+	Trace("\r\nDrvChangesend = %d,%d,%d,%d\r\n",err,ack[0],ack[1],acklen);
 	if(err)
 	{
-		if(acklen > 0)
+		if(acklen == 0)
 		{
 			finished = 0x00;
 			value[0] = ack[0];

@@ -17,6 +17,7 @@
 #include "ParamDefine.h"
 #include "Menu.h"
 #include "MdbBillDeviceOperation.h"
+#include "MdbCoinDeviceOperation.h"
 static void Login(void);
 static void EnterMaintenance(void);
 static void MaintenDevInfo(void);
@@ -25,6 +26,7 @@ static void MaintenDevTest(void);
 static void MaintenTradeConfig(void);
 static void MaintenTradeLog(void);
 static void TestBillValidator(void);
+static void TestCoinValidator(void);
 /************************************************************************************************************************************************************************************
 ** @APP Function name:   Maintenance
 ** @APP Input para:      None
@@ -708,10 +710,16 @@ static void MaintenDevTest(void)
 						API_LCM_Printf(0,14,0,0,DevTest.Exit[VMCParam.Language]);
 						break;
 					case 'B':
-						while(1)//Ó²±ÒÆ÷²âÊÔ
-						{
-							vTaskDelay(20);
-						}
+						//Ó²±ÒÆ÷²âÊÔ
+						TestCoinValidator();
+						API_LCM_ClearScreen();
+						API_LCM_Printf(0,0,0,0,DevTest.Theme[VMCParam.Language]);
+						API_LCM_DrawLine(0,2);
+						API_LCM_Printf(16,3,0,0,DevTest.TBill[VMCParam.Language]);
+						API_LCM_Printf(16,5,0,0,DevTest.TCoin[VMCParam.Language]);
+						API_LCM_Printf(16,7,0,0,DevTest.TCashless[VMCParam.Language]);
+						API_LCM_Printf(16,9,0,0,DevTest.TGdsChnl[VMCParam.Language]);
+						API_LCM_Printf(0,14,0,0,DevTest.Exit[VMCParam.Language]);
 						break;
 					case 'C':
 						while(1)//¶Á¿¨Æ÷²âÊÔ
@@ -787,11 +795,97 @@ static void TestBillValidator(void)
 		if(key == '>')//È¡Ïû°´¼ü
 		{
 			break;						
-		}
+		}		
 	}
 	billOpt=MBOX_BILLDISABLEDEV;
 	BillDevProcess(&InValue,&Billtype,billOpt,&billOptBack);
 	billOpt=0;
+}
+
+static void TestCoinValidator(void)
+{
+	unsigned char key;
+	uint8_t  billOpt = 0,billOptBack = 0;
+	uint32_t InValue = 0;
+	uint32_t OutValue = 0;
+	uint8_t Billtype = 0;
+	uint32_t SumValue = 0;
+	char    *pstr;
+	char	strMoney[10];
+	
+	API_LCM_Printf(0,0,0,0,CoinTest.Theme[VMCParam.Language]);
+	API_LCM_ClearArea(0,3,239,15);
+	API_LCM_Printf(0,14,0,0,CoinTest.Exit[VMCParam.Language]);
+	API_LCM_Printf((120 - (strlen(CoinTest.Coin[VMCParam.Language]) /2 ) * 8),3,0,0,CoinTest.Coin[VMCParam.Language]);
+	MdbCoinTypeEanbleOrDisable(1,1);
+	while(1)
+	{
+		vTaskDelay(20);
+		CoinDevProcess(&InValue,&Billtype,&billOptBack);
+		if(InValue>0)
+		{
+			Trace("\r\n APP>>Coinvalue=%d\r\n",InValue);
+			SumValue += InValue;
+			pstr = PrintfMoney(SumValue);
+			strcpy(strMoney, pstr);
+			API_LCM_Printf(0,6,0,0,CoinTest.CoinMsg6[VMCParam.Language],strMoney);
+			InValue=0;
+			billOptBack=0;
+		}
+		key = API_KEY_ReadKey();
+		
+		if(key == '>')//È¡Ïû°´¼ü
+		{
+			break;						
+		}
+		else
+		{
+			switch(key)
+			{
+				case '1':
+					ChangePayoutProcessLevel3(MdbGetCoinValue(MDBCoinDevice.CoinTypeCredit[0]),&OutValue);					
+					Trace("\r\n APP>>Coinpay=%d\r\n",OutValue);					
+					break;
+				case '2':
+					ChangePayoutProcessLevel3(MdbGetCoinValue(MDBCoinDevice.CoinTypeCredit[0])*2,&OutValue);	
+					Trace("\r\n APP>>Coinpay=%d\r\n",OutValue);	
+					break;
+				case '3':
+					ChangePayoutProcessLevel3(MdbGetCoinValue(MDBCoinDevice.CoinTypeCredit[0])*3,&OutValue);	
+					Trace("\r\n APP>>Coinpay=%d\r\n",OutValue);	
+					break;
+				case '4':
+					ChangePayoutProcessLevel3(MdbGetCoinValue(MDBCoinDevice.CoinTypeCredit[0])*4,&OutValue);	
+					Trace("\r\n APP>>Coinpay=%d\r\n",OutValue);	
+					break;
+				case '5':
+					ChangePayoutProcessLevel3(MdbGetCoinValue(MDBCoinDevice.CoinTypeCredit[0])*5,&OutValue);	
+					Trace("\r\n APP>>Coinpay=%d\r\n",OutValue);	
+					break;
+				case '6':
+					ChangePayoutProcessLevel3(MdbGetCoinValue(MDBCoinDevice.CoinTypeCredit[0])*6,&OutValue);	
+					Trace("\r\n APP>>Coinpay=%d\r\n",OutValue);	
+					break;
+				case '7':
+					ChangePayoutProcessLevel3(MdbGetCoinValue(MDBCoinDevice.CoinTypeCredit[0])*7,&OutValue);	
+					Trace("\r\n APP>>Coinpay=%d\r\n",OutValue);	
+					break;
+				case '8':
+					ChangePayoutProcessLevel3(MdbGetCoinValue(MDBCoinDevice.CoinTypeCredit[0])*8,&OutValue);	
+					Trace("\r\n APP>>Coinpay=%d\r\n",OutValue);	
+					break;	
+					
+			}
+			if(OutValue>0)
+			{
+				pstr = PrintfMoney(OutValue);
+				strcpy(strMoney, pstr);
+				API_LCM_Printf(0,6,0,0,CoinTest.CoinMsg7[VMCParam.Language],strMoney);
+				OutValue=0;
+			}
+		}
+	}
+	MdbCoinTypeEanbleOrDisable(0,1);
 }
 
 

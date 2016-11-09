@@ -29,3 +29,4 @@
 .\objects\maintenance.o: APP\ParamDefine.h
 .\objects\maintenance.o: APP\Menu.h
 .\objects\maintenance.o: APP\MdbBillDeviceOperation.h
+.\objects\maintenance.o: APP\MdbCoinDeviceOperation.h

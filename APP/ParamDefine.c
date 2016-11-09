@@ -20,6 +20,7 @@ volatile MDBCOINACCEPTORCHANGER MDBCoinDevice;
 volatile MDBBILLVALIDATORRECYCLER MDBBillDevice;
 volatile unsigned char Rtc[7];//年月日时分秒,其中年两字节
 MDBBILLERROR MdbBillErr;
+MDBCOINERROR MdbCoinErr;
 /***********************************************************************************************************************************************************
 ** @API Function name:   InitVmcParam
 ** @API Input para:      None

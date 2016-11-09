@@ -126,6 +126,7 @@ typedef struct
 	char *CoinMsg4[MAXLAGUAGENUBER];
 	char *CoinMsg5[MAXLAGUAGENUBER];
 	char *CoinMsg6[MAXLAGUAGENUBER];
+	char *CoinMsg7[MAXLAGUAGENUBER];
 	char *Exit[MAXLAGUAGENUBER];
 } COINDEVTEST;
 extern const COINDEVTEST CoinTest;

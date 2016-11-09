@@ -19,6 +19,13 @@
 #include "MdbCashlessDeviceOperation.h"
 #include "MdbCoinDeviceOperation.h"
 #include "Menu.h"
+unsigned char key;
+uint8_t  billOpt = 0,billOptBack = 0;
+uint32_t InValue = 0;
+uint8_t Billtype = 0;
+uint32_t SumValue = 0;
+char    *pstr;
+char	strMoney[10];
 static void VendingService(void);
 static void VendingIdle(void);
 /*********************************************************************************************************
@@ -177,19 +184,44 @@ static void VendingService(void)
 	LPC_GPIO2->FIODIR |= 1ul <<12;
 	API_LCM_ClearScreen();
 
-	if(VMCParam.MdbBillDeviceEAB == 0x00)
+	vTaskDelay(100);
+	//³õÊ¼»¯Ó²±ÒÆ÷
+	//if(VMCParam.MdbCoinDeviceEAB == 0x00)
+	//{
+	//	API_LCM_Printf(0,0,0,0,"CoinDevice is disable by system.\r\n");
+	//}
+	//else
 	{
-		API_LCM_Printf(0,0,0,0,"BillDevice is disable by system.\r\n");
+		MdbCoinResetAndSetup();
+		if(MDBCoinDevice.Oneline)
+			API_LCM_Printf(0,0,0,0,"CoinDevice is Ok.\r\n");
+		else
+			API_LCM_Printf(0,0,0,0,"CoinDevice is err.\r\n");
+		MdbCoinTypeEanbleOrDisable(1,1);
+		vTaskDelay(20);
+		CoinDevProcess(&InValue,&Billtype,&billOptBack);
+		vTaskDelay(20);
+		//MdbCoinPayout(150,&InValue);
+		//Trace("Drvchange=%ld\r\n",InValue);
 	}
-	else
+	//if(VMCParam.MdbBillDeviceEAB == 0x00)
+	//{
+	//	API_LCM_Printf(0,0,0,0,"BillDevice is disable by system.\r\n");
+	//}
+	//else
 	{
 		MdbBillResetAndSetup();
 		if(MDBBillDevice.Oneline)
 			API_LCM_Printf(0,0,0,0,"BillDevice is Ok.\r\n");
 		else
 			API_LCM_Printf(0,0,0,0,"BillDevice is err.\r\n");
+		BillDevProcess(&InValue,&Billtype,MBOX_BILLENABLEDEV,&billOptBack);
+		vTaskDelay(20);
+		BillDevProcess(&InValue,&Billtype,0,&billOptBack);
+		vTaskDelay(20);
 	}
-	//Trace("***Hello world ....hellobillcoin\r\n");
+	
+	
 	API_LCM_Printf(60,6,0,0,UIMenu.welcome[VMCParam.Language]);
 	while(1)
 	{

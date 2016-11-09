@@ -100,7 +100,7 @@ const BILLDEVTEST BillTest =
 	{"钞箱满,请取走纸币","Stacker is full,Pls remove bill"},		//msg3
 	{"纸币器故障,请检查硬件","validator ERR,pls check hardware"},	//msg4
 	{"该面额禁收","Bill Type is Disable"},							//msg5
-	{"正常：通道面额--%s","OK:Type currency--%s"},				//msg6
+	{"纸币：收币--%s","OK:Type currency--%s"},				//msg6
 	{"按<取消>退出测试","Press 'cancel' to exit test"}
 };
 /*********************************************************************************************************
@@ -116,7 +116,8 @@ const COINDEVTEST CoinTest =
 	{"钞箱满,请取走纸币","Stacker is full,Pls remove bill"},		//msg3
 	{"纸币器故障,请检查硬件","validator ERR,pls check hardware"},	//msg4
 	{"该面额禁收","Bill Type is Disable"},							//msg5
-	{"正常：通道--%d,面额--","OK:Type--%d;currency--"},				//msg6
+	{"硬币：收币--%s","OK:Type currency--%s"},				//msg6
+	{"硬币：找零--%s","OK:Payout currency--%s"},				//msg7
 	{"按<取消>退出测试","Press 'cancel' to exit test"}
 };
 /*********************************************************************************************************

@@ -12,6 +12,7 @@
 #include "..\API\OS.H"
 #include "ParamDefine.h"
 #include "MdbCoinDeviceOperation.h"
+uint32_t  CoinScale;		 //比例因子
 /*********************************************************************************************************
 ** @APP Function name:   MdbCoinResetAndSetup
 ** @APP Input para:      None
@@ -19,7 +20,10 @@
 *********************************************************************************************************/
 void MdbCoinResetAndSetup(void)
 {
-	unsigned char err,i,MDBAck[36],MDBAckLen;
+	unsigned char err,i,MDBAck[36],MDBAckLen;	
+	uint16_t CoinDecimal;		 //10^小数位数
+	uint16_t CoinRouting;		 //Bit is set to indicate a coin type can be routed to the tube
+	
 	//Param
 	memset((void *)MDBCoinDevice.ManufacturerCode,0x00,3);
 	memset((void *)MDBCoinDevice.CurrencyCode,0x00,2);
@@ -110,10 +114,21 @@ void MdbCoinResetAndSetup(void)
 		MDBCoinDevice.CurrencyCode[1] = MDBAck[2];
 		MDBCoinDevice.ScalingFactor = MDBAck[3];
 		MDBCoinDevice.Decimal = MDBAck[4];
+		CoinDecimal = 100;
+	      for(i = 0; i < MDBAck[4]; i++) 
+	      {
+		   CoinDecimal /= 10;
+	      }
+		CoinScale = MDBAck[3] * CoinDecimal;
+		CoinRouting	= (((uint16_t)MDBAck[5]) << 8) | MDBAck[6];
 		MDBCoinDevice.CoinTypeRouting[0] = MDBAck[5];
 		MDBCoinDevice.CoinTypeRouting[1] = MDBAck[6];
 		for(i=0;i<(MDBAckLen - 7);i++)
 		{
+			if(MDBAck[7+i] == 0xFF)
+			{
+			     break;
+			} 
 			MDBCoinDevice.CoinTypeCredit[i] = MDBAck[7+i];
 		}
 		#ifdef APP_DBG_MDB_COIN
@@ -127,6 +142,8 @@ void MdbCoinResetAndSetup(void)
 		{
 			Trace("    CoinType%dCredit = %02d\r\n",i,MDBCoinDevice.CoinTypeCredit[i]);
 		}
+		Trace("\r\nDrvCOINDec=%d,%d",MDBAck[3],MDBAck[4]);
+		Trace("\r\nDrvCOINDec2=%ld,%ld,%ld", MDBAck[3],CoinDecimal,CoinScale);		
 		#endif
 	}
 	else
@@ -216,6 +233,146 @@ void MdbCoinResetAndSetup(void)
 	#endif
 	return;
 }
+
+/*********************************************************************************************************
+** Function name:       CoinDevProcess
+** Descriptions:        硬币器收币操作
+** input parameters:    无
+** output parameters:   RecvMoney——收入的硬币金额以分为单位
+						CoinType——收入的硬币通道
+** Returned value:      有硬币收入返回1，无返回0
+*********************************************************************************************************/
+uint8_t CoinDevProcess(uint32_t *RecvMoney,unsigned char *CoinType,unsigned char *coinOptBack)
+{
+	unsigned char CoinRdBuff[36],CoinRdLen,ComStatus;
+	uint8_t type=0;
+	uint8_t  i;
+	static uint8_t payoutFlag = 0;
+
+	//Trace("6\r\n");	
+	
+	//轮询硬币器是否有收到硬币，有返回1
+	ComStatus = API_MDB_Poll_CoinDevice(&CoinRdBuff[0],&CoinRdLen);
+	if(ComStatus == 1)
+	{
+		MdbCoinErr.Communicate = 0;
+		//Trace("\r\nDrvCoin= %02d-",CoinRdLen);
+		//for(i=0;i<CoinRdLen;i++)
+		//{
+		//	Trace(" %02x ",CoinRdBuff[i]);
+		//}
+		//Trace("\r\n");
+		if(CoinRdLen==0)
+		{
+			memset(&MdbCoinErr,0,sizeof(MdbCoinErr));	
+		}
+		for(i = 0; i < CoinRdLen; i++) 
+		{    
+			//report changer activity
+			//coins dispensed manually手动退币
+			if(CoinRdBuff[i] & 0x80) 
+			{        	      
+				i++; //忽略第2字节
+			} 
+			else if((CoinRdBuff[i] & 0xC0) == 0x40) 
+			{	 
+				//coins deposited有硬币投入
+				if(((CoinRdBuff[i] & 0x30) == 0x10) || ((CoinRdBuff[i] & 0x30) == 0)) //in tubes
+				{	 
+					//in cashbox
+				    //CoinAcceptor_UpDateDeposit(COINACCEPTOR_STACKED,CoinRdBuff[i] & 0x0F);
+					type = CoinRdBuff[i] & 0x0F;
+					*RecvMoney = (uint32_t)MDBCoinDevice.CoinTypeCredit[type] * CoinScale;
+					*CoinType = type;
+					Trace("Drvcoin=%ld,%d\r\n",*RecvMoney,*CoinType);
+					return 1;
+				}
+				i++; //忽略第2字节
+			} 
+			else if((CoinRdBuff[i] & 0xE0) == 0x20) 
+			{	 //slug
+			}
+			else 
+			{	
+				//status
+				switch(CoinRdBuff[i]) 
+				{						
+				   case 0x01:			                 //escrow request	
+				   	   payoutFlag ++;
+					   if(payoutFlag >= 1)
+					   {
+					   		*coinOptBack = 1;
+							payoutFlag = 0;
+					   }
+					   break;
+
+				   case 0x02:			                 //changer pay out busy
+					   break;
+
+				   case 0x03:			                 //no credit
+					   //不能进入对应通道
+					   break;
+
+				   case 0x04:			                 //defective tube sensor				   	   	
+					   //传感器故障
+					   MdbCoinErr.sensor = 1;
+					   break;
+
+				   case 0x05:			                 //double arriver
+				   	   break;
+
+				   case 0x06:			                 //acceptor unplugged						   
+					   break;
+
+				   case 0x07:			                 //tube jam
+					   //出币卡币
+					   MdbCoinErr.tubejam = 1;
+					   break;
+
+				   case 0x08:			                 //rom chksum err
+					   //ROM出错
+					   MdbCoinErr.romchk = 1;
+					   break;
+
+				   case 0x09:			                 //coin routing err
+					   //进币通道出错
+					   MdbCoinErr.routing = 1;
+					   break;
+
+				   case 0x0A:			                 //changer busy
+				   	   break;
+
+				   case 0x0B:			                 //changer was reset
+					   //刚复位
+					   break;
+
+				   case 0x0C:			                 //coin jam
+					   //投币卡币
+					    MdbCoinErr.jam = 1;
+					   break;
+
+				   case 0x0D:		              	     //possible credited coin removal
+					   //试图移除硬币
+					   MdbCoinErr.removeTube = 1;
+					   break;
+
+				   default:	
+				   	   memset(&MdbCoinErr,0,sizeof(MdbCoinErr));	
+					   break;
+				}
+		    }
+	    }
+		
+	}
+	else
+	{
+		Trace("\r\n Drvcoin commuFail");
+		MdbCoinErr.Communicate = 1;
+	}		
+	return 0;
+}
+
+
 /*********************************************************************************************************
 ** @APP Function name:   MdbCoinGetTubeStatus
 ** @APP Input para:      None
@@ -242,15 +399,17 @@ void MdbCoinGetTubeStatus(void)
 		for(i=0x00;i<(len - 2);i++)
 		{
 			MDBCoinDevice.CoinTypeTubeStatus[i] = (((status & (0x01 << i)) >> i) & 0x01);
-			MDBCoinDevice.CoinTypePresentInTube[i] = Ack[2 + i];
+			MDBCoinDevice.CoinTypePresentInTube[i] = Ack[2 + i];//每个面值的数量
 		}
 		#ifdef APP_DBG_MDB_COIN
 		Trace("MdbCoinGetTubeStatus() Ok(%d):\r\n",len);
+		Trace("%dDrvChangebufStatus=");
 		for(err=0;err<16;err++)
 		{
 			Trace(" %d",MDBCoinDevice.CoinTypeTubeStatus[err]);
 		}
 		Trace("\r\n");
+		Trace("%dDrvChangebufNum=");
 		for(err=0;err<16;err++)
 		{
 			Trace(" %d",MDBCoinDevice.CoinTypePresentInTube[err]);
@@ -289,12 +448,23 @@ void MdbCoinTypeEanbleOrDisable(unsigned char AcceptCtrl,unsigned char DispenCtr
 		vTaskDelay(10);
 	}
 }
+
+/*********************************************************************************************************
+** @APP Function name:   MdbGetCoinValue
+** @APP Input para:      CoinTypeCredit通道值
+** @APP retrun para:     以分为单位
+*********************************************************************************************************/
+uint32_t MdbGetCoinValue(unsigned char CoinTypeCredit)
+{
+	return (uint32_t)CoinTypeCredit*CoinScale;
+}
+	
 /*********************************************************************************************************
 ** @APP Function name:   MdbCoinPayout
-** @APP Input para:      None
-** @APP retrun para:     None
+** @APP Input para:      PayoutValue以分为单位
+** @APP retrun para:     AcuPayout以分为单位
 *********************************************************************************************************/
-unsigned char MdbCoinPayout(unsigned int PayoutValue,unsigned int *AcuPayout)
+unsigned char MdbCoinPayout(uint32_t PayoutValue,uint32_t *AcuPayout)
 {
 	unsigned char err,i,status,TypePayout[16],len,errNumber;
 	unsigned int PayNumber,Paying,Payed;
@@ -302,31 +472,40 @@ unsigned char MdbCoinPayout(unsigned int PayoutValue,unsigned int *AcuPayout)
 	errNumber = 0x00;
 	Paying = 0x00;
 	Payed = 0x00;
-	PayNumber = PayNumber / MDBCoinDevice.ScalingFactor;
+	MdbCoinGetTubeStatus();
+	vTaskDelay(OS_TICKS_PER_SEC / 10);
+	
+	PayNumber = PayoutValue /CoinScale;//发送找零基准数量	
+	Trace("\r\nDrvChangescale = %d,%d", CoinScale,PayNumber);
 	while(PayNumber > 0)
 	{
 		Paying = (PayNumber > 200)?200:PayNumber;
+		//1.发送找币指令
 		err = API_MDB_ExpanPayout_CoinDevice(Paying);
 		if(err)
 		{
 			errNumber = 0x00;
 			PayNumber -= Paying;
+			Trace("\r\nDrvChangedispense = %d,%d", PayNumber,Paying);
 			API_SYSTEM_TimerChannelSet(0,Paying * 20);
 			while(API_SYSTEM_TimerReadChannelValue(0))
 			{
+				//2发送扩展poll指令，检测找币是否完成
 				err = API_MDB_ExpanPayoutValuePoll_CoinDevice(&status);
-				if(err == 0x01)
+				if(err == 0)
 					break;
 				vTaskDelay(30);
 			}
-			if(err == 0x01)
+			if(err == 0)
 			{
+			      //3发送扩展指令，检测本次找币各通道找多少枚
 				err = API_MDB_ExpanPayoutStatus_CoinDevice(TypePayout,&len);
 				if(err)
 				{
+					Trace("\r\nDrvChangeOut=%d,%d,%d,%d",TypePayout[0],TypePayout[1],TypePayout[2],TypePayout[3]);
 					for(i=0x00;i<len;i++)
 					{
-						Payed += ((TypePayout[i] * MDBCoinDevice.CoinTypeCredit[i]));
+						Payed += ((uint32_t)TypePayout[i] * MDBCoinDevice.CoinTypeCredit[i] * CoinScale);
 					}
 				}
 			}	
@@ -342,6 +521,85 @@ unsigned char MdbCoinPayout(unsigned int PayoutValue,unsigned int *AcuPayout)
 	}
 	*AcuPayout = Payed;
 	return err;
+}
+
+
+/*********************************************************************************************************
+** Function name:       ChangePayoutProcessLevel3
+** Descriptions:        level3找零操作
+** input parameters:    PayMoney——需要找出的硬币金额
+** output parameters:   
+                        PayoutNum--各通道实际出币数量						
+** Returned value:      有硬币找出返回1，无返回0
+*********************************************************************************************************/
+unsigned char ChangePayoutProcessLevel3(uint32_t PayMoney,uint32_t *PayoutMoney)
+{
+	unsigned char CoinRdBuff[36],CoinRdLen,ComStatus,VMCValue[2]={0},VMCPoll[1]={0};
+	uint32_t coinscale,dispenseValue,Payed=0;
+	uint8_t  i;
+	uint8_t tempdispenseValue;
+	
+	memset(CoinRdBuff,0,sizeof(CoinRdBuff));
+	//NowChangerDev = SystemPara.CoinChangerType;
+	//Trace("6\r\n");	
+	
+	MdbCoinGetTubeStatus();
+	vTaskDelay(OS_TICKS_PER_SEC / 10);
+	*PayoutMoney=0;
+	//stDevValue.CoinLevel = 2;
+	/***************************************
+	** level3级别，直接发送找零金额即可
+	***************************************/
+	//if(stDevValue.CoinLevel >= 3)
+	{
+		dispenseValue = PayMoney / CoinScale;//发送找零基准数量			
+		Trace("\r\nDrvChangescale = %d,%d", CoinScale,dispenseValue);
+		while(dispenseValue>0)
+		{
+			tempdispenseValue=(dispenseValue>200)?200:dispenseValue;
+			dispenseValue-=tempdispenseValue;
+			Trace("\r\nDrvChangedispense = %d,%d", dispenseValue,tempdispenseValue);
+			VMCValue[0] = 0x02;
+			VMCValue[1] = tempdispenseValue;
+			//1发送找币指令
+			ComStatus = API_MDB_ExpanPayout_CoinDevice(tempdispenseValue);
+			if(ComStatus == 1)
+			{
+				API_SYSTEM_TimerChannelSet(0,tempdispenseValue/2 + 20*100);
+				while(API_SYSTEM_TimerReadChannelValue(0))
+				{					
+					//2发送扩展poll指令，检测找币是否完成
+					VMCPoll[0] = 0x04;
+					ComStatus = API_MDB_ExpanPayoutValuePoll_CoinDevice(&CoinRdBuff[0]);
+					//找零进行时，CoinRdLen=1 找零完成后，CoinRdLen = 0
+					if( ComStatus == 0 )
+					{
+						memset(CoinRdBuff,0,sizeof(CoinRdBuff));
+						//CoinRdLen = 0;
+						//3发送扩展指令，检测本次找币各通道找多少枚
+						VMCPoll[0] = 0x03;
+						ComStatus =API_MDB_ExpanPayoutStatus_CoinDevice(&CoinRdBuff[0],&CoinRdLen);
+						if( ComStatus > 0 )
+						{
+							Trace("\r\n%dDrvChangeOut=%d,%d,%d,%d",CoinRdLen,CoinRdBuff[0],CoinRdBuff[1],CoinRdBuff[2],CoinRdBuff[3]);
+							for(i = 0;i < CoinRdLen;i++)
+							{
+								Payed += ((uint32_t)CoinRdBuff[i] * MDBCoinDevice.CoinTypeCredit[i] * CoinScale);
+							}
+							break;
+						}
+					}
+					vTaskDelay(OS_TICKS_PER_SEC / 100);
+				}
+			}	
+			else
+			{
+				Trace("\r\nDrvChangesendFail");
+			}
+		}
+	}		
+	*PayoutMoney=Payed;
+	return 0;
 }
 /********************************************************************************************************
 ** @TESTED COIN DEVICE:

@@ -12,7 +12,7 @@
 #include "..\API\OS.H"
 #include "ParamDefine.h"
 #include "MdbBillDeviceOperation.h"
-
+uint32_t BillScale;			  //±ÈÀýÒò×Ó
 /*********************************************************************************************************
 ** @APP Function name:   InitBillDeviceAndGetInfo
 ** @APP Input para:      None
@@ -22,6 +22,9 @@
 void MdbBillResetAndSetup(void)
 {
 	unsigned char i,err,MDBAck[36],MDBAckLen;
+	uint16_t BillDecimal;		  //10^Ð¡ÊýÎ»Êý
+	
+	
 	err = 0x00;
 	//Paramter
 	memset((void *)MDBBillDevice.ManufacturerCode,0x00,3);
@@ -117,12 +120,22 @@ void MdbBillResetAndSetup(void)
 		MDBBillDevice.CurrencyCode[1] = MDBAck[2];
 		MDBBillDevice.ScalingFactor = (((unsigned int)MDBAck[3]) << 8) + MDBAck[4];
 		MDBBillDevice.Decimal = MDBAck[5];
+		BillDecimal = 100;
+	      for(i = 0; i < MDBAck[5]; i++) 
+	      {
+		   BillDecimal /= 10;
+	      }
+		BillScale = (uint32_t)((((uint16_t)MDBAck[3]) << 8) | MDBAck[4]) * BillDecimal;
 		MDBBillDevice.StackerCapacity = (((unsigned int)MDBAck[6]) << 8) + MDBAck[7];
 		MDBBillDevice.BillSecurityLevel[0] = MDBAck[8];
 		MDBBillDevice.BillSecurityLevel[1] = MDBAck[9];
 		MDBBillDevice.Escrow = MDBAck[10];
 		for(i=0;i<(MDBAckLen - 11);i++)
 		{
+			if(MDBAck[11+i] == 0xFF) 
+			{
+			     break;
+			}			
 			MDBBillDevice.BillTypeCredit[i] = MDBAck[11 + i];
 		}
 		#ifdef APP_DBG_MDB_BILL
@@ -140,6 +153,8 @@ void MdbBillResetAndSetup(void)
 			Trace("%02X ",MDBBillDevice.BillTypeCredit[i]);
 		}
 		Trace("\r\n");
+		Trace("\r\nDrvBILLDec=%d,%d,%d",MDBAck[3],MDBAck[4],MDBAck[5]);
+		Trace("\r\nDrvBILLDec2=%ld,%ld,%ld", ((((uint16_t)MDBAck[3]) << 8) | MDBAck[4]),BillDecimal,BillScale);		
 		#endif
 	}
 	else
@@ -322,7 +337,7 @@ void MdbBillResetAndSetup(void)
 ** Function name:       BillDevProcess
 ** Descriptions:        Ö½±ÒÆ÷ÊÕ±ÒÑ¹³®²Ù×÷
 ** input parameters:    ÎÞ
-** output parameters:   RecvMoney¡ª¡ªÊÕÈëµÄÖ½±Ò½ð¶î
+** output parameters:   RecvMoney¡ª¡ªÊÕÈëµÄÖ½±Ò½ð¶îÒÔ·ÖÎªµ¥Î
 						BillType¡ª¡ªÊÕÈëµÄÖ½±ÒÍ¨µÀ
 						billOpt--Ö½±ÒÆ÷¿ØÖÆ²ÎÊý
 						billOptBack--Ö½±ÒÆ÷¿ØÖÆ·µ»Ø½á¹û
@@ -371,16 +386,16 @@ uint8_t BillDevProcess(uint32_t *RecvMoney,unsigned char *BillType,unsigned char
 	{
 		MdbBillErr.Communicate = 0;
 		billrec=0;
-		Trace("\r\nDrvBill= %02d-",BillRdLen);
-		for(i=0;i<BillRdLen;i++)
-		{
-			Trace(" %02x ",BillRdBuff[i]);
-		}
-		Trace("\r\n");
+		//Trace("\r\nDrvBill= %02d-",BillRdLen);
+		//for(i=0;i<BillRdLen;i++)
+		//{
+		//	Trace(" %02x ",BillRdBuff[i]);
+		//}
+		//Trace("\r\n");
 		vTaskDelay(OS_TICKS_PER_SEC / 100);
 		if(BillRdLen==0)
 		{
-			Trace("\r\n Drvbill default");	
+			//Trace("\r\n Drvbill default");	
 			vTaskDelay(OS_TICKS_PER_SEC / 100);
 			memset(&MdbBillErr,0,sizeof(MdbBillErr));
 		}
@@ -390,7 +405,7 @@ uint8_t BillDevProcess(uint32_t *RecvMoney,unsigned char *BillType,unsigned char
 			{
 				type = BillRdBuff[i]&0x0f;				
 				{
-					*RecvMoney = MDBBillDevice.BillTypeCredit[type]*100;
+					*RecvMoney = (uint32_t)MDBBillDevice.BillTypeCredit[type] * BillScale;
 					*BillType = type;
 					Trace("Drvbill=%ld,%d\r\n",*RecvMoney,*BillType);
 					vTaskDelay(OS_TICKS_PER_SEC / 100);
@@ -480,7 +495,7 @@ uint8_t BillDevProcess(uint32_t *RecvMoney,unsigned char *BillType,unsigned char
 		Trace("\r\n Drvbill commuFail=%d,billrec=%d",ComStatus,billrec);
 		if(billrec>=30)
 		{
-			Trace("\r\n Drvbill commReject");
+			//Trace("\r\n Drvbill commReject");
 			//BillDevReject();
 			billrec=0;
 		}
