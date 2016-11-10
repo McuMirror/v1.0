@@ -284,7 +284,7 @@ uint8_t CoinDevProcess(uint32_t *RecvMoney,unsigned char *CoinType,unsigned char
 					type = CoinRdBuff[i] & 0x0F;
 					*RecvMoney = (uint32_t)MDBCoinDevice.CoinTypeCredit[type] * CoinScale;
 					*CoinType = type;
-					Trace("Drvcoin=%ld,%d\r\n",*RecvMoney,*CoinType);
+					Trace("Drvcoin=%d,%ld,%d\r\n",MDBCoinDevice.CoinTypeCredit[type],*RecvMoney,*CoinType);
 					return 1;
 				}
 				i++; //忽略第2字节
@@ -473,7 +473,7 @@ unsigned char MdbCoinPayout(uint32_t PayoutValue,uint32_t *AcuPayout)
 	Paying = 0x00;
 	Payed = 0x00;
 	MdbCoinGetTubeStatus();
-	vTaskDelay(OS_TICKS_PER_SEC / 10);
+	vTaskDelay(10);
 	
 	PayNumber = PayoutValue /CoinScale;//发送找零基准数量	
 	Trace("\r\nDrvChangescale = %d,%d", CoinScale,PayNumber);
@@ -544,7 +544,7 @@ unsigned char ChangePayoutProcessLevel3(uint32_t PayMoney,uint32_t *PayoutMoney)
 	//Trace("6\r\n");	
 	
 	MdbCoinGetTubeStatus();
-	vTaskDelay(OS_TICKS_PER_SEC / 10);
+	vTaskDelay(10);
 	*PayoutMoney=0;
 	//stDevValue.CoinLevel = 2;
 	/***************************************
@@ -589,7 +589,7 @@ unsigned char ChangePayoutProcessLevel3(uint32_t PayMoney,uint32_t *PayoutMoney)
 							break;
 						}
 					}
-					vTaskDelay(OS_TICKS_PER_SEC / 100);
+					vTaskDelay(10);
 				}
 			}	
 			else
@@ -599,7 +599,7 @@ unsigned char ChangePayoutProcessLevel3(uint32_t PayMoney,uint32_t *PayoutMoney)
 		}
 	}		
 	*PayoutMoney=Payed;
-	return 0;
+	return 1;
 }
 /********************************************************************************************************
 ** @TESTED COIN DEVICE:

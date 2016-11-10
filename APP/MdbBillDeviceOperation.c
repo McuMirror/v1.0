@@ -377,7 +377,7 @@ uint8_t BillDevProcess(uint32_t *RecvMoney,unsigned char *BillType,unsigned char
 			break;
 		default:break;	
 	}
-	vTaskDelay(OS_TICKS_PER_SEC / 100);
+	vTaskDelay(10);
 	//Trace("6\r\n");
 	
 	//轮询纸币器是否有收到纸币，有返回1
@@ -392,11 +392,11 @@ uint8_t BillDevProcess(uint32_t *RecvMoney,unsigned char *BillType,unsigned char
 		//	Trace(" %02x ",BillRdBuff[i]);
 		//}
 		//Trace("\r\n");
-		vTaskDelay(OS_TICKS_PER_SEC / 100);
+		vTaskDelay(10);
 		if(BillRdLen==0)
 		{
 			//Trace("\r\n Drvbill default");	
-			vTaskDelay(OS_TICKS_PER_SEC / 100);
+			vTaskDelay(10);
 			memset(&MdbBillErr,0,sizeof(MdbBillErr));
 		}
 		for(i = 0; i < BillRdLen; i++) 
@@ -407,8 +407,8 @@ uint8_t BillDevProcess(uint32_t *RecvMoney,unsigned char *BillType,unsigned char
 				{
 					*RecvMoney = (uint32_t)MDBBillDevice.BillTypeCredit[type] * BillScale;
 					*BillType = type;
-					Trace("Drvbill=%ld,%d\r\n",*RecvMoney,*BillType);
-					vTaskDelay(OS_TICKS_PER_SEC / 100);
+					Trace("Drvbill=%d,%ld,%d\r\n",MDBBillDevice.BillTypeCredit[type],*RecvMoney,*BillType);
+					vTaskDelay(10);
 					return 1;
 				}
 			}

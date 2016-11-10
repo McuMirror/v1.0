@@ -19,6 +19,16 @@ typedef struct
 {
 	char *welcome[MAXLAGUAGENUBER];
 	char *UserTip[MAXLAGUAGENUBER];
+	char *amount[MAXLAGUAGENUBER];
+	char *column[MAXLAGUAGENUBER];
+	char *price[MAXLAGUAGENUBER];
+	char *dispense[MAXLAGUAGENUBER];
+	char *takecolumn[MAXLAGUAGENUBER];
+	char *soldout[MAXLAGUAGENUBER];
+	char *payout[MAXLAGUAGENUBER];
+	char *takemoney[MAXLAGUAGENUBER];
+	char *IOU[MAXLAGUAGENUBER];
+	char *end[MAXLAGUAGENUBER];
 } UIMEMU;
 extern const UIMEMU UIMenu;
 

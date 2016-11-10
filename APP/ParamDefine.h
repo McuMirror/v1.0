@@ -31,7 +31,6 @@
 #define VMC_TLOG_PAGE_S		512		//TotalTradeLog start page
 #define VMC_SLOG_PAGE_S		1024	//TotalTradeLog start page
 #define VMC_SLOG_PAGE_E		4096	//TotalTradeLog End page
-#define OS_TICKS_PER_SEC                        1000
 /********************************************************************************************************
 ** @Define name:       VMCParam Parameter Define
 ********************************************************************************************************/

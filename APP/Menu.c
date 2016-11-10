@@ -16,7 +16,17 @@
 const UIMEMU UIMenu =
 {
 	{"欢迎光临","welcome"},
-	{"购买请选货或投币","Pls select or insert cash"}
+	{"购买请投币","Pls insert cash"},
+	{"收币:%s","amount:%s"},				//msg6
+	{"货道:%s","column NO:%s"},
+	{"%s货道价格:%s","%scolumn NO:%s"},
+	{"正在出货","Dispensing"},
+	{"请取货","Taking the goods"},
+	{"出货失败","Sold out"},
+	{"找币:%s","amount:%s"},
+	{"请取硬币","take money:"},
+	{"本机无零币  ","IOU:"},
+	{"谢谢","thank you"}
 };
 
 
