@@ -750,8 +750,8 @@ static void MaintenDevTest(void)
 static void TestBillValidator(void)
 {
 	unsigned char key;
-	uint8_t  billOpt = 0,billOptBack = 0;
-	uint32_t InValue = 0;
+	uint8_t  billOptBack = 0;
+	uint32_t InValue = 0,billEscrow=0;
 	uint8_t Billtype = 0;
 	uint32_t SumValue = 0;
 	char    *pstr;
@@ -761,22 +761,18 @@ static void TestBillValidator(void)
 	API_LCM_ClearArea(0,3,239,15);
 	API_LCM_Printf(0,14,0,0,BillTest.Exit[VMCParam.Language]);
 	API_LCM_Printf((120 - (strlen(BillTest.Bill[VMCParam.Language]) /2 ) * 8),3,0,0,BillTest.Bill[VMCParam.Language]);
-	billOpt=MBOX_BILLENABLEDEV;
-	BillDevProcess(&InValue,&Billtype,billOpt,&billOptBack);
-	billOpt = 0;
+	BillDevProcess(&InValue,&Billtype,MBOX_BILLENABLEDEV,&billOptBack);
 	while(1)
 	{
 		vTaskDelay(20);
-		BillDevProcess(&InValue,&Billtype,billOpt,&billOptBack);
+		BillDevProcess(&InValue,&Billtype,0,&billOptBack);
 		if(InValue>0)
 		{
 			Trace("\r\n APP>>Billvalue=%d\r\n",InValue);
-			billOpt=MBOX_BILLESCROW;
-			BillDevProcess(&InValue,&Billtype,billOpt,&billOptBack);
-			billOpt = 0;
+			BillDevProcess(&billEscrow,&Billtype,MBOX_BILLESCROW,&billOptBack);
 			if(billOptBack==2)
 			{
-				Trace("\r\n TaskEscrowSuccess");			
+				Trace("\r\n TaskEscrowSuccess=%d",InValue);			
 				SumValue += InValue;
 				pstr = PrintfMoney(SumValue);
 				strcpy(strMoney, pstr);
@@ -797,9 +793,7 @@ static void TestBillValidator(void)
 			break;						
 		}		
 	}
-	billOpt=MBOX_BILLDISABLEDEV;
-	BillDevProcess(&InValue,&Billtype,billOpt,&billOptBack);
-	billOpt=0;
+	BillDevProcess(&InValue,&Billtype,MBOX_BILLDISABLEDEV,&billOptBack);
 }
 
 static void TestCoinValidator(void)
@@ -983,6 +977,8 @@ static void MaintenTradeConfig(void)
 										API_LCM_ClearArea(0,3,239,4);
 										API_LCM_Printf(15,3,0,0,TradeConfigGC.GdCoinfig[VMCParam.Language],layer,channel);
 										API_LCM_ClearArea(0,6,239,9);
+										Trace("%c%c column%d=%d,%d,%d\r\n",layer,channel,Array,VMCParam.GoodsChannelArray[Array],TradeParam.GoodsPrice[Array],
+												TradeParam.RemainGoods[Array]);
 										API_LCM_Printf(15,6,0,0,TradeConfigGC.Enale[VMCParam.Language],VMCParam.GoodsChannelArray[Array]);
 										API_LCM_Printf(15,8,0,0,TradeConfigGC.MaxCap[VMCParam.Language],VMCParam.GoodsMaxCapacity[Array]);
 										API_LCM_Printf(15,10,0,0,TradeConfigGC.Price[VMCParam.Language],TradeParam.GoodsPrice[Array]/10,TradeParam.GoodsPrice[Array]%10);

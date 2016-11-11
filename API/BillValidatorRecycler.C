@@ -11,6 +11,8 @@
 #include "..\DRIVERS\MDB.h"
 #include "..\DRIVERS\uart0.h"
 #include "API.H"
+#include "..\API\OS.H"
+#include "..\App\ParamDefine.h"
 #define	 BILLVALIDATIOR_BASE_MDBADDR	0x30
 #define	 RESET_BILLVALIDATIOR			(BILLVALIDATIOR_BASE_MDBADDR + 0x00)
 #define	 SETUP_BILLVALIDATIOR			(BILLVALIDATIOR_BASE_MDBADDR + 0x01)
@@ -152,6 +154,8 @@ extern unsigned char API_MDB_BillType_BillDevice(unsigned int Y1Y2,unsigned int 
 	#endif
 	return err;
 }
+
+
 /*********************************************************************************************************
 ** @DRIVER Function name:   API_MDB_Escrow_BillDevice
 ** @DRIVER Description:   	Return or Stack Bill
@@ -162,9 +166,48 @@ extern unsigned char API_MDB_BillType_BillDevice(unsigned int Y1Y2,unsigned int 
 extern unsigned char API_MDB_Escrow_BillDevice(unsigned char Y1)
 {
 	unsigned char err,cmd[5],ack[36],acklen;
+	uint8_t i=0;
 	cmd[0] = ESCROW_BILLVALIDATIOR;
 	cmd[1] = Y1;
 	err = MDBConversation(cmd,2,ack,&acklen);
+	Trace("\r\n DrvEscrowsend=%d",err);
+	API_SYSTEM_TimerChannelSet(0,13*100);
+	while(API_SYSTEM_TimerReadChannelValue(0))	
+	{
+		//轮询检测是否压仓成功
+		err = API_MDB_Poll_BillDevice(ack,&acklen);
+		Trace("\r\nDrvEscrowsend>>%#02x\r\n",0x33);
+		if(err == 1)
+		{
+			//Trace("\r\nDrvBill= %02d-",acklen);
+			//for(i=0;i<acklen;i++)
+			//{
+			//	Trace(" %02x ",ack[i]);
+			//}
+			//Trace("\r\n");
+			for(i = 0; i < acklen; i++) 
+			{
+				//0x80到钞箱,0xb0到循环斗
+				if( ((ack[i]&0xf0)==0x80)||((ack[i]&0xf0)==0xb0) )
+				{			
+					Trace("\r\n Drvescrow1");
+					vTaskDelay(10);
+					API_MDB_Stacker_BillDevice(ack,&acklen);
+					return 1;	
+				}
+				//没有压抄成功，中途退出
+				else if((ack[i]&0xf0)==0xa0)
+				{
+					Trace("\r\n DrvescrowReturn");
+					return 0;
+				}
+			}			
+			Trace("\r\n Drvescrow2");
+			vTaskDelay(10);
+		}
+		Trace("\r\n Drvescrow3");
+		vTaskDelay(10);
+	}
 	#ifdef DEBUG_MDB
 	if(err)
 	{
@@ -187,9 +230,28 @@ extern unsigned char API_MDB_Escrow_BillDevice(unsigned char Y1)
 *********************************************************************************************************/
 extern unsigned char API_MDB_Stacker_BillDevice(unsigned char *ack,unsigned char *acklen)
 {
-	unsigned char err,cmd;
+	unsigned char err,cmd,j;
 	cmd = STACKER_BILLVALIDATIOR;
 	err = MDBConversation(&cmd,1,ack,acklen);
+	if(err == 1)
+	{
+		 Trace("\r\n DrvEscrowrbuf=",acklen);
+		 for(j = 0; j < *acklen; j++) 
+		 {
+			 Trace("[%d]", ack[j]);
+         	  }
+		  Trace("\r\n");
+		 if((ack[0]&0x80)==0x80)
+		 {
+		 	MdbBillErr.cashErr = 1;
+			Trace("\r\n DrvEscrowrfull");
+		 }
+		 else
+		 {
+		 	MdbBillErr.cashErr = 0;
+			Trace("\r\n DrvEscrowrEmpty");
+		 }	
+	}
 	#ifdef DEBUG_MDB
 	if(err)
 	{

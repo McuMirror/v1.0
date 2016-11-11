@@ -1,23 +1,3 @@
----- Buzzer 匹配 (34 in 8 文件) ----
-Api.h (api):extern void API_BUZZER_Buzzer(void);
-Buzzer.c (drivers):void Buzzer(void)
-Buzzer.h (drivers):#ifndef __BUZZER_H
-Buzzer.h (drivers):#define __BUZZER_H
-Buzzer.h (drivers):void Buzzer(void);
-Config.h:#include ".\DRIVERS\BUZZER.H"
-Keyboard.C (api):#include "..\DRIVERS\Buzzer.h"
-Keyboard.C (api):extern void API_BUZZER_Buzzer(void)
-Keyboard.C (api):	Buzzer();
-LPC1768.htm (objects):<P><STRONG><a name="[9f]"></a>API_BUZZER_Buzzer</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, keyboard.o(i.API_BUZZER_Buzzer))
-LPC1768.htm (objects):<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = API_BUZZER_Buzzer &rArr; Buzzer
-LPC1768.htm (objects):<BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Buzzer
-LPC1768.htm (objects):<P><STRONG><a name="[a0]"></a>Buzzer</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, buzzer.o(i.Buzzer))
-LPC1768.htm (objects):<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Buzzer
-LPC1768.htm (objects):<BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_BUZZER_Buzzer
-LPC1768.htm (objects):<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Buzzer
-LPC1768.htm (objects):<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Buzzer
-LPC1768.htm (objects):<LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Buzzer
-LPC1768.htm (objects):<LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_BUZZER_Buzzer
-Timer.c (drivers):		Buzzer();
-Timer.c (drivers):			Buzzer();
-Vendservice.c (app):	API_BUZZER_Buzzer();
+---- API_LCM_Printf(10,13,0,0,UIMenu.column[VMCParam.Language],"--"); 匹配 (2 in 1 文件) ----
+Vendservice.c (app):		API_LCM_Printf(10,13,0,0,UIMenu.column[VMCParam.Language],"--");
+Vendservice.c (app):			API_LCM_Printf(10,13,0,0,UIMenu.column[VMCParam.Language],"--");

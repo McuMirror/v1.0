@@ -565,7 +565,7 @@ unsigned char ChangePayoutProcessLevel3(uint32_t PayMoney,uint32_t *PayoutMoney)
 			ComStatus = API_MDB_ExpanPayout_CoinDevice(tempdispenseValue);
 			if(ComStatus == 1)
 			{
-				API_SYSTEM_TimerChannelSet(0,tempdispenseValue/2 + 20*100);
+				API_SYSTEM_TimerChannelSet(0,(tempdispenseValue/2 + 20)*100);
 				while(API_SYSTEM_TimerReadChannelValue(0))
 				{					
 					//2发送扩展poll指令，检测找币是否完成

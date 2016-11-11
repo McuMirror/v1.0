@@ -313,6 +313,19 @@ void ClearDealPar()
 }
 
 /*********************************************************************************************************
+** Function name:     	DispBusinessText
+** Descriptions:	    清交易时提示语言
+** input parameters:    无
+** output parameters:   无
+** Returned value:      无
+*********************************************************************************************************/
+void CLrBusinessText()
+{	
+	API_LCM_ClearArea(10,13,400,14);
+	vTaskDelay(2);	
+}
+
+/*********************************************************************************************************
 ** Function name:     	DispFreePage
 ** Descriptions:	    空闲页面
 ** input parameters:    无
@@ -364,6 +377,7 @@ void DispChaxunPage(uint8_t *keyValue)
 	{
 		channelInput = 0;
 		memset(ChannelNum,0,sizeof(ChannelNum));
+		CLrBusinessText();
 		API_LCM_Printf(10,13,0,0,UIMenu.column[VMCParam.Language],"--");
 		if(GetAmountMoney() > 0)
 		{				
@@ -380,16 +394,20 @@ void DispChaxunPage(uint8_t *keyValue)
 		layer = ChannelNum[0];
 		channel = ChannelNum[1] - 0x30;
 		vmcColumn = ((layer - 0x41)*8 + (channel - 1));
-		
+		Trace("%s column%ld=%d,%d,%d\r\n",ChannelNum,vmcColumn,VMCParam.GoodsChannelArray[vmcColumn],TradeParam.GoodsPrice[vmcColumn],
+			TradeParam.RemainGoods[vmcColumn]);
 		if(
 			//货道未开启
 			(VMCParam.GoodsChannelArray[vmcColumn]==0)
-			//货道当前存货数量/////////////???????
-		    //||(VMCParam.GoodsMaxCapacity[Array]==0)最大存货数量	
+			//货道单价为0
+		    ||(TradeParam.GoodsPrice[vmcColumn]==0)
+			//货道当前存货数量,维护页面设置后没法保存???
+		    //||(TradeParam.RemainGoods[vmcColumn]==0)		   
 		)
 		{
 			channelInput = 0;
 			memset(ChannelNum,0,sizeof(ChannelNum));
+			CLrBusinessText();
 			API_LCM_Printf(10,13,0,0,UIMenu.column[VMCParam.Language],"--");
 		}
 		else
@@ -422,6 +440,7 @@ void DispSalePage()
 	pstr = PrintfMoney(GetAmountMoney());
 	strcpy(strMoney, pstr);
 	API_LCM_ClearScreen();
+	vTaskDelay(2);
 	API_LCM_Printf(60,6,0,0,UIMenu.amount[VMCParam.Language],strMoney);
 	API_LCM_DrawLine(0,12);
 	API_LCM_Printf(10,13,0,0,UIMenu.column[VMCParam.Language],"");
@@ -558,7 +577,7 @@ uint8_t UnpdateTubeMoney()
 *********************************************************************************************************/
 uint8_t GetMoney()
 {
-	uint32_t InValue=0;
+	uint32_t InValue=0,billEscrow=0;
 	uint8_t  billOptBack = 0;
 	uint8_t Billtype = 0;
 
@@ -571,7 +590,7 @@ uint8_t GetMoney()
 		if(InValue>0)
 		{			
 			g_coinAmount += InValue;
-			Trace("\r\nAppcoin1.coin=%ld,%ld",InValue,GetAmountMoney());
+			Trace("\r\nAppcoin1.coin=%ld",InValue);
 			//LogGetMoneyAPI(InValue,1);//记录日志
 			return 1;		
 		}
@@ -591,10 +610,10 @@ uint8_t GetMoney()
 		if(InValue>0)
 		{
 			Trace("\r\n APP>>nAppbill1.bill=%d\r\n",InValue);
-			BillDevProcess(&InValue,&Billtype,MBOX_BILLESCROW,&billOptBack);
+			BillDevProcess(&billEscrow,&Billtype,MBOX_BILLESCROW,&billOptBack);
 			if(billOptBack==2)
 			{
-				Trace("\r\n TaskEscrowSuccess");			
+				Trace("\r\n TaskEscrowSuccess=%d\r\n",InValue);		
 				g_billAmount += InValue;
 				//LogGetMoneyAPI(InValue,2);//记录日志
 				InValue = 0;
