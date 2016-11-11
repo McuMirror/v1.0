@@ -354,12 +354,12 @@ uint8_t BillDevProcess(uint32_t *RecvMoney,unsigned char *BillType,unsigned char
 	{
 		case MBOX_BILLENABLEDEV:
 			//Trace("enable bill\r\n");
-			API_MDB_BillType_BillDevice(0x003F,0x003F);
+			MdbBillTypeEanbleOrDisable(1,1);
 			break;
 		case MBOX_BILLDISABLEDEV:
 			//Trace("disable bill\r\n");
 			//Trace("\r\n DrvBILLDISABLEDEV opt");
-			API_MDB_BillType_BillDevice(0,0);
+			MdbBillTypeEanbleOrDisable(0,1);
 			break;			
 		case MBOX_BILLESCROW:
 			//Trace("\r\nescrow bill");
@@ -502,5 +502,44 @@ uint8_t BillDevProcess(uint32_t *RecvMoney,unsigned char *BillType,unsigned char
 		MdbBillErr.Communicate = 1;
 	}	
 	return 0;
+}
+
+
+/*********************************************************************************************************
+** @APP Function name:   MdbCoinEanbleOrDisable
+** @APP Input para:     None
+** @APP retrun para:     None
+*********************************************************************************************************/
+void MdbBillTypeEanbleOrDisable(unsigned char AcceptCtrl,unsigned char DispenCtrl)
+{
+	unsigned int Acmd,Dcmd;
+	if(AcceptCtrl)
+	{
+		if(((TradeParam.TypeBillEnable >> 15) & 0x0001)!=0)
+			Acmd |= 0x01;
+		if(((TradeParam.TypeBillEnable >> 14) & 0x0001)!=0)
+			Acmd |= 0x02;
+		if(((TradeParam.TypeBillEnable >> 13) & 0x0001)!=0)
+			Acmd |= 0x04;
+		if(((TradeParam.TypeBillEnable >> 12) & 0x0001)!=0)
+			Acmd |= 0x08;
+		if(((TradeParam.TypeBillEnable >> 11) & 0x0001)!=0)
+			Acmd |= 0x10;
+		if(((TradeParam.TypeBillEnable >> 10) & 0x0001)!=0)
+			Acmd |= 0x20;
+	}
+	else
+		Acmd = 0x00;
+	if(DispenCtrl)
+		Dcmd = 0xff;
+	else
+		Dcmd = 0x00;
+	API_SYSTEM_TimerChannelSet(0,200);
+	while(API_SYSTEM_TimerReadChannelValue(0))
+	{
+		if(API_MDB_BillType_BillDevice(Acmd,Dcmd))
+			break;
+		vTaskDelay(10);
+	}
 }
 /**************************************End Of File*******************************************************/

@@ -433,11 +433,18 @@ void MdbCoinTypeEanbleOrDisable(unsigned char AcceptCtrl,unsigned char DispenCtr
 {
 	unsigned char Acmd,Dcmd;
 	if(AcceptCtrl)
-		Acmd = 0x07;
+	{
+		if(((TradeParam.TypeCoinEnable >> 15) & 0x0001)!=0)
+			Acmd |= 0x01;
+		if(((TradeParam.TypeCoinEnable >> 14) & 0x0001)!=0)
+			Acmd |= 0x02;
+		if(((TradeParam.TypeCoinEnable >> 14) & 0x0001)!=0)
+			Acmd |= 0x04;
+	}
 	else
 		Acmd = 0x00;
 	if(DispenCtrl)
-		Dcmd = 0x07;
+		Dcmd = 0xff;
 	else
 		Dcmd = 0x00;
 	API_SYSTEM_TimerChannelSet(0,200);

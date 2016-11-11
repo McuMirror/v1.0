@@ -1,3 +1,16 @@
----- API_LCM_Printf(10,13,0,0,UIMenu.column[VMCParam.Language],"--"); 匹配 (2 in 1 文件) ----
-Vendservice.c (app):		API_LCM_Printf(10,13,0,0,UIMenu.column[VMCParam.Language],"--");
-Vendservice.c (app):			API_LCM_Printf(10,13,0,0,UIMenu.column[VMCParam.Language],"--");
+---- MdbBillTypeEanbleOrDisable 匹配 (15 in 3 文件) ----
+LPC1768.build_log.htm (objects):APP\MdbBillDeviceOperation.h(20): error:  #147-D: declaration is incompatible with "void MdbBillTypeEanbleOrDisable(unsigned char, unsigned char)" (declared at line 16)
+LPC1768.build_log.htm (objects):  void MdbBillTypeEanbleOrDisable(unsigned short AcceptCtrl);
+LPC1768.build_log.htm (objects):  			MdbBillTypeEanbleOrDisable(1,1);
+LPC1768.build_log.htm (objects):  			MdbBillTypeEanbleOrDisable(0,1);
+LPC1768.build_log.htm (objects):APP\MdbBillDeviceOperation.c(513): error:  #147-D: declaration is incompatible with "void MdbBillTypeEanbleOrDisable(unsigned short)" (declared at line 16 of "APP\MdbBillDeviceOperation.h")
+LPC1768.build_log.htm (objects):  void MdbBillTypeEanbleOrDisable(unsigned char AcceptCtrl,unsigned char DispenCtrl)
+LPC1768.build_log.htm (objects):APP\MdbBillDeviceOperation.h(20): error:  #147-D: declaration is incompatible with "void MdbBillTypeEanbleOrDisable(unsigned char, unsigned char)" (declared at line 16)
+LPC1768.build_log.htm (objects):  void MdbBillTypeEanbleOrDisable(unsigned short AcceptCtrl);
+LPC1768.build_log.htm (objects):APP\MdbBillDeviceOperation.h(20): error:  #147-D: declaration is incompatible with "void MdbBillTypeEanbleOrDisable(unsigned char, unsigned char)" (declared at line 16)
+LPC1768.build_log.htm (objects):  void MdbBillTypeEanbleOrDisable(unsigned short AcceptCtrl);
+MdbBillDeviceOperation.c (app):			MdbBillTypeEanbleOrDisable(1,1);
+MdbBillDeviceOperation.c (app):			MdbBillTypeEanbleOrDisable(0,1);
+MdbBillDeviceOperation.c (app):void MdbBillTypeEanbleOrDisable(unsigned char AcceptCtrl,unsigned char DispenCtrl)
+MdbBillDeviceOperation.h (app):void MdbBillTypeEanbleOrDisable(unsigned char AcceptCtrl,unsigned char DispenCtrl);
+MdbBillDeviceOperation.h (app):void MdbBillTypeEanbleOrDisable(unsigned short AcceptCtrl);

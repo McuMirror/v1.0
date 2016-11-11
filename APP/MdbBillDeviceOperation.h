@@ -13,10 +13,10 @@
 
 void MdbBillResetAndSetup(void);
 uint8_t BillDevProcess(uint32_t *RecvMoney,unsigned char *BillType,unsigned char billOpt,unsigned char *billOptBack);
+void MdbBillTypeEanbleOrDisable(unsigned char AcceptCtrl,unsigned char DispenCtrl);
 void MdbBillGetStackerStatus(void);
 void MdbBillStackBillOrReturn(unsigned char ctrl);
 void MdbBillTypeEscrowEanbleOrDisable(unsigned short EscrowCtrl);
-void MdbBillTypeEanbleOrDisable(unsigned short AcceptCtrl);
 unsigned char MdbRecyclerPayout(unsigned int PayoutValue,unsigned int *AcuPayout);
 
 #endif

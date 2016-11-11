@@ -1712,7 +1712,7 @@ static void MaintenTradeConfig(void)
 							API_LCM_Printf(15,3,0,0,TradeConfigCoinChannel.CoinChl[VMCParam.Language]);
 							API_LCM_Printf(15,6,0,0,TradeConfigCoinChannel.Chl0[VMCParam.Language],((TradeParam.TypeCoinEnable >> 15) & 0x0001));
 							API_LCM_Printf(15,8,0,0,TradeConfigCoinChannel.Chl1[VMCParam.Language],((TradeParam.TypeCoinEnable >> 14) & 0x0001));
-							API_LCM_Printf(15,10,0,0,TradeConfigCoinChannel.Chl2[VMCParam.Language],((TradeParam.TypeCoinEnable >> 14) & 0x0001));
+							API_LCM_Printf(15,10,0,0,TradeConfigCoinChannel.Chl2[VMCParam.Language],((TradeParam.TypeCoinEnable >> 13) & 0x0001));
 							API_LCM_Printf(0,14,0,0,TradeConfigCoinChannel.Exit[VMCParam.Language]);							
 							vTaskDelay(20);
 							Lev2 = 0x00;
@@ -1807,7 +1807,7 @@ static void MaintenTradeConfig(void)
 											}											
 											break;
 										case 'C':
-											API_LCM_Printf(15,10,0,1,TradeConfigCoinChannel.Chl2[VMCParam.Language],((TradeParam.TypeCoinEnable >> 14) & 0x0001));
+											API_LCM_Printf(15,10,0,1,TradeConfigCoinChannel.Chl2[VMCParam.Language],((TradeParam.TypeCoinEnable >> 13) & 0x0001));
 											ConfigTemp = TradeParam.TypeCoinEnable;
 											while(1)
 											{
