@@ -45,7 +45,6 @@
 char     	ChannelNum[3] = {0};//选择货道值
 char     	BinNum[2] = {0};//选择盒饭箱柜值
 uint8_t	    channelInput = 0;
-uint8_t     channelMode = 0;//0输入柜子编号,1输入本柜商品编号
 uint8_t	 	vmcStatus = VMC_FREE;//当前状态
 uint8_t	 	vmcChangeLow = 0;//零钱是否不够找1不够找,0够找
 uint8_t	    isTuibi = 0;//是否按下退币按钮,1是
@@ -306,7 +305,6 @@ void BillCoinCtr(uint8_t billCtr,uint8_t coinCtr,uint8_t readerCtr)
 void ClearDealPar()
 {
 	channelInput = 0;
-	channelMode = 0;
 	memset(BinNum,0,sizeof(BinNum));
 	memset(ChannelNum,0,sizeof(ChannelNum));
 	//g_Amount = 0;	
@@ -334,7 +332,17 @@ void CLrBusinessText()
 *********************************************************************************************************/
 void DispFreePage()
 {
-	API_LCM_Printf(90,6,0,0,UIMenu.welcome[VMCParam.Language]);
+	API_LCM_ClearArea(70,6,240,8);
+	vTaskDelay(2);
+	if(vmcChangeLow==0)
+	{		
+		API_LCM_Printf(90,6,0,0,UIMenu.welcome[VMCParam.Language]);
+	}
+	else
+	{
+		API_LCM_Printf(70,6,0,0,UIMenu.changeempty[VMCParam.Language]);
+	}
+	
 	vTaskDelay(10);
 	API_RTC_Read((void *)Rtc);
 	API_LCM_Printf(40,8,0,0,"%04D/%02D/%02D %02D:%02D",(((unsigned int)Rtc[5] << 8) + Rtc[6]),Rtc[4],Rtc[3],Rtc[2],Rtc[1]);
@@ -566,6 +574,17 @@ uint8_t UnpdateTubeMoney()
 		coinMoney+=MDBCoinDevice.CoinTypePresentInTube[i]*MdbGetCoinValue(MDBCoinDevice.CoinTypeCredit[i]);
 	}
 	Trace("\r\n APP>>Tube=%d\r\n",coinMoney);	
+	//零钱小于3元
+	if(coinMoney<300)
+	{
+		vmcChangeLow=1;
+		BillCoinCtr(2,2,0);
+	}
+	else
+	{
+		vmcChangeLow=0;
+		BillCoinCtr(1,1,0);
+	}
 	vTaskDelay(10);	
 }
 /*********************************************************************************************************

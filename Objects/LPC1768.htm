@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\LPC1768.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\LPC1768.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Fri Nov 11 23:23:25 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Sat Nov 12 00:29:57 2016
 <BR><P>
 <H3>Maximum Stack Usage =        560 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1127,6 +1127,7 @@ Global Symbols
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenTradeConfig
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevConfig
 <LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
+<LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispFreePage
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLrBusinessText
 </UL>
 
@@ -1447,10 +1448,11 @@ Global Symbols
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillDevProcess
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UnpdateTubeMoney
+<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[df]"></a>BillDevProcess</STRONG> (Thumb, 574 bytes, Stack size 72 bytes, mdbbilldeviceoperation.o(i.BillDevProcess))
+<P><STRONG><a name="[df]"></a>BillDevProcess</STRONG> (Thumb, 568 bytes, Stack size 72 bytes, mdbbilldeviceoperation.o(i.BillDevProcess))
 <BR><BR>[Stack]<UL><LI>Max Depth = 440 + Unknown Stack Size
 <LI>Call Chain = BillDevProcess &rArr; API_MDB_Escrow_BillDevice &rArr; API_MDB_Stacker_BillDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -1514,7 +1516,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[125]"></a>ClearDealPar</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, vendservice.o(i.ClearDealPar))
+<P><STRONG><a name="[125]"></a>ClearDealPar</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, vendservice.o(i.ClearDealPar))
 <BR><BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
@@ -1587,13 +1589,14 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[ef]"></a>DispFreePage</STRONG> (Thumb, 144 bytes, Stack size 32 bytes, vendservice.o(i.DispFreePage))
+<P><STRONG><a name="[ef]"></a>DispFreePage</STRONG> (Thumb, 198 bytes, Stack size 32 bytes, vendservice.o(i.DispFreePage))
 <BR><BR>[Stack]<UL><LI>Max Depth = 240 + Unknown Stack Size
 <LI>Call Chain = DispFreePage &rArr; API_LCM_Printf &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_RTC_Write
 <LI><a href="#[d5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_RTC_Read
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_Printf
+<LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_ClearArea
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_COM_RecBufferIsNotEmpty
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
@@ -2186,12 +2189,13 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 </UL>
 
-<P><STRONG><a name="[120]"></a>UnpdateTubeMoney</STRONG> (Thumb, 56 bytes, Stack size 16 bytes, vendservice.o(i.UnpdateTubeMoney))
-<BR><BR>[Stack]<UL><LI>Max Depth = 352 + Unknown Stack Size
-<LI>Call Chain = UnpdateTubeMoney &rArr; MdbCoinGetTubeStatus &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[120]"></a>UnpdateTubeMoney</STRONG> (Thumb, 98 bytes, Stack size 16 bytes, vendservice.o(i.UnpdateTubeMoney))
+<BR><BR>[Stack]<UL><LI>Max Depth = 488 + Unknown Stack Size
+<LI>Call Chain = UnpdateTubeMoney &rArr; BillCoinCtr &rArr; BillDevProcess &rArr; API_MDB_Escrow_BillDevice &rArr; API_MDB_Stacker_BillDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbGetCoinValue
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinGetTubeStatus
+<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillCoinCtr
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 </UL>
@@ -2623,8 +2627,8 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[121]"></a>VendingService</STRONG> (Thumb, 896 bytes, Stack size 48 bytes, vendservice.o(i.VendingService))
-<BR><BR>[Stack]<UL><LI>Max Depth = 520 + Unknown Stack Size
-<LI>Call Chain = VendingService &rArr; ChangerMoney &rArr; ChangePayoutProcessLevel3 &rArr; API_MDB_ExpanPayoutValuePoll_CoinDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 536 + Unknown Stack Size
+<LI>Call Chain = VendingService &rArr; UnpdateTubeMoney &rArr; BillCoinCtr &rArr; BillDevProcess &rArr; API_MDB_Escrow_BillDevice &rArr; API_MDB_Stacker_BillDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinTypeEanbleOrDisable
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup

@@ -29,6 +29,7 @@ typedef struct
 	char *takemoney[MAXLAGUAGENUBER];
 	char *IOU[MAXLAGUAGENUBER];
 	char *end[MAXLAGUAGENUBER];
+	char *changeempty[MAXLAGUAGENUBER];
 } UIMEMU;
 extern const UIMEMU UIMenu;
 

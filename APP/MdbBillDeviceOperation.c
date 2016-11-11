@@ -461,7 +461,7 @@ uint8_t BillDevProcess(uint32_t *RecvMoney,unsigned char *BillType,unsigned char
 				        break;
 			
 			        case 0x09:			                 //validator disabled	
-			        	Trace("\r\n Drvbill disabled");
+			        	//Trace("\r\n Drvbill disabled");
 			        	MdbBillErr.disable = 1;
 						break;
 			

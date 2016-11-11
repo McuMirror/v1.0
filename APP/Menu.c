@@ -26,7 +26,8 @@ const UIMEMU UIMenu =
 	{"找币:%s","amount:%s"},
 	{"请取硬币","take money:"},
 	{"本机无零币  ","IOU:"},
-	{"谢谢","thank you"}
+	{"谢谢","thank you"},
+	{"本机无零币  ","Unable to Give Change Now"}
 };
 
 
