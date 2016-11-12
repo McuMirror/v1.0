@@ -7,6 +7,7 @@
 ".\objects\mdbcashlessdeviceoperation.o"
 ".\objects\mdbcoindeviceoperation.o"
 ".\objects\menu.o"
+".\objects\log.o"
 ".\objects\system.o"
 ".\objects\coinacceptorchanger.o"
 ".\objects\billvalidatorrecycler.o"

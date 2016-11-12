@@ -264,11 +264,11 @@ const TRADECONFIG_ADD_GOODS TradeConfigAddGoods =
 const TRADELOG TradeLog =
 {
 	{"运营维护->交易记录","Maint->Trade Log"},
-	{"1.硬币-收入:%d,支出:%d","1.Coin Payin:%d,out:%d"},
-	{"2.纸币-收入:%d,支出:%d","2.Bill Payin:%d,out:%d"},
-	{"3.非现金收入:%d","3.Cashless Payin:%d"},
-	{"4.总收入:%d,总支出:%d","4.Total IN:%d,OUT:%d"},
+	{"1.硬币-收入:%d.%d,支出:%d.%d","1.Coin Payin:%d.%d,out:%d.%d"},
+	{"2.纸币-收入:%d.%d,支出:%d.%d","2.Bill Payin:%d.%d,out:%d.%d"},
+	{"3.非现金收入:%d.%d","3.Cashless Payin:%d.%d"},
+	{"4.总收入:%d.%d,总支出:%d.%d","4.Total IN:%d.%d,OUT:%d.%d"},
 	{"5.交易次数-成功:%d,失败:%d","5.TradeNum-Ok:%d,Err:%d"},
-	{"按<取消>返回","Press 'cancel' back"}
+	{"按<取消>返回    按<确定>清除","Press 'cancel' back      'enter'clean"}
 };
 /**************************************End Of File*******************************************************/

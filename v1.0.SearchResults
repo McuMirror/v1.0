@@ -1,20 +1,15 @@
----- BillCoinCtr 匹配 (20 in 2 文件) ----
-LPC1768.htm (objects):<P><STRONG><a name="[de]"></a>BillCoinCtr</STRONG> (Thumb, 166 bytes, Stack size 32 bytes, vendservice.o(i.BillCoinCtr))
-LPC1768.htm (objects):<LI>Call Chain = BillCoinCtr &rArr; BillDevProcess &rArr; API_MDB_Escrow_BillDevice &rArr; API_MDB_Stacker_BillDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
-LPC1768.htm (objects):<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillCoinCtr
-LPC1768.htm (objects):<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillCoinCtr
-LPC1768.htm (objects):<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillCoinCtr
-LPC1768.htm (objects):<LI>Call Chain = UnpdateTubeMoney &rArr; BillCoinCtr &rArr; BillDevProcess &rArr; API_MDB_Escrow_BillDevice &rArr; API_MDB_Stacker_BillDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
-LPC1768.htm (objects):<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillCoinCtr
-LPC1768.htm (objects):<LI>Call Chain = VendingService &rArr; UnpdateTubeMoney &rArr; BillCoinCtr &rArr; BillDevProcess &rArr; API_MDB_Escrow_BillDevice &rArr; API_MDB_Stacker_BillDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
-LPC1768.htm (objects):<LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillCoinCtr
-Vendservice.c (app):void BillCoinCtr(uint8_t billCtr,uint8_t coinCtr,uint8_t readerCtr)
-Vendservice.c (app):		BillCoinCtr(2,2,0);
-Vendservice.c (app):		BillCoinCtr(1,1,0);
-Vendservice.c (app):						BillCoinCtr(2,2,0);
-Vendservice.c (app):					BillCoinCtr(2,2,0);
-Vendservice.c (app):					BillCoinCtr(2,2,0);
-Vendservice.c (app):				BillCoinCtr(2,2,0);
-Vendservice.c (app):					BillCoinCtr(1,1,0);	
-Vendservice.c (app):				BillCoinCtr(1,1,0);
-Vendservice.c (app):						BillCoinCtr(1,1,1);
+---- InitVmcParam 匹配 (15 in 4 文件) ----
+LPC1768.htm (objects):<BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
+LPC1768.htm (objects):<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
+LPC1768.htm (objects):<P><STRONG><a name="[102]"></a>InitVmcParam</STRONG> (Thumb, 334 bytes, Stack size 136 bytes, paramdefine.o(i.InitVmcParam))
+LPC1768.htm (objects):<LI>Call Chain = InitVmcParam &rArr; LoadDefaultVmcParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+LPC1768.htm (objects):<BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
+LPC1768.htm (objects):<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
+LPC1768.htm (objects):<LI>Call Chain = VendService &rArr; InitVmcParam &rArr; LoadDefaultVmcParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+LPC1768.htm (objects):<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
+ParamDefine.c (app):extern void InitVmcParam(void)
+ParamDefine.c (app):			Trace("InitVmcParam():Read OK(%04X):\r\n",Crc);
+ParamDefine.c (app):			Trace("InitVmcParam():Read ok but data is err\r\n");
+ParamDefine.c (app):		Trace("InitVmcParam():Read ERR\r\n");
+ParamDefine.h (app):extern void InitVmcParam(void);
+Vendservice.c (app):	InitVmcParam();

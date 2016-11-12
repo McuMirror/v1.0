@@ -65,7 +65,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\setjmp.h)(0x55AEF5F2)
 I (C:\Keil_v5\ARM\ARMCC\include\rt_misc.h)(0x55AEF5F2)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x55AEF5F2)
 I (APP\ParamDefine.h)(0x5823E762)
-F (.\APP\vendservice.c)(0x58269C01)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I Device\Include-D__UVISION_VERSION="516"-o .\objects\vendservice.o --omf_browse .\objects\vendservice.crf --depend .\objects\vendservice.d)
+F (.\APP\vendservice.c)(0x5826C552)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I Device\Include-D__UVISION_VERSION="516"-o .\objects\vendservice.o --omf_browse .\objects\vendservice.crf --depend .\objects\vendservice.d)
 I (APP\..\API\API.H)(0x57CD0BA8)
 I (APP\..\API\OS.H)(0x57C57584)
 I (APP\..\API\..\FreeRTOS\FreeRTOS.h)(0x577CD6EE)
@@ -97,7 +97,7 @@ I (APP\MdbBillDeviceOperation.h)(0x5825E258)
 I (APP\MdbCashlessDeviceOperation.h)(0x57BFE1CA)
 I (APP\MdbCoinDeviceOperation.h)(0x5823402B)
 I (APP\Menu.h)(0x58266FBD)
-F (.\APP\maintenance.c)(0x5826926D)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I Device\Include-D__UVISION_VERSION="516"-o .\objects\maintenance.o --omf_browse .\objects\maintenance.crf --depend .\objects\maintenance.d)
+F (.\APP\maintenance.c)(0x5826C185)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I Device\Include-D__UVISION_VERSION="516"-o .\objects\maintenance.o --omf_browse .\objects\maintenance.crf --depend .\objects\maintenance.d)
 I (APP\..\API\API.H)(0x57CD0BA8)
 I (APP\..\API\OS.H)(0x57C57584)
 I (APP\..\API\..\FreeRTOS\FreeRTOS.h)(0x577CD6EE)
@@ -215,8 +215,37 @@ I (C:\Keil_v5\ARM\ARMCC\include\rt_misc.h)(0x55AEF5F2)
 I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x55AEF5F2)
 I (APP\ParamDefine.h)(0x5823E762)
 I (APP\MdbCoinDeviceOperation.h)(0x5823402B)
-F (.\APP\Menu.c)(0x58269794)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I Device\Include-D__UVISION_VERSION="516"-o .\objects\menu.o --omf_browse .\objects\menu.crf --depend .\objects\menu.d)
+F (.\APP\Menu.c)(0x5826B695)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I Device\Include-D__UVISION_VERSION="516"-o .\objects\menu.o --omf_browse .\objects\menu.crf --depend .\objects\menu.d)
 I (APP\Menu.h)(0x58266FBD)
+F (.\APP\Log.c)(0x5826C552)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I Device\Include-D__UVISION_VERSION="516"-o .\objects\log.o --omf_browse .\objects\log.crf --depend .\objects\log.d)
+I (APP\..\API\API.H)(0x57CD0BA8)
+I (APP\..\API\OS.H)(0x57C57584)
+I (APP\..\API\..\FreeRTOS\FreeRTOS.h)(0x577CD6EE)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x55AEF5F2)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55AEF5F2)
+I (APP\..\API\..\FreeRTOS\FreeRTOSConfig.h)(0x58213994)
+I (APP\..\API\..\FreeRTOS\..\CMISI\LPC17xx.h)(0x5775DBC0)
+I (APP\..\API\..\FreeRTOS\..\CMISI\core_cm3.h)(0x523810B4)
+I (APP\..\API\..\FreeRTOS\..\CMISI\system_LPC17xx.h)(0x523810B4)
+I (APP\..\API\..\FreeRTOS\.\include\projdefs.h)(0x573F3A16)
+I (APP\..\API\..\FreeRTOS\.\include\portable.h)(0x5774B95E)
+I (APP\..\API\..\FreeRTOS\.\include\deprecated_definitions.h)(0x577CD6EE)
+I (APP\..\API\..\FreeRTOS\.\include\../portable/portmacro.h)(0x573F3A17)
+I (APP\..\API\..\FreeRTOS\.\include\mpu_wrappers.h)(0x573F3A16)
+I (APP\..\API\..\FreeRtOS\include\task.h)(0x573F3A16)
+I (APP\..\API\..\FreeRtOS\include\list.h)(0x573F3A16)
+I (APP\..\API\..\FreeRTOS\include\queue.H)(0x573F3A16)
+I (APP\..\API\..\FreeRTOS\include\semphr.H)(0x573F3A16)
+I (APP\..\API\..\FreeRTOS\include\timers.H)(0x573F3A16)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x55AEF5F2)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55AEF5F2)
+I (C:\Keil_v5\ARM\ARMCC\include\ctype.h)(0x55AEF5F2)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x55AEF5F2)
+I (C:\Keil_v5\ARM\ARMCC\include\setjmp.h)(0x55AEF5F2)
+I (C:\Keil_v5\ARM\ARMCC\include\rt_misc.h)(0x55AEF5F2)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x55AEF5F2)
+I (APP\ParamDefine.h)(0x5823E762)
+I (APP\Log.h)(0x5826BD17)
 F (.\API\System.C)(0x57C5793C)(-c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I Device\Include-D__UVISION_VERSION="516"-o .\objects\system.o --omf_browse .\objects\system.crf --depend .\objects\system.d)
 I (API\..\DRIVERS\TIMER.h)(0x57BFE1C9)
 I (API\..\DRIVERS\PINSELECT.h)(0x57BFE1C9)

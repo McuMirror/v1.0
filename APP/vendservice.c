@@ -92,6 +92,7 @@ void VendService(void *pvParameters)
 	//vTaskDelay(2000);
 	InitVmcParam();
 	InitTradeParam();
+	InitTotalLog();
 	//MdbCoinResetAndSetup();
 	//MdbCoinGetTubeStatus();
 	//MdbCoinTypeEanbleOrDisable(0x01,0x01);
@@ -483,6 +484,7 @@ void DispChuhuoPage()
 *********************************************************************************************************/
 void DispQuhuoPage()
 {
+	CLrBusinessText();
 	API_LCM_Printf(10,13,0,0,UIMenu.takecolumn[VMCParam.Language]);
 	vTaskDelay(500*3);
 }
@@ -496,6 +498,7 @@ void DispQuhuoPage()
 *********************************************************************************************************/
 void DispChhuoFailPage()
 {
+	CLrBusinessText();
 	API_LCM_Printf(10,13,0,0,UIMenu.soldout[VMCParam.Language]);
 	vTaskDelay(500*3);
 }
@@ -623,7 +626,7 @@ uint8_t GetMoney()
 		{			
 			g_coinAmount += InValue;
 			Trace("\r\nAppcoin1.coin=%ld",InValue);
-			//LogGetMoneyAPI(InValue,1);//记录日志
+			LogGetMoneyAPI(InValue,1);//记录日志
 			return 1;		
 		}
 		if(billOptBack==1)
@@ -647,7 +650,7 @@ uint8_t GetMoney()
 			{
 				Trace("\r\n TaskEscrowSuccess=%d\r\n",InValue);		
 				g_billAmount += InValue;
-				//LogGetMoneyAPI(InValue,2);//记录日志
+				LogGetMoneyAPI(InValue,2);//记录日志
 				InValue = 0;
 				return 1;
 			}
@@ -683,12 +686,12 @@ uint32_t ChangerMoney(void)
 	{
 		ComStatus = 1;
 	}
-	
+
+	LogChangeAPI(backmoney);//记录日志
 	//找零失败
 	if(tempmoney>backmoney)
 	{		
-		Trace("\r\n Appchange Fail");
-		//LogChangeAPI(tempmoney-backmoney,backmoney);//记录日志
+		Trace("\r\n Appchange Fail");		
 		g_coinAmount = 0;
 		g_billAmount = 0;
 		return  tempmoney-backmoney;
@@ -697,7 +700,6 @@ uint32_t ChangerMoney(void)
 	else
 	{
 		Trace("\r\n Appchange succ");
-		//LogChangeAPI(tempmoney,0);//记录日志
 		g_coinAmount = 0;
 		g_billAmount = 0;
 		return 0;
@@ -891,10 +893,8 @@ static void VendingService(void)
 				if(moneyGet == 1)
 				{
 					isTuibi=0;
-					//LCDClrScreen();
 					DispSalePage();
-					Trace("\r\n App2amount=%ld",GetAmountMoney());
-					//LogBeginTransAPI();//记录到明细日志中
+					Trace("\r\n App2amount=%ld",GetAmountMoney());					
 					vmcStatus = VMC_SALE;
 				}
 				//2.轮询硬币器可找零硬币
@@ -995,13 +995,14 @@ static void VendingService(void)
 					DispQuhuoPage();	
 					SaleCostMoney(vmcPrice);//扣款				
 					Trace("\r\n nowmoney=%d\r\n",GetAmountMoney());						
-					//LogTransactionAPI(vmcPrice,transMul++,ChannelNum,0);//记录日志
+					LogTransactionAPI(1);//记录日志
 				}
 				else
 				{
 					Trace("\r\n chuhuofail\r\n");
 					DispChhuoFailPage();
 					Trace("\r\n nowmoney=%d\r\n",GetAmountMoney());	
+					LogTransactionAPI(0);//记录日志
 				}
 				vmcPrice = 0;
 				vmcColumn=0;
@@ -1036,8 +1037,7 @@ static void VendingService(void)
 				haveSale = 0;
 				transMul = 0;
 				vmcColumn = 0;	
-				BillCoinCtr(1,1,0);
-				//LogEndTransAPI();//记录到日志中
+				BillCoinCtr(1,1,0);				
 				API_LCM_ClearScreen();
 				vmcStatus = VMC_FREE;
 				break;	

@@ -70,6 +70,84 @@ static char *Errcheck()
 	return strMoney;
 	
 }
+
+/************************************************************************************************************************************************************************************
+** @APP Function name:   PwdCheck/密码验证验证
+** @APP Input para:      None
+** @APP Output para:     None
+** @APP retrun para:     None
+************************************************************************************************************************************************************************************/
+static uint8_t PwdCheck(void)
+{
+	unsigned char i,key[8],j,check,X,Y;
+	API_LCM_ClearScreen();
+	API_LCM_Printf(0,0,0,0,LoginUI.Prompt[VMCParam.Language]);
+	API_LCM_DrawLine(0,2);
+	API_LCM_Printf(16,3,0,0,LoginUI.Prompt[VMCParam.Language]);
+	API_LCM_Printf(16,14,0,0,LoginUI.Exit[VMCParam.Language]);
+	i = 0x00;
+	X = 72;
+	Y = 7;
+	while(1)
+	{
+		key[i] = API_KEY_ReadKey();
+		if(key[i])
+		{
+			if(key[i] == '>')
+				break;
+			if(key[i] == '<')
+			{
+				if(i < 5)
+				{
+					API_LCM_ClearArea(0,7,239,8);
+					API_LCM_Printf(48,7,0,0,LoginUI.Error[VMCParam.Language]);
+					vTaskDelay(100);
+					API_LCM_ClearArea(0,7,239,8);
+					X = 72;
+					i = 0x00;
+				}
+				else
+				{
+					check = 0x00;
+					for(j=0;j<6;j++)
+					{
+						if(key[j] == VMCParam.Password[j])
+							check = 0x01;
+						else
+						{
+							check = 0x00;
+							break;
+						}
+					}
+					if(check == 0x00)
+					{
+						API_LCM_ClearArea(0,7,239,8);
+						API_LCM_Printf(48,7,0,0,LoginUI.Error[VMCParam.Language]);
+						vTaskDelay(100);
+						API_LCM_ClearArea(0,7,239,8);
+						X = 72;
+						i = 0x00;	
+						return 0;
+					}
+					else
+					{
+						return 1;
+					}
+				}
+			}
+			else
+			{
+				if(i <= 5)
+				{
+					API_LCM_Printf(X,Y,0,0,"*");
+					X += 16;
+					i++;
+				}
+			}
+		}
+		vTaskDelay(10);
+	}
+}
 /************************************************************************************************************************************************************************************
 ** @APP Function name:   Maintenance
 ** @APP Input para:      None
@@ -2158,19 +2236,49 @@ static void MaintenTradeConfig(void)
 ************************************************************************************************************************************************************************************/
 static void MaintenTradeLog(void)
 {
+	uint16_t TotalCoinPayIn=(TotalTradeLog.TotalCoinPayIn + TotalTradeLog.TotalCashlessPayIn + TotalTradeLog.TotalBillPayIn);
+	unsigned char key;
+	
 	API_LCM_ClearScreen();
 	API_LCM_Printf(0,0,0,0,TradeLog.Theme[VMCParam.Language]);
 	API_LCM_DrawLine(0,2);
-	API_LCM_Printf(0,3,0,0,TradeLog.Coin[VMCParam.Language],TotalTradeLog.TotalCoinPayIn,TotalTradeLog.TotalCoinPayout);
-	API_LCM_Printf(0,5,0,0,TradeLog.Bill[VMCParam.Language],TotalTradeLog.TotalBillPayIn,0x00);
-	API_LCM_Printf(0,7,0,0,TradeLog.Cashless[VMCParam.Language],TotalTradeLog.TotalCashlessPayIn);
-	API_LCM_Printf(0,9,0,0,TradeLog.TotalPay[VMCParam.Language],(TotalTradeLog.TotalCoinPayIn + TotalTradeLog.TotalCashlessPayIn + TotalTradeLog.TotalBillPayIn),TotalTradeLog.TotalCoinPayout);
+	API_LCM_Printf(0,3,0,0,TradeLog.Coin[VMCParam.Language],TotalTradeLog.TotalCoinPayIn/10,TotalTradeLog.TotalCoinPayIn%10,TotalTradeLog.TotalCoinPayout/10,TotalTradeLog.TotalCoinPayout%10);
+	API_LCM_Printf(0,5,0,0,TradeLog.Bill[VMCParam.Language],TotalTradeLog.TotalBillPayIn/10,TotalTradeLog.TotalBillPayIn%10,0,0);
+	API_LCM_Printf(0,7,0,0,TradeLog.Cashless[VMCParam.Language],TotalTradeLog.TotalCashlessPayIn/10,TotalTradeLog.TotalCashlessPayIn%10);
+	API_LCM_Printf(0,9,0,0,TradeLog.TotalPay[VMCParam.Language],TotalCoinPayIn/10,TotalCoinPayIn%10,TotalTradeLog.TotalCoinPayout/10,TotalTradeLog.TotalCoinPayout%10);
 	API_LCM_Printf(0,11,0,0,TradeLog.TtlTradNum[VMCParam.Language],TotalTradeLog.TotalSuccesNumber,TotalTradeLog.TotalErrorNumber);
 	API_LCM_Printf(0,14,0,0,TradeLog.Exit[VMCParam.Language]);
 	while(1)
 	{
-		if(API_KEY_ReadKey() == '>')
-			break;
+		key=API_KEY_ReadKey();
+		if(key)
+		{
+			if(key == '>')
+				break;
+			else if(key == '<')
+			{
+				if(PwdCheck())
+				{
+					LogClearAPI();
+					TotalCoinPayIn=(TotalTradeLog.TotalCoinPayIn + TotalTradeLog.TotalCashlessPayIn + TotalTradeLog.TotalBillPayIn);
+					Trace("\r\nPwd success");
+				}
+				else
+				{
+					Trace("\r\nPwd false");
+				}
+				API_LCM_ClearScreen();
+				vTaskDelay(2);
+				API_LCM_Printf(0,0,0,0,TradeLog.Theme[VMCParam.Language]);
+				API_LCM_DrawLine(0,2);
+				API_LCM_Printf(0,3,0,0,TradeLog.Coin[VMCParam.Language],TotalTradeLog.TotalCoinPayIn/10,TotalTradeLog.TotalCoinPayIn%10,TotalTradeLog.TotalCoinPayout/10,TotalTradeLog.TotalCoinPayout%10);
+				API_LCM_Printf(0,5,0,0,TradeLog.Bill[VMCParam.Language],TotalTradeLog.TotalBillPayIn/10,TotalTradeLog.TotalBillPayIn%10,0,0);
+				API_LCM_Printf(0,7,0,0,TradeLog.Cashless[VMCParam.Language],TotalTradeLog.TotalCashlessPayIn/10,TotalTradeLog.TotalCashlessPayIn%10);
+				API_LCM_Printf(0,9,0,0,TradeLog.TotalPay[VMCParam.Language],TotalCoinPayIn/10,TotalCoinPayIn%10,TotalTradeLog.TotalCoinPayout/10,TotalTradeLog.TotalCoinPayout%10);
+				API_LCM_Printf(0,11,0,0,TradeLog.TtlTradNum[VMCParam.Language],TotalTradeLog.TotalSuccesNumber,TotalTradeLog.TotalErrorNumber);
+				API_LCM_Printf(0,14,0,0,TradeLog.Exit[VMCParam.Language]);
+			}
+		}
 		vTaskDelay(20);
 	}
 }

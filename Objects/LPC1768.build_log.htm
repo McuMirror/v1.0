@@ -22,48 +22,59 @@ Dialog DLL:      TARMP1.DLL V1.24.0.0
  
 <h2>Project:</h2>
 D:\VMCSource\V1.0__20161106\V1.0__20161106\V1.0\VMC.uvprojx
-Project File Date:  11/08/2016
+Project File Date:  11/12/2016
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 (build 20)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'ReleaseInFlash'
+compiling Log.c...
 compiling vendservice.c...
-APP\vendservice.c(323): warning:  #69-D: integer conversion resulted in truncation
+APP\vendservice.c(324): warning:  #69-D: integer conversion resulted in truncation
   	API_LCM_ClearArea(10,13,400,14);
-APP\vendservice.c(380): warning:  #177-D: variable "strlanguage" was declared but never referenced
+APP\vendservice.c(381): warning:  #177-D: variable "strlanguage" was declared but never referenced
   	char strlanguage[30] = {0},streng[30] = {0};
-APP\vendservice.c(380): warning:  #177-D: variable "streng" was declared but never referenced
+APP\vendservice.c(381): warning:  #177-D: variable "streng" was declared but never referenced
   	char strlanguage[30] = {0},streng[30] = {0};
-APP\vendservice.c(381): warning:  #177-D: variable "columnState" was declared but never referenced
+APP\vendservice.c(382): warning:  #177-D: variable "columnState" was declared but never referenced
   	uint8_t columnState=0,isColumn=0;
-APP\vendservice.c(381): warning:  #177-D: variable "isColumn" was declared but never referenced
+APP\vendservice.c(382): warning:  #177-D: variable "isColumn" was declared but never referenced
   	uint8_t columnState=0,isColumn=0;
-APP\vendservice.c(382): warning:  #177-D: variable "columnNo" was declared but never referenced
+APP\vendservice.c(383): warning:  #177-D: variable "columnNo" was declared but never referenced
   	uint16_t columnNo=0;
-APP\vendservice.c(383): warning:  #177-D: variable "debtMoney" was declared but never referenced
+APP\vendservice.c(384): warning:  #177-D: variable "debtMoney" was declared but never referenced
   	uint32_t debtMoney=0;
-APP\vendservice.c(384): warning:  #177-D: variable "channel_id" was declared but never referenced
+APP\vendservice.c(385): warning:  #177-D: variable "channel_id" was declared but never referenced
   	uint8_t channel_id=0;
-APP\vendservice.c(560): warning:  #177-D: variable "strlanguage" was declared but never referenced
+APP\vendservice.c(563): warning:  #177-D: variable "strlanguage" was declared but never referenced
   	char strlanguage[30] = {0};
-APP\vendservice.c(602): warning:  #940-D: missing return statement at end of non-void function "UnpdateTubeMoney"
+APP\vendservice.c(605): warning:  #940-D: missing return statement at end of non-void function "UnpdateTubeMoney"
   }
-APP\vendservice.c(577): warning:  #177-D: variable "j" was declared but never referenced
+APP\vendservice.c(580): warning:  #177-D: variable "j" was declared but never referenced
   	uint8_t i,j=0;
-APP\vendservice.c(660): warning:  #940-D: missing return statement at end of non-void function "GetMoney"
+APP\vendservice.c(629): warning:  #223-D: function "LogGetMoneyAPI" declared implicitly
+  			LogGetMoneyAPI(InValue,1);//??录??志
+APP\vendservice.c(653): warning:  #223-D: function "LogGetMoneyAPI" declared implicitly
+  				LogGetMoneyAPI(InValue,2);//??录??志
+APP\vendservice.c(663): warning:  #940-D: missing return statement at end of non-void function "GetMoney"
   }
-APP\vendservice.c(672): warning:  #550-D: variable "ComStatus" was set but never used
+APP\vendservice.c(690): warning:  #223-D: function "LogChangeAPI" declared implicitly
+  	LogChangeAPI(backmoney);//??录??志
+APP\vendservice.c(675): warning:  #550-D: variable "ComStatus" was set but never used
   	unsigned char ComStatus;
-APP\vendservice.c(814): warning:  #177-D: variable "billOpt" was declared but never referenced
+APP\vendservice.c(998): warning:  #223-D: function "LogTransactionAPI" declared implicitly
+  					LogTransactionAPI(1);//??录??志
+APP\vendservice.c(1005): warning:  #223-D: function "LogTransactionAPI" declared implicitly
+  					LogTransactionAPI(0);//??录??志
+APP\vendservice.c(816): warning:  #177-D: variable "billOpt" was declared but never referenced
   	uint8_t  billOpt = 0,billOptBack = 0;
-APP\vendservice.c(820): warning:  #550-D: variable "haveSale" was set but never used
+APP\vendservice.c(822): warning:  #550-D: variable "haveSale" was set but never used
   	uint8_t haveSale = 0;//0??一?喂???,1?诙????瞎???	
-APP\vendservice.c: 15 warnings, 0 errors
+APP\vendservice.c: 20 warnings, 0 errors
 linking...
-Program Size: Code=47216 RO-data=17080 RW-data=232 ZI-data=17880  
+Program Size: Code=49068 RO-data=17200 RW-data=232 ZI-data=17880  
 FromELF: creating hex file...
-".\Objects\LPC1768.axf" - 0 Error(s), 15 Warning(s).
-Build Time Elapsed:  00:00:01
+".\Objects\LPC1768.axf" - 0 Error(s), 20 Warning(s).
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

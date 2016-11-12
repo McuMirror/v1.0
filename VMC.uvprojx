@@ -454,6 +454,11 @@
               <FileType>1</FileType>
               <FilePath>.\APP\Menu.c</FilePath>
             </File>
+            <File>
+              <FileName>Log.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Log.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
