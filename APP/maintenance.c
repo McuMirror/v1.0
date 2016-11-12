@@ -27,6 +27,49 @@ static void MaintenTradeConfig(void);
 static void MaintenTradeLog(void);
 static void TestBillValidator(void);
 static void TestCoinValidator(void);
+
+static char *Errcheck()
+{
+	char	strMoney[250]="";
+	//Ö½±ÒÆ÷	
+	if(VMCParam.MdbBillDeviceEAB == 0x01)
+	{
+		if(MdbBillErr.Communicate)
+			strcat(strMoney,"B1");
+		if(MdbBillErr.moto)
+			strcat(strMoney,"B2");
+		if(MdbBillErr.sensor)
+			strcat(strMoney,"B3");
+		if(MdbBillErr.romchk)
+			strcat(strMoney,"B4");	
+		if(MdbBillErr.jam)
+			strcat(strMoney,"B5");
+		if(MdbBillErr.removeCash)
+			strcat(strMoney,"B6");
+		if(MdbBillErr.cashErr)
+			strcat(strMoney,"B7");	
+	}
+	//Ó²±ÒÆ÷
+	if(VMCParam.MdbCoinDeviceEAB == 0x01)
+	{
+		if(MdbCoinErr.Communicate)
+			strcat(strMoney,"C1");
+		if(MdbCoinErr.sensor)
+			strcat(strMoney,"C2");
+		if(MdbCoinErr.tubejam)
+			strcat(strMoney,"C3");
+		if(MdbCoinErr.romchk)
+			strcat(strMoney,"C4");	
+		if(MdbCoinErr.routing)
+			strcat(strMoney,"C5");
+		if(MdbCoinErr.jam)
+			strcat(strMoney,"C6");
+		if(MdbCoinErr.removeTube)
+			strcat(strMoney,"C7");	
+	}
+	return strMoney;
+	
+}
 /************************************************************************************************************************************************************************************
 ** @APP Function name:   Maintenance
 ** @APP Input para:      None
@@ -209,6 +252,11 @@ static void EnterMaintenance(void)
 static void MaintenDevInfo(void)
 {
 	unsigned char i,Id[7];
+	char    *pstr;
+	char	strMoney[250];
+
+	pstr = Errcheck();
+	strcpy(strMoney, pstr);
 	for(i=0;i<7;i++)
 	{
 		Id[i] = ((((VMCParam.VMCID[i])>>4)*10)+((VMCParam.VMCID[i])&0x0f));//BCD to HEX
@@ -216,11 +264,15 @@ static void MaintenDevInfo(void)
 	API_LCM_ClearScreen();
 	API_LCM_Printf(0,0,0,0,DevInfo.Theme[VMCParam.Language]);
 	API_LCM_DrawLine(0,2);
+	//Èí¼þ°æ±¾
 	API_LCM_Printf(16,3,0,0,DevInfo.Version[VMCParam.Language]);
 	API_LCM_Printf((16 + (strlen(DevInfo.Version[VMCParam.Language])) * 8),3,0,0,SOFTWAREVERSION);
+	//°æ±¾ÐòÁÐºÅ
 	API_LCM_Printf(16,5,0,0,DevInfo.DevID[VMCParam.Language]);
 	API_LCM_Printf((16 + (strlen(DevInfo.DevID[VMCParam.Language])) * 8),5,0,0,"%d%d%d%d%d%d%d",Id[0],Id[1],Id[2],Id[3],Id[4],Id[5],Id[6]);
+	//¹ÊÕÏÂë
 	API_LCM_Printf(16,7,0,0,DevInfo.DevList[VMCParam.Language]);
+	API_LCM_Printf((16 + (strlen(DevInfo.DevList[VMCParam.Language])) * 8),7,0,0,"%s",strMoney);
 	API_LCM_Printf(0,14,0,0,DevInfo.Exit[VMCParam.Language]);
 	while(1)
 	{

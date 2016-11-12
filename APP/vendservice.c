@@ -48,6 +48,7 @@ uint8_t	    channelInput = 0;
 uint8_t	 	vmcStatus = VMC_FREE;//当前状态
 uint8_t	 	vmcChangeLow = 0;//零钱是否不够找1不够找,0够找
 uint8_t	    isTuibi = 0;//是否按下退币按钮,1是
+uint8_t	 	vmcEorr = 0;//本机故障,1故障
 
 uint32_t 	g_coinAmount = 0;   	 //当前投币硬币总金额
 uint32_t 	g_billAmount = 0;    //当前压入纸币总金额
@@ -334,13 +335,19 @@ void DispFreePage()
 {
 	API_LCM_ClearArea(70,6,240,8);
 	vTaskDelay(2);
-	if(vmcChangeLow==0)
+		
+	
+	if(vmcEorr==1)
 	{		
-		API_LCM_Printf(90,6,0,0,UIMenu.welcome[VMCParam.Language]);
+		API_LCM_Printf(70,6,0,0,UIMenu.error[VMCParam.Language]);
 	}
-	else
+	else if(vmcChangeLow==1) 
 	{
 		API_LCM_Printf(70,6,0,0,UIMenu.changeempty[VMCParam.Language]);
+	}
+	else
+	{		
+		API_LCM_Printf(90,6,0,0,UIMenu.welcome[VMCParam.Language]);
 	}
 	
 	vTaskDelay(10);
@@ -577,13 +584,19 @@ uint8_t UnpdateTubeMoney()
 	//零钱小于3元
 	if(coinMoney<300)
 	{
-		vmcChangeLow=1;
-		BillCoinCtr(2,2,0);
+		if(vmcChangeLow==0)
+		{
+			vmcChangeLow=1;
+			BillCoinCtr(2,2,0);
+		}
 	}
 	else
 	{
-		vmcChangeLow=0;
-		BillCoinCtr(1,1,0);
+		if(vmcChangeLow==1)
+		{
+			vmcChangeLow=0;
+			BillCoinCtr(1,1,0);
+		}
 	}
 	vTaskDelay(10);	
 }
@@ -732,6 +745,57 @@ void SaleCostMoney(uint32_t PriceSale)
 }
 
 /*********************************************************************************************************
+** Function name:       IsErrorState
+** Descriptions:        是否进入故障状态
+** input parameters:    无
+** output parameters:   无
+** Returned value:      1故障设备，0正常 
+*********************************************************************************************************/
+uint8_t IsErrorState()
+{ 
+	uint8_t coinError = 0,billError = 0;
+	//纸币器	
+	if(VMCParam.MdbBillDeviceEAB == 0x01)
+	{
+		if(
+			(MdbBillErr.Communicate)||(MdbBillErr.moto)||(MdbBillErr.sensor)||(MdbBillErr.romchk)
+			||(MdbBillErr.jam)||(MdbBillErr.removeCash)||(MdbBillErr.cashErr)
+		  )
+		{
+			//billError = 1;			
+		}
+		
+	}
+	Trace("\r\n BillErr=%d,%d,%d,%d,%d,%d,%d",MdbBillErr.Communicate,MdbBillErr.moto,MdbBillErr.sensor,MdbBillErr.romchk,
+		MdbBillErr.jam,MdbBillErr.removeCash,MdbBillErr.cashErr);
+	
+	//硬币器
+	if(VMCParam.MdbCoinDeviceEAB == 0x01)
+	{
+		if(
+			(MdbCoinErr.Communicate)||(MdbCoinErr.sensor)||(MdbCoinErr.tubejam)||(MdbCoinErr.romchk)
+			||(MdbCoinErr.routing)||(MdbCoinErr.jam)||(MdbCoinErr.removeTube)
+		  )
+		{
+			coinError = 1;			
+		}		
+	}
+	Trace("\r\n CoinErr=%d,%d,%d,%d,%d,%d,%d",MdbCoinErr.Communicate,MdbCoinErr.sensor,MdbCoinErr.tubejam,MdbCoinErr.romchk,
+		MdbCoinErr.routing,MdbCoinErr.jam,MdbCoinErr.removeTube);
+	
+	if(coinError||billError)
+	{
+		vmcEorr=1;
+		return 1;
+	}	
+	else
+	{
+		vmcEorr=0;
+		return 0;
+	}
+}
+
+/*********************************************************************************************************
 ** @API Function name:   VendingService
 ** @API Input para:      None
 ** @API retrun para:     None
@@ -796,6 +860,7 @@ static void VendingService(void)
 		BillDevProcess(&InValue,&Billtype,0,&billOptBack);
 		vTaskDelay(20);
 	}
+	API_SYSTEM_TimerChannelSet(4,5 * 100);	
 	
 	
 	
@@ -810,12 +875,17 @@ static void VendingService(void)
 					API_SYSTEM_TimerChannelSet(1,5 * 100);
 					DispFreePage();
 				}
-				//2.轮询硬币器可找零硬币
-				if(API_SYSTEM_TimerReadChannelValue(2)==0)
+				//4.检测设备故障状态
+				if(API_SYSTEM_TimerReadChannelValue(4)==0)
 				{
-					API_SYSTEM_TimerChannelSet(2,5 * 100);
-					UnpdateTubeMoney();
-				}/**/
+					API_SYSTEM_TimerChannelSet(4,5 * 100);				
+					if(IsErrorState())
+					{
+						API_SYSTEM_TimerChannelSet(1,0);
+						BillCoinCtr(2,2,0);
+						vmcStatus = VMC_ERROR;
+					}
+				}			
 				//轮询投纸币和硬币金额	
 				moneyGet = GetMoney();
 				if(moneyGet == 1)
@@ -826,6 +896,12 @@ static void VendingService(void)
 					Trace("\r\n App2amount=%ld",GetAmountMoney());
 					//LogBeginTransAPI();//记录到明细日志中
 					vmcStatus = VMC_SALE;
+				}
+				//2.轮询硬币器可找零硬币
+				if(API_SYSTEM_TimerReadChannelValue(2)==0)
+				{
+					API_SYSTEM_TimerChannelSet(2,5 * 100);
+					UnpdateTubeMoney();
 				}
 				//判断是否进入维护页面
 				if(API_KEY_ReadKey() == 'M')
@@ -909,6 +985,7 @@ static void VendingService(void)
 			case VMC_CHUHUO:
 				BillCoinCtr(2,2,0);
 				vTaskDelay(500*3);
+				CLrBusinessText();
 				DispChuhuoPage();				
 				//ChuhuoRst = ChannelAPIProcess(vmcColumn);	
 				ChuhuoRst=1;
@@ -964,11 +1041,39 @@ static void VendingService(void)
 				API_LCM_ClearScreen();
 				vmcStatus = VMC_FREE;
 				break;	
+			case VMC_ERROR:					
+				//1.显示故障页面
+				if(API_SYSTEM_TimerReadChannelValue(1)==0)
+				{
+					API_SYSTEM_TimerChannelSet(1,5 * 100);
+					DispFreePage();
+				}	
+				//2.检测设备是否恢复正常
+				if(API_SYSTEM_TimerReadChannelValue(4)==0)
+				{
+					API_SYSTEM_TimerChannelSet(4,5 * 100);	
+					if(!IsErrorState())
+					{	
+						API_SYSTEM_TimerChannelSet(1,0);
+						BillCoinCtr(1,1,1);
+						vmcStatus = VMC_FREE;
+					}
+				}
+				//只是轮询
+				GetMoney();
+				//判断是否进入维护页面
+				if(API_KEY_ReadKey() == 'M')
+				{
+					VMCParam.VMCMode = VMC_MODE_MAIN;
+					break;
+				}
+				break;
 		}	
 
 		//判断是否进入维护页面
 		if(VMCParam.VMCMode == VMC_MODE_MAIN)
 		{
+			vmcStatus = VMC_FREE;
 			break;
 		}
 		

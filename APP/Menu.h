@@ -30,6 +30,7 @@ typedef struct
 	char *IOU[MAXLAGUAGENUBER];
 	char *end[MAXLAGUAGENUBER];
 	char *changeempty[MAXLAGUAGENUBER];
+	char *error[MAXLAGUAGENUBER];
 } UIMEMU;
 extern const UIMEMU UIMenu;
 

@@ -3,11 +3,11 @@
 <title>Static Call Graph - [.\Objects\LPC1768.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\LPC1768.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Sat Nov 12 00:29:57 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Sat Nov 12 12:35:24 2016
 <BR><P>
-<H3>Maximum Stack Usage =        560 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
+<H3>Maximum Stack Usage =        572 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
-MaintenTradeConfig &rArr; LoadNewTradeParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+MaintenDevInfo &rArr; Errcheck &rArr; __aeabi_memclr4
 <P>
 <H3>
 Functions with no stack information
@@ -107,9 +107,9 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry
 </UL>
 
-<P><STRONG><a name="[154]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[157]"></a>__scatterload_rt2_thumb_only</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
-<P><STRONG><a name="[155]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
+<P><STRONG><a name="[158]"></a>__scatterload_null</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __scatter.o(!!!scatter), UNUSED)
 
 <P><STRONG><a name="[43]"></a>__scatterload_copy</STRONG> (Thumb, 26 bytes, Stack size unknown bytes, __scatter_copy.o(!!handler_copy), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
@@ -117,7 +117,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_copy
 </UL>
 
-<P><STRONG><a name="[156]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
+<P><STRONG><a name="[159]"></a>__scatterload_zeroinit</STRONG> (Thumb, 28 bytes, Stack size unknown bytes, __scatter_zi.o(!!handler_zi), UNUSED)
 
 <P><STRONG><a name="[44]"></a>_printf_n</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_n.o(.ARM.Collect$$_printf_percent$$00000001))
 <BR><BR>[Calls]<UL><LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_charcount
@@ -155,9 +155,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec
 </UL>
 
-<P><STRONG><a name="[157]"></a>_printf_a</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_a.o(.ARM.Collect$$_printf_percent$$00000006))
+<P><STRONG><a name="[15a]"></a>_printf_a</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_a.o(.ARM.Collect$$_printf_percent$$00000006))
 
-<P><STRONG><a name="[158]"></a>_printf_ll</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_ll.o(.ARM.Collect$$_printf_percent$$00000007))
+<P><STRONG><a name="[15b]"></a>_printf_ll</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_ll.o(.ARM.Collect$$_printf_percent$$00000007))
 
 <P><STRONG><a name="[4c]"></a>_printf_i</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_i.o(.ARM.Collect$$_printf_percent$$00000008))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72 + Unknown Stack Size
@@ -229,7 +229,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_ll_hex
 </UL>
 
-<P><STRONG><a name="[159]"></a>_printf_l</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_l.o(.ARM.Collect$$_printf_percent$$00000012))
+<P><STRONG><a name="[15c]"></a>_printf_l</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_l.o(.ARM.Collect$$_printf_percent$$00000012))
 
 <P><STRONG><a name="[5c]"></a>_printf_c</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_c.o(.ARM.Collect$$_printf_percent$$00000013))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
@@ -259,27 +259,27 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_wstring
 </UL>
 
-<P><STRONG><a name="[15a]"></a>_printf_percent_end</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_percent_end.o(.ARM.Collect$$_printf_percent$$00000017))
+<P><STRONG><a name="[15d]"></a>_printf_percent_end</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, _printf_percent_end.o(.ARM.Collect$$_printf_percent$$00000017))
 
 <P><STRONG><a name="[6c]"></a>__rt_lib_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit.o(.ARM.Collect$$libinit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_li
 </UL>
 
-<P><STRONG><a name="[15b]"></a>__rt_lib_init_fp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000002))
+<P><STRONG><a name="[15e]"></a>__rt_lib_init_fp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000002))
 
-<P><STRONG><a name="[15c]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
+<P><STRONG><a name="[15f]"></a>__rt_lib_init_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000A))
 
 <P><STRONG><a name="[64]"></a>__rt_lib_init_lc_common</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000F))
 <BR><BR>[Calls]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_locale
 </UL>
 
-<P><STRONG><a name="[15d]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
+<P><STRONG><a name="[160]"></a>__rt_lib_init_preinit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000004))
 
-<P><STRONG><a name="[15e]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
+<P><STRONG><a name="[161]"></a>__rt_lib_init_rand_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000E))
 
-<P><STRONG><a name="[15f]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
+<P><STRONG><a name="[162]"></a>__rt_lib_init_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000000C))
 
-<P><STRONG><a name="[160]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
+<P><STRONG><a name="[163]"></a>__rt_lib_init_lc_collate_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000011))
 
 <P><STRONG><a name="[66]"></a>__rt_lib_init_lc_ctype_2</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000012))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -288,9 +288,9 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_ctype
 </UL>
 
-<P><STRONG><a name="[161]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
+<P><STRONG><a name="[164]"></a>__rt_lib_init_lc_ctype_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000013))
 
-<P><STRONG><a name="[162]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
+<P><STRONG><a name="[165]"></a>__rt_lib_init_lc_monetary_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000015))
 
 <P><STRONG><a name="[67]"></a>__rt_lib_init_lc_numeric_2</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000016))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -299,56 +299,56 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_numeric
 </UL>
 
-<P><STRONG><a name="[163]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
+<P><STRONG><a name="[166]"></a>__rt_lib_init_alloca_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002E))
 
-<P><STRONG><a name="[164]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
+<P><STRONG><a name="[167]"></a>__rt_lib_init_argv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000002C))
 
-<P><STRONG><a name="[165]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
+<P><STRONG><a name="[168]"></a>__rt_lib_init_atexit_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001B))
 
-<P><STRONG><a name="[166]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
+<P><STRONG><a name="[169]"></a>__rt_lib_init_clock_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000021))
 
-<P><STRONG><a name="[167]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
+<P><STRONG><a name="[16a]"></a>__rt_lib_init_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000032))
 
-<P><STRONG><a name="[168]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
+<P><STRONG><a name="[16b]"></a>__rt_lib_init_exceptions_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000030))
 
-<P><STRONG><a name="[169]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
+<P><STRONG><a name="[16c]"></a>__rt_lib_init_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001F))
 
-<P><STRONG><a name="[16a]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
+<P><STRONG><a name="[16d]"></a>__rt_lib_init_getenv_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000023))
 
-<P><STRONG><a name="[16b]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
+<P><STRONG><a name="[16e]"></a>__rt_lib_init_lc_numeric_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000017))
 
-<P><STRONG><a name="[16c]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
+<P><STRONG><a name="[16f]"></a>__rt_lib_init_lc_time_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000019))
 
-<P><STRONG><a name="[16d]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
+<P><STRONG><a name="[170]"></a>__rt_lib_init_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000033))
 
-<P><STRONG><a name="[16e]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
+<P><STRONG><a name="[171]"></a>__rt_lib_init_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$0000001D))
 
-<P><STRONG><a name="[16f]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
+<P><STRONG><a name="[172]"></a>__rt_lib_init_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libinit2.o(.ARM.Collect$$libinit$$00000025))
 
 <P><STRONG><a name="[71]"></a>__rt_lib_shutdown</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown.o(.ARM.Collect$$libshutdown$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_exit_ls
 </UL>
 
-<P><STRONG><a name="[170]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
+<P><STRONG><a name="[173]"></a>__rt_lib_shutdown_cpp_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000002))
 
-<P><STRONG><a name="[171]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000007))
+<P><STRONG><a name="[174]"></a>__rt_lib_shutdown_fp_trap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000007))
 
-<P><STRONG><a name="[172]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
+<P><STRONG><a name="[175]"></a>__rt_lib_shutdown_heap_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000F))
 
-<P><STRONG><a name="[173]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000010))
+<P><STRONG><a name="[176]"></a>__rt_lib_shutdown_return</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000010))
 
-<P><STRONG><a name="[174]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A))
+<P><STRONG><a name="[177]"></a>__rt_lib_shutdown_signal_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000A))
 
-<P><STRONG><a name="[175]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
+<P><STRONG><a name="[178]"></a>__rt_lib_shutdown_stdio_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$00000004))
 
-<P><STRONG><a name="[176]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
+<P><STRONG><a name="[179]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
 
 <P><STRONG><a name="[41]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 <LI><a href="#[42]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
 </UL>
 
-<P><STRONG><a name="[177]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
+<P><STRONG><a name="[17a]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
 
 <P><STRONG><a name="[69]"></a>__rt_entry_sh</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry4.o(.ARM.Collect$$rtentry$$00000004))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8 + Unknown Stack Size
@@ -361,7 +361,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init
 </UL>
 
-<P><STRONG><a name="[178]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
+<P><STRONG><a name="[17b]"></a>__rt_entry_postsh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000009))
 
 <P><STRONG><a name="[6d]"></a>__rt_entry_main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000D))
 <BR><BR>[Stack]<UL><LI>Max Depth = 408 + Unknown Stack Size
@@ -371,7 +371,7 @@ Global Symbols
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
 </UL>
 
-<P><STRONG><a name="[179]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
+<P><STRONG><a name="[17c]"></a>__rt_entry_postli_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$0000000C))
 
 <P><STRONG><a name="[99]"></a>__rt_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit.o(.ARM.Collect$$rtexit$$00000000))
 <BR><BR>[Called By]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;exit
@@ -381,7 +381,7 @@ Global Symbols
 <BR><BR>[Calls]<UL><LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_shutdown
 </UL>
 
-<P><STRONG><a name="[17a]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
+<P><STRONG><a name="[17d]"></a>__rt_exit_prels_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000002))
 
 <P><STRONG><a name="[72]"></a>__rt_exit_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rtexit2.o(.ARM.Collect$$rtexit$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_sys_exit
@@ -390,8 +390,8 @@ Global Symbols
 <P><STRONG><a name="[a]"></a>SVC_Handler</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, port.o(.emb_text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc17xx.o(RESET)
 </UL>
-<P><STRONG><a name="[14d]"></a>__asm___6_port_c_39a90d8d__prvStartFirstTask</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, port.o(.emb_text))
-<BR><BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<P><STRONG><a name="[150]"></a>__asm___6_port_c_39a90d8d__prvStartFirstTask</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, port.o(.emb_text))
+<BR><BR>[Called By]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
 </UL>
 
 <P><STRONG><a name="[c]"></a>PendSV_Handler</STRONG> (Thumb, 72 bytes, Stack size 0 bytes, port.o(.emb_text))
@@ -402,7 +402,7 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc17xx.o(RESET)
 </UL>
-<P><STRONG><a name="[17b]"></a>vPortGetIPSR</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, port.o(.emb_text), UNUSED)
+<P><STRONG><a name="[17e]"></a>vPortGetIPSR</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, port.o(.emb_text), UNUSED)
 
 <P><STRONG><a name="[4]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_lpc17xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc17xx.o(RESET)
@@ -541,16 +541,16 @@ Global Symbols
 <P><STRONG><a name="[75]"></a>__aeabi_memset</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, aeabi_memset.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_memset
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<BR>[Called By]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 
-<P><STRONG><a name="[17c]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[17f]"></a>__I$use$semihosting</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[17d]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
+<P><STRONG><a name="[180]"></a>__use_no_semihosting_swi</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, use_no_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[17e]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, indicate_semi.o(.text), UNUSED)
+<P><STRONG><a name="[181]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, indicate_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[139]"></a>vApplicationIdleHook</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, freertoshooks.o(i.vApplicationIdleHook))
+<P><STRONG><a name="[13c]"></a>vApplicationIdleHook</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, freertoshooks.o(i.vApplicationIdleHook))
 <BR><BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIdleTask
 </UL>
 
@@ -626,7 +626,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_char_common
 </UL>
 
-<P><STRONG><a name="[10d]"></a>strstr</STRONG> (Thumb, 36 bytes, Stack size 12 bytes, strstr.o(.text))
+<P><STRONG><a name="[110]"></a>strstr</STRONG> (Thumb, 36 bytes, Stack size 12 bytes, strstr.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = strstr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMPrintfOneChinese16x16
@@ -637,36 +637,41 @@ Global Symbols
 <P><STRONG><a name="[eb]"></a>strcpy</STRONG> (Thumb, 72 bytes, Stack size 12 bytes, strcpy.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = strcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
+<BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevInfo
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispSalePage
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispPayoutPage
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispIOUPage
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispChaxunPage
 </UL>
 
-<P><STRONG><a name="[114]"></a>strlen</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, strlen.o(.text))
+<P><STRONG><a name="[117]"></a>strlen</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, strlen.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strlen
 </UL>
-<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
+<BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
 <LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevInfo
 </UL>
 
-<P><STRONG><a name="[135]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataFromQueue
+<P><STRONG><a name="[f8]"></a>strcat</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, strcat.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Errcheck
+</UL>
+
+<P><STRONG><a name="[138]"></a>__aeabi_memcpy</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataFromQueue
 </UL>
 
 <P><STRONG><a name="[83]"></a>__rt_memcpy</STRONG> (Thumb, 138 bytes, Stack size 0 bytes, rt_memcpy_v6.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 </UL>
 
-<P><STRONG><a name="[17f]"></a>_memcpy_lastbytes</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_v6.o(.text), UNUSED)
+<P><STRONG><a name="[182]"></a>_memcpy_lastbytes</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_v6.o(.text), UNUSED)
 
-<P><STRONG><a name="[fd]"></a>__aeabi_memclr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
+<P><STRONG><a name="[ff]"></a>__aeabi_memclr</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_memclr.o(.text))
+<BR><BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitUart0
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBufferClr
 </UL>
@@ -682,24 +687,25 @@ Global Symbols
 <P><STRONG><a name="[e4]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = __aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePayoutProcessLevel3
+<BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Errcheck
+<LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePayoutProcessLevel3
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispEndPage
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispChaxunPage
 </UL>
 
-<P><STRONG><a name="[180]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
+<P><STRONG><a name="[183]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
 
-<P><STRONG><a name="[181]"></a>__rt_memclr_w</STRONG> (Thumb, 78 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
+<P><STRONG><a name="[184]"></a>__rt_memclr_w</STRONG> (Thumb, 78 bytes, Stack size 4 bytes, rt_memclr_w.o(.text), UNUSED)
 
 <P><STRONG><a name="[86]"></a>_memset_w</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memclr_w.o(.text), UNUSED)
 <BR><BR>[Called By]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memclr
 </UL>
 
-<P><STRONG><a name="[182]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[185]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[183]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[186]"></a>__rt_heap_escrow$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
-<P><STRONG><a name="[184]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
+<P><STRONG><a name="[187]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
 <P><STRONG><a name="[7d]"></a>_printf_truncate_signed</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, _printf_truncate.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_int_dec
@@ -741,8 +747,8 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__c89vsprintf
 </UL>
-<BR>[Address Reference Count : 2]<UL><LI> c89vsprintf.o(.text)
-<LI> __2sprintf.o(.text)
+<BR>[Address Reference Count : 2]<UL><LI> __2sprintf.o(.text)
+<LI> c89vsprintf.o(.text)
 </UL>
 <P><STRONG><a name="[87]"></a>_printf_cs_common</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, _printf_char.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = _printf_cs_common &rArr; _printf_str &rArr; _printf_post_padding
@@ -855,11 +861,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_memcpy
 </UL>
 
-<P><STRONG><a name="[185]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
+<P><STRONG><a name="[188]"></a>__aeabi_memcpy8</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
 
-<P><STRONG><a name="[186]"></a>__rt_memcpy_w</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
+<P><STRONG><a name="[189]"></a>__rt_memcpy_w</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, rt_memcpy_w.o(.text), UNUSED)
 
-<P><STRONG><a name="[187]"></a>_memcpy_lastbytes_aligned</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_w.o(.text), UNUSED)
+<P><STRONG><a name="[18a]"></a>_memcpy_lastbytes_aligned</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, rt_memcpy_w.o(.text), UNUSED)
 
 <P><STRONG><a name="[8a]"></a>_ll_udiv10</STRONG> (Thumb, 138 bytes, Stack size 12 bytes, lludiv10.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = _ll_udiv10
@@ -868,7 +874,7 @@ Global Symbols
 <LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_longlong_dec
 </UL>
 
-<P><STRONG><a name="[188]"></a>__lib_sel_fp_printf</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, _printf_fp_dec.o(.text), UNUSED)
+<P><STRONG><a name="[18b]"></a>__lib_sel_fp_printf</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, _printf_fp_dec.o(.text), UNUSED)
 
 <P><STRONG><a name="[92]"></a>_printf_fp_dec_real</STRONG> (Thumb, 620 bytes, Stack size 104 bytes, _printf_fp_dec.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 320<LI>Call Chain = _printf_fp_dec_real &rArr; _fp_digits &rArr; _btod_etento &rArr; _btod_emul &rArr; _e2e
@@ -935,9 +941,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[65]"></a>__rt_locale</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_locale_intlibspace.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_lc_common
-<LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_ctype_table
+<BR><BR>[Called By]<UL><LI><a href="#[96]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_ctype_table
 <LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_fp_dec_real
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_lc_common
 </UL>
 
 <P><STRONG><a name="[94]"></a>_printf_fp_infnan</STRONG> (Thumb, 112 bytes, Stack size 24 bytes, _printf_fp_infnan.o(.text))
@@ -967,15 +973,15 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[189]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[18c]"></a>__user_libspace</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
 <P><STRONG><a name="[97]"></a>__user_perproc_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__user_setup_stackheap
 </UL>
 
-<P><STRONG><a name="[18a]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
+<P><STRONG><a name="[18d]"></a>__user_perthread_libspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, libspace.o(.text), UNUSED)
 
-<P><STRONG><a name="[153]"></a>strcmp</STRONG> (Thumb, 128 bytes, Stack size 0 bytes, strcmpv7m.o(.text))
+<P><STRONG><a name="[156]"></a>strcmp</STRONG> (Thumb, 128 bytes, Stack size 0 bytes, strcmpv7m.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_ctype
 <LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_get_lc_numeric
 </UL>
@@ -1044,7 +1050,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Buzzer
 </UL>
-<BR>[Called By]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMoney
+<BR>[Called By]<UL><LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMoney
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendService
 </UL>
 
@@ -1077,8 +1083,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C0RdNByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTradeParam
+<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTradeParam
 </UL>
 
 <P><STRONG><a name="[a9]"></a>API_FRAM_WriteFram</STRONG> (Thumb, 26 bytes, Stack size 24 bytes, fram.o(i.API_FRAM_WriteFram))
@@ -1086,9 +1092,9 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C0WrNByte
 </UL>
-<BR>[Called By]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
-<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTradeParam
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
+<BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTradeParam
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
 </UL>
 
 <P><STRONG><a name="[ab]"></a>API_KEY_KeyboardInit</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, keyboard.o(i.API_KEY_KeyboardInit))
@@ -1105,16 +1111,16 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadKeyValue
 </UL>
-<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
+<BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenTradeLog
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenTradeConfig
 <LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevTest
 <LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevInfo
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevConfig
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnterMaintenance
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[af]"></a>API_LCM_ClearArea</STRONG> (Thumb, 28 bytes, Stack size 24 bytes, display.o(i.API_LCM_ClearArea))
@@ -1122,11 +1128,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMClearArea
 </UL>
-<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
+<BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenTradeConfig
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevConfig
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
 <LI><a href="#[ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispFreePage
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLrBusinessText
 </UL>
@@ -1141,11 +1147,11 @@ Global Symbols
 <LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevTest
 <LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevInfo
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevConfig
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnterMaintenance
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispSalePage
 <LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispEndPage
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[b3]"></a>API_LCM_DrawLine</STRONG> (Thumb, 16 bytes, Stack size 16 bytes, display.o(i.API_LCM_DrawLine))
@@ -1158,7 +1164,7 @@ Global Symbols
 <LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevTest
 <LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevInfo
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevConfig
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnterMaintenance
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispSalePage
 </UL>
@@ -1180,14 +1186,14 @@ Global Symbols
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMPrintfOneAscIICh16x8
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__c89vsprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
+<BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenTradeLog
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenTradeConfig
 <LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevTest
 <LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevInfo
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevConfig
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnterMaintenance
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispSalePage
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispQuhuoPage
@@ -1199,7 +1205,7 @@ Global Symbols
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispChuhuoPage
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispChhuoFailPage
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispChaxunPage
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[bb]"></a>API_MDB_BillType_BillDevice</STRONG> (Thumb, 58 bytes, Stack size 64 bytes, billvalidatorrecycler.o(i.API_MDB_BillType_BillDevice))
@@ -1208,7 +1214,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MDBConversation
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillTypeEanbleOrDisable
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
 </UL>
 
 <P><STRONG><a name="[bd]"></a>API_MDB_CoinType_CoinDevice</STRONG> (Thumb, 54 bytes, Stack size 64 bytes, coinacceptorchanger.o(i.API_MDB_CoinType_CoinDevice))
@@ -1239,7 +1245,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MDBConversation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
+<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
 </UL>
 
 <P><STRONG><a name="[c6]"></a>API_MDB_ExpanFeatureEnable_CoinDevice</STRONG> (Thumb, 62 bytes, Stack size 64 bytes, coinacceptorchanger.o(i.API_MDB_ExpanFeatureEnable_CoinDevice))
@@ -1247,7 +1253,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MDBConversation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
+<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
 </UL>
 
 <P><STRONG><a name="[c7]"></a>API_MDB_ExpanIdentification_CoinDevice</STRONG> (Thumb, 38 bytes, Stack size 24 bytes, coinacceptorchanger.o(i.API_MDB_ExpanIdentification_CoinDevice))
@@ -1255,7 +1261,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MDBConversation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
+<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
 </UL>
 
 <P><STRONG><a name="[c8]"></a>API_MDB_ExpanPayoutStatus_CoinDevice</STRONG> (Thumb, 72 bytes, Stack size 32 bytes, coinacceptorchanger.o(i.API_MDB_ExpanPayoutStatus_CoinDevice))
@@ -1291,7 +1297,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MDBConversation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
+<BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
 </UL>
 
 <P><STRONG><a name="[cc]"></a>API_MDB_L2IdentificationWithOptBit_BillDevice</STRONG> (Thumb, 36 bytes, Stack size 24 bytes, billvalidatorrecycler.o(i.API_MDB_L2IdentificationWithOptBit_BillDevice))
@@ -1299,7 +1305,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MDBConversation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
+<BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
 </UL>
 
 <P><STRONG><a name="[c1]"></a>API_MDB_Poll_BillDevice</STRONG> (Thumb, 28 bytes, Stack size 24 bytes, billvalidatorrecycler.o(i.API_MDB_Poll_BillDevice))
@@ -1308,7 +1314,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MDBConversation
 </UL>
 <BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_MDB_Escrow_BillDevice
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillDevProcess
 </UL>
 
@@ -1317,7 +1323,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MDBConversation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
+<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CoinDevProcess
 </UL>
 
@@ -1326,7 +1332,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MDBConversation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
+<BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
 </UL>
 
 <P><STRONG><a name="[cf]"></a>API_MDB_Reset_CoinDevice</STRONG> (Thumb, 24 bytes, Stack size 24 bytes, coinacceptorchanger.o(i.API_MDB_Reset_CoinDevice))
@@ -1334,7 +1340,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MDBConversation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
+<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
 </UL>
 
 <P><STRONG><a name="[d0]"></a>API_MDB_Setup_BillDevice</STRONG> (Thumb, 28 bytes, Stack size 24 bytes, billvalidatorrecycler.o(i.API_MDB_Setup_BillDevice))
@@ -1342,7 +1348,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MDBConversation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
+<BR>[Called By]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
 </UL>
 
 <P><STRONG><a name="[d1]"></a>API_MDB_Setup_CoinDevice</STRONG> (Thumb, 28 bytes, Stack size 24 bytes, coinacceptorchanger.o(i.API_MDB_Setup_CoinDevice))
@@ -1350,7 +1356,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MDBConversation
 </UL>
-<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
+<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
 </UL>
 
 <P><STRONG><a name="[c3]"></a>API_MDB_Stacker_BillDevice</STRONG> (Thumb, 104 bytes, Stack size 24 bytes, billvalidatorrecycler.o(i.API_MDB_Stacker_BillDevice))
@@ -1361,7 +1367,7 @@ Global Symbols
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 </UL>
 <BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_MDB_Escrow_BillDevice
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
 </UL>
 
 <P><STRONG><a name="[d2]"></a>API_MDB_TubeStatus_CoinDevice</STRONG> (Thumb, 28 bytes, Stack size 24 bytes, coinacceptorchanger.o(i.API_MDB_TubeStatus_CoinDevice))
@@ -1414,11 +1420,11 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_MDB_Escrow_BillDevice
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillTypeEanbleOrDisable
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinTypeEanbleOrDisable
-<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinGetTubeStatus
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePayoutProcessLevel3
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[dc]"></a>API_SYSTEM_TimerInit</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, system.o(i.API_SYSTEM_TimerInit))
@@ -1433,11 +1439,11 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_MDB_Escrow_BillDevice
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillTypeEanbleOrDisable
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinTypeEanbleOrDisable
-<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinGetTubeStatus
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePayoutProcessLevel3
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[de]"></a>BillCoinCtr</STRONG> (Thumb, 166 bytes, Stack size 32 bytes, vendservice.o(i.BillCoinCtr))
@@ -1448,8 +1454,8 @@ Global Symbols
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillDevProcess
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 </UL>
-<BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UnpdateTubeMoney
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UnpdateTubeMoney
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[df]"></a>BillDevProcess</STRONG> (Thumb, 568 bytes, Stack size 72 bytes, mdbbilldeviceoperation.o(i.BillDevProcess))
@@ -1462,10 +1468,10 @@ Global Symbols
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 </UL>
-<BR>[Called By]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMoney
+<BR>[Called By]<UL><LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMoney
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillCoinCtr
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[a0]"></a>Buzzer</STRONG> (Thumb, 34 bytes, Stack size 8 bytes, buzzer.o(i.Buzzer))
@@ -1485,6 +1491,7 @@ Global Symbols
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispChaxunPage
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[e3]"></a>ChangePayoutProcessLevel3</STRONG> (Thumb, 284 bytes, Stack size 96 bytes, mdbcoindeviceoperation.o(i.ChangePayoutProcessLevel3))
@@ -1501,7 +1508,7 @@ Global Symbols
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
+<BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangerMoney
 </UL>
 
@@ -1513,11 +1520,11 @@ Global Symbols
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetAmountMoney
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[125]"></a>ClearDealPar</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, vendservice.o(i.ClearDealPar))
-<BR><BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<P><STRONG><a name="[128]"></a>ClearDealPar</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, vendservice.o(i.ClearDealPar))
+<BR><BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[e8]"></a>CoinDevProcess</STRONG> (Thumb, 332 bytes, Stack size 72 bytes, mdbcoindeviceoperation.o(i.CoinDevProcess))
@@ -1527,19 +1534,19 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_MDB_Poll_CoinDevice
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 </UL>
-<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMoney
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMoney
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[fc]"></a>CrcCheck</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, paramdefine.o(i.CrcCheck))
+<P><STRONG><a name="[fe]"></a>CrcCheck</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, paramdefine.o(i.CrcCheck))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = CrcCheck
 </UL>
-<BR>[Called By]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
-<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTradeParam
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTradeParam
+<BR>[Called By]<UL><LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTradeParam
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTradeParam
 </UL>
 
 <P><STRONG><a name="[e9]"></a>DispChaxunPage</STRONG> (Thumb, 404 bytes, Stack size 128 bytes, vendservice.o(i.DispChaxunPage))
@@ -1554,7 +1561,7 @@ Global Symbols
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[ec]"></a>DispChhuoFailPage</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, vendservice.o(i.DispChhuoFailPage))
@@ -1564,7 +1571,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_Printf
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[ed]"></a>DispChuhuoPage</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, vendservice.o(i.DispChuhuoPage))
@@ -1574,7 +1581,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_Printf
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[ee]"></a>DispEndPage</STRONG> (Thumb, 60 bytes, Stack size 40 bytes, vendservice.o(i.DispEndPage))
@@ -1586,10 +1593,10 @@ Global Symbols
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[ef]"></a>DispFreePage</STRONG> (Thumb, 198 bytes, Stack size 32 bytes, vendservice.o(i.DispFreePage))
+<P><STRONG><a name="[ef]"></a>DispFreePage</STRONG> (Thumb, 238 bytes, Stack size 32 bytes, vendservice.o(i.DispFreePage))
 <BR><BR>[Stack]<UL><LI>Max Depth = 240 + Unknown Stack Size
 <LI>Call Chain = DispFreePage &rArr; API_LCM_Printf &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -1600,7 +1607,7 @@ Global Symbols
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_COM_RecBufferIsNotEmpty
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[f0]"></a>DispIOUPage</STRONG> (Thumb, 64 bytes, Stack size 32 bytes, vendservice.o(i.DispIOUPage))
@@ -1612,7 +1619,7 @@ Global Symbols
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PrintfMoney
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[f1]"></a>DispPayoutPage</STRONG> (Thumb, 58 bytes, Stack size 32 bytes, vendservice.o(i.DispPayoutPage))
@@ -1624,7 +1631,7 @@ Global Symbols
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PrintfMoney
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[f2]"></a>DispQuChangePage</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, vendservice.o(i.DispQuChangePage))
@@ -1634,7 +1641,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_Printf
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[f3]"></a>DispQuhuoPage</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, vendservice.o(i.DispQuhuoPage))
@@ -1644,7 +1651,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_Printf
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[f4]"></a>DispSalePage</STRONG> (Thumb, 108 bytes, Stack size 32 bytes, vendservice.o(i.DispSalePage))
@@ -1659,7 +1666,7 @@ Global Symbols
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PrintfMoney
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[21]"></a>EINT1_IRQHandler</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, key.o(i.EINT1_IRQHandler))
@@ -1675,10 +1682,10 @@ Global Symbols
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispPayoutPage
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispChaxunPage
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangerMoney
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[f7]"></a>GetMoney</STRONG> (Thumb, 188 bytes, Stack size 24 bytes, vendservice.o(i.GetMoney))
+<P><STRONG><a name="[f9]"></a>GetMoney</STRONG> (Thumb, 188 bytes, Stack size 24 bytes, vendservice.o(i.GetMoney))
 <BR><BR>[Stack]<UL><LI>Max Depth = 464 + Unknown Stack Size
 <LI>Call Chain = GetMoney &rArr; BillDevProcess &rArr; API_MDB_Escrow_BillDevice &rArr; API_MDB_Stacker_BillDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -1688,7 +1695,7 @@ Global Symbols
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[a6]"></a>I2C0Init</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, i2c.o(i.I2C0Init))
@@ -1700,7 +1707,7 @@ Global Symbols
 <P><STRONG><a name="[a8]"></a>I2C0RdNByte</STRONG> (Thumb, 138 bytes, Stack size 24 bytes, i2c.o(i.I2C0RdNByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = I2C0RdNByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait_I2C0_End
+<BR>[Calls]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait_I2C0_End
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_FRAM_ReadFram
 </UL>
@@ -1708,7 +1715,7 @@ Global Symbols
 <P><STRONG><a name="[aa]"></a>I2C0WrNByte</STRONG> (Thumb, 132 bytes, Stack size 24 bytes, i2c.o(i.I2C0WrNByte))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = I2C0WrNByte
 </UL>
-<BR>[Calls]<UL><LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait_I2C0_End
+<BR>[Calls]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Wait_I2C0_End
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_FRAM_WriteFram
 </UL>
@@ -1719,20 +1726,20 @@ Global Symbols
 <P><STRONG><a name="[dd]"></a>InitTimer</STRONG> (Thumb, 256 bytes, Stack size 16 bytes, timer.o(i.InitTimer))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = InitTimer &rArr; NVIC_SetPriority
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetPriority
-<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EnableIRQ
+<BR>[Calls]<UL><LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetPriority
+<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EnableIRQ
 </UL>
 <BR>[Called By]<UL><LI><a href="#[dc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_SYSTEM_TimerInit
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardInit
 </UL>
 
-<P><STRONG><a name="[fb]"></a>InitTradeParam</STRONG> (Thumb, 360 bytes, Stack size 176 bytes, paramdefine.o(i.InitTradeParam))
+<P><STRONG><a name="[fd]"></a>InitTradeParam</STRONG> (Thumb, 360 bytes, Stack size 176 bytes, paramdefine.o(i.InitTradeParam))
 <BR><BR>[Stack]<UL><LI>Max Depth = 456 + Unknown Stack Size
 <LI>Call Chain = InitTradeParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_FRAM_ReadFram
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CrcCheck
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CrcCheck
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendService
 </UL>
@@ -1740,46 +1747,55 @@ Global Symbols
 <P><STRONG><a name="[a2]"></a>InitUart0</STRONG> (Thumb, 124 bytes, Stack size 16 bytes, uart0.o(i.InitUart0))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = InitUart0
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+<BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_COM_Init
 </UL>
 
-<P><STRONG><a name="[fe]"></a>InitVmcParam</STRONG> (Thumb, 334 bytes, Stack size 136 bytes, paramdefine.o(i.InitVmcParam))
+<P><STRONG><a name="[100]"></a>InitVmcParam</STRONG> (Thumb, 334 bytes, Stack size 136 bytes, paramdefine.o(i.InitVmcParam))
 <BR><BR>[Stack]<UL><LI>Max Depth = 552 + Unknown Stack Size
 <LI>Call Chain = InitVmcParam &rArr; LoadDefaultVmcParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_FRAM_ReadFram
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CrcCheck
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CrcCheck
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendService
 </UL>
 
-<P><STRONG><a name="[123]"></a>IsTuibiAPI</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, vendservice.o(i.IsTuibiAPI))
-<BR><BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<P><STRONG><a name="[102]"></a>IsErrorState</STRONG> (Thumb, 170 bytes, Stack size 32 bytes, vendservice.o(i.IsErrorState))
+<BR><BR>[Stack]<UL><LI>Max Depth = 312 + Unknown Stack Size
+<LI>Call Chain = IsErrorState &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+</UL>
+<BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
+</UL>
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[100]"></a>KeyBoardScan</STRONG> (Thumb, 228 bytes, Stack size 24 bytes, key.o(i.KeyBoardScan))
+<P><STRONG><a name="[126]"></a>IsTuibiAPI</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, vendservice.o(i.IsTuibiAPI))
+<BR><BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+</UL>
+
+<P><STRONG><a name="[103]"></a>KeyBoardScan</STRONG> (Thumb, 228 bytes, Stack size 24 bytes, key.o(i.KeyBoardScan))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = KeyBoardScan &rArr; SetAKeyColOutputLow
 </UL>
-<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAllkeyColInput
-<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAKeyColOutputLow
-<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetAKeyRowValue
-<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOChangeDirectionDelay
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClrAllKeyRow
+<BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAllkeyColInput
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAKeyColOutputLow
+<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetAKeyRowValue
+<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOChangeDirectionDelay
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClrAllKeyRow
 </UL>
 <BR>[Called By]<UL><LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[106]"></a>KeyboardCtrl</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, key.o(i.KeyboardCtrl))
+<P><STRONG><a name="[109]"></a>KeyboardCtrl</STRONG> (Thumb, 76 bytes, Stack size 8 bytes, key.o(i.KeyboardCtrl))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = KeyboardCtrl
 </UL>
-<BR>[Calls]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAllkeyColInput
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EnableIRQ
+<BR>[Calls]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAllkeyColInput
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EnableIRQ
 <LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_DisableIRQ
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClrAllKeyRow
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClrAllKeyRow
 </UL>
 <BR>[Called By]<UL><LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER1_IRQHandler
 </UL>
@@ -1789,23 +1805,23 @@ Global Symbols
 <LI>Call Chain = KeyboardInit &rArr; xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTimer
-<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
-<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAllkeyColInput
-<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EnableIRQ
-<LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClrAllKeyRow
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
+<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAllkeyColInput
+<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EnableIRQ
+<LI><a href="#[107]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClrAllKeyRow
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ab]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_KEY_KeyboardInit
 </UL>
 
-<P><STRONG><a name="[10c]"></a>LCMBacklightControl</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, lcm.o(i.LCMBacklightControl))
+<P><STRONG><a name="[10f]"></a>LCMBacklightControl</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, lcm.o(i.LCMBacklightControl))
 <BR><BR>[Called By]<UL><LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMInit
 </UL>
 
 <P><STRONG><a name="[b0]"></a>LCMClearArea</STRONG> (Thumb, 60 bytes, Stack size 32 bytes, lcm.o(i.LCMClearArea))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = LCMClearArea &rArr; LCMSetXY &rArr; PutCmdIntoLcmController
 </UL>
-<BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMSetXY
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutDataIntoLcmController
+<BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMSetXY
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutDataIntoLcmController
 </UL>
 <BR>[Called By]<UL><LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_ClearArea
 </UL>
@@ -1813,8 +1829,8 @@ Global Symbols
 <P><STRONG><a name="[b2]"></a>LCMClearScreen</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, lcm.o(i.LCMClearScreen))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = LCMClearScreen &rArr; LCMSetXY &rArr; PutCmdIntoLcmController
 </UL>
-<BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMSetXY
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutDataIntoLcmController
+<BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMSetXY
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutDataIntoLcmController
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_ClearScreen
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMInit
@@ -1823,8 +1839,8 @@ Global Symbols
 <P><STRONG><a name="[b4]"></a>LCMDrawline</STRONG> (Thumb, 38 bytes, Stack size 16 bytes, lcm.o(i.LCMDrawline))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = LCMDrawline &rArr; LCMSetXY &rArr; PutCmdIntoLcmController
 </UL>
-<BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMSetXY
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutDataIntoLcmController
+<BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMSetXY
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutDataIntoLcmController
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_DrawLine
 </UL>
@@ -1834,8 +1850,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMClearScreen
-<LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMBacklightControl
-<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutCmdIntoLcmController
+<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMBacklightControl
+<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutCmdIntoLcmController
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_Init
 </UL>
@@ -1843,8 +1859,8 @@ Global Symbols
 <P><STRONG><a name="[b8]"></a>LCMPrintfOneAscIICh16x8</STRONG> (Thumb, 214 bytes, Stack size 32 bytes, lcm.o(i.LCMPrintfOneAscIICh16x8))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = LCMPrintfOneAscIICh16x8 &rArr; LCMPutChar &rArr; LCMSetXY &rArr; PutCmdIntoLcmController
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMPutChar
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
+<BR>[Calls]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMPutChar
+<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_Printf
 </UL>
@@ -1852,8 +1868,8 @@ Global Symbols
 <P><STRONG><a name="[b9]"></a>LCMPrintfOneAscIICh32x16</STRONG> (Thumb, 414 bytes, Stack size 32 bytes, lcm.o(i.LCMPrintfOneAscIICh32x16))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = LCMPrintfOneAscIICh32x16 &rArr; LCMPutChar &rArr; LCMSetXY &rArr; PutCmdIntoLcmController
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMPutChar
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
+<BR>[Calls]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMPutChar
+<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_Printf
 </UL>
@@ -1861,55 +1877,55 @@ Global Symbols
 <P><STRONG><a name="[ba]"></a>LCMPrintfOneChinese16x16</STRONG> (Thumb, 192 bytes, Stack size 32 bytes, lcm.o(i.LCMPrintfOneChinese16x16))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = LCMPrintfOneChinese16x16 &rArr; LCMPutChar &rArr; LCMSetXY &rArr; PutCmdIntoLcmController
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMPutChar
-<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
+<BR>[Calls]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMPutChar
+<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strstr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_Printf
 </UL>
 
-<P><STRONG><a name="[109]"></a>LCMSetXY</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, lcm.o(i.LCMSetXY))
+<P><STRONG><a name="[10c]"></a>LCMSetXY</STRONG> (Thumb, 34 bytes, Stack size 16 bytes, lcm.o(i.LCMSetXY))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = LCMSetXY &rArr; PutCmdIntoLcmController
 </UL>
-<BR>[Calls]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutCmdIntoLcmController
+<BR>[Calls]<UL><LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutCmdIntoLcmController
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMDrawline
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMClearScreen
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMClearArea
-<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMPutChar
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMPutChar
 </UL>
 
-<P><STRONG><a name="[ff]"></a>LoadDefaultVmcParam</STRONG> (Thumb, 330 bytes, Stack size 136 bytes, paramdefine.o(i.LoadDefaultVmcParam))
+<P><STRONG><a name="[101]"></a>LoadDefaultVmcParam</STRONG> (Thumb, 330 bytes, Stack size 136 bytes, paramdefine.o(i.LoadDefaultVmcParam))
 <BR><BR>[Stack]<UL><LI>Max Depth = 416 + Unknown Stack Size
 <LI>Call Chain = LoadDefaultVmcParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_FRAM_WriteFram
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CrcCheck
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CrcCheck
 </UL>
-<BR>[Called By]<UL><LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
+<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
 </UL>
 
-<P><STRONG><a name="[10f]"></a>LoadNewTradeParam</STRONG> (Thumb, 386 bytes, Stack size 176 bytes, paramdefine.o(i.LoadNewTradeParam))
+<P><STRONG><a name="[112]"></a>LoadNewTradeParam</STRONG> (Thumb, 386 bytes, Stack size 176 bytes, paramdefine.o(i.LoadNewTradeParam))
 <BR><BR>[Stack]<UL><LI>Max Depth = 456 + Unknown Stack Size
 <LI>Call Chain = LoadNewTradeParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_FRAM_WriteFram
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CrcCheck
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CrcCheck
 </UL>
 <BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenTradeConfig
 </UL>
 
-<P><STRONG><a name="[110]"></a>LoadNewVmcParam</STRONG> (Thumb, 326 bytes, Stack size 136 bytes, paramdefine.o(i.LoadNewVmcParam))
+<P><STRONG><a name="[113]"></a>LoadNewVmcParam</STRONG> (Thumb, 326 bytes, Stack size 136 bytes, paramdefine.o(i.LoadNewVmcParam))
 <BR><BR>[Stack]<UL><LI>Max Depth = 416 + Unknown Stack Size
 <LI>Call Chain = LoadNewVmcParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_FRAM_WriteFram
-<LI><a href="#[fc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CrcCheck
+<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CrcCheck
 </UL>
 <BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenTradeConfig
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevConfig
@@ -1919,9 +1935,9 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 96<LI>Call Chain = MDBConversation &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbPutCh
+<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbPutCh
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBufferClr
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSystemTimerValue
+<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSystemTimerValue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_MDB_TubeStatus_CoinDevice
 <LI><a href="#[d1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_MDB_Setup_CoinDevice
@@ -1948,12 +1964,12 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 272 + Unknown Stack Size
 <LI>Call Chain = Maintenance &rArr; Login &rArr; EnterMaintenance &rArr; API_LCM_Printf &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
+<BR>[Calls]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
-<P><STRONG><a name="[117]"></a>MdbBillResetAndSetup</STRONG> (Thumb, 1954 bytes, Stack size 56 bytes, mdbbilldeviceoperation.o(i.MdbBillResetAndSetup))
+<P><STRONG><a name="[11a]"></a>MdbBillResetAndSetup</STRONG> (Thumb, 1954 bytes, Stack size 56 bytes, mdbbilldeviceoperation.o(i.MdbBillResetAndSetup))
 <BR><BR>[Stack]<UL><LI>Max Depth = 360 + Unknown Stack Size
 <LI>Call Chain = MdbBillResetAndSetup &rArr; API_MDB_Stacker_BillDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -1968,9 +1984,9 @@ Global Symbols
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_SYSTEM_TimerChannelSet
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[e1]"></a>MdbBillTypeEanbleOrDisable</STRONG> (Thumb, 162 bytes, Stack size 24 bytes, mdbbilldeviceoperation.o(i.MdbBillTypeEanbleOrDisable))
@@ -1995,10 +2011,10 @@ Global Symbols
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 </UL>
 <BR>[Called By]<UL><LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePayoutProcessLevel3
-<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UnpdateTubeMoney
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UnpdateTubeMoney
 </UL>
 
-<P><STRONG><a name="[118]"></a>MdbCoinResetAndSetup</STRONG> (Thumb, 808 bytes, Stack size 64 bytes, mdbcoindeviceoperation.o(i.MdbCoinResetAndSetup))
+<P><STRONG><a name="[11b]"></a>MdbCoinResetAndSetup</STRONG> (Thumb, 808 bytes, Stack size 64 bytes, mdbcoindeviceoperation.o(i.MdbCoinResetAndSetup))
 <BR><BR>[Stack]<UL><LI>Max Depth = 344 + Unknown Stack Size
 <LI>Call Chain = MdbCoinResetAndSetup &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2012,9 +2028,9 @@ Global Symbols
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_SYSTEM_TimerChannelSet
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
-<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[e0]"></a>MdbCoinTypeEanbleOrDisable</STRONG> (Thumb, 112 bytes, Stack size 24 bytes, mdbcoindeviceoperation.o(i.MdbCoinTypeEanbleOrDisable))
@@ -2025,14 +2041,14 @@ Global Symbols
 <LI><a href="#[c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_SYSTEM_TimerChannelSet
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
+<BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillCoinCtr
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[11e]"></a>MdbGetCoinValue</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, mdbcoindeviceoperation.o(i.MdbGetCoinValue))
-<BR><BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
-<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UnpdateTubeMoney
+<P><STRONG><a name="[121]"></a>MdbGetCoinValue</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, mdbcoindeviceoperation.o(i.MdbGetCoinValue))
+<BR><BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UnpdateTubeMoney
 </UL>
 
 <P><STRONG><a name="[da]"></a>PinFuctionSelect</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, pinselect.o(i.PinFuctionSelect))
@@ -2045,8 +2061,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2sprintf
 </UL>
-<BR>[Called By]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
+<BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispSalePage
 <LI><a href="#[f1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispPayoutPage
 <LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispIOUPage
@@ -2064,16 +2080,16 @@ Global Symbols
 <P><STRONG><a name="[ae]"></a>ReadKeyValue</STRONG> (Thumb, 30 bytes, Stack size 8 bytes, key.o(i.ReadKeyValue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = ReadKeyValue &rArr; xQueueGenericReceive &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<BR>[Calls]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_KEY_ReadKey
 </UL>
 
-<P><STRONG><a name="[124]"></a>SaleCostMoney</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, vendservice.o(i.SaleCostMoney))
-<BR><BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<P><STRONG><a name="[127]"></a>SaleCostMoney</STRONG> (Thumb, 50 bytes, Stack size 0 bytes, vendservice.o(i.SaleCostMoney))
+<BR><BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
-<P><STRONG><a name="[113]"></a>SetSystemTimerValue</STRONG> (Thumb, 18 bytes, Stack size 12 bytes, timer.o(i.SetSystemTimerValue))
+<P><STRONG><a name="[116]"></a>SetSystemTimerValue</STRONG> (Thumb, 18 bytes, Stack size 12 bytes, timer.o(i.SetSystemTimerValue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = SetSystemTimerValue
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerCtrl
@@ -2084,7 +2100,7 @@ Global Symbols
 <P><STRONG><a name="[d]"></a>SysTick_Handler</STRONG> (Thumb, 46 bytes, Stack size 8 bytes, port.o(i.SysTick_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SysTick_Handler &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<BR>[Calls]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc17xx.o(RESET)
 </UL>
@@ -2102,10 +2118,10 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = TIMER1_IRQHandler &rArr; xQueueGenericSendFromISR &rArr; prvCopyDataToQueue &rArr; xTaskPriorityDisinherit
 </UL>
 <BR>[Calls]<UL><LI><a href="#[db]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TimerCtrl
-<LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardCtrl
+<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardCtrl
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Buzzer
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyBoardScan
+<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyBoardScan
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc17xx.o(RESET)
 </UL>
@@ -2119,7 +2135,7 @@ Global Symbols
 <P><STRONG><a name="[12]"></a>TIMER3_IRQHandler</STRONG> (Thumb, 110 bytes, Stack size 8 bytes, timer.o(i.TIMER3_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88<LI>Call Chain = TIMER3_IRQHandler &rArr; xQueueGenericSendFromISR &rArr; prvCopyDataToQueue &rArr; xTaskPriorityDisinherit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
+<BR>[Calls]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Buzzer
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc17xx.o(RESET)
@@ -2131,42 +2147,43 @@ Global Symbols
 <LI><a href="#[11]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER2_IRQHandler
 <LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER1_IRQHandler
 <LI><a href="#[f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER0_IRQHandler
-<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSystemTimerValue
+<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetSystemTimerValue
 </UL>
 
 <P><STRONG><a name="[bf]"></a>Trace</STRONG> (Thumb, 52 bytes, Stack size 160 bytes, uart0.o(i.Trace))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280 + Unknown Stack Size
 <LI>Call Chain = Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart0PutChar
+<BR>[Calls]<UL><LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Uart0PutChar
 <LI><a href="#[77]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__c89vsprintf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_MDB_ExpanPayoutValuePoll_CoinDevice
 <LI><a href="#[c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_MDB_ExpanPayoutStatus_CoinDevice
 <LI><a href="#[c3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_MDB_Stacker_BillDevice
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_MDB_Escrow_BillDevice
-<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
+<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenTradeConfig
-<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinGetTubeStatus
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CoinDevProcess
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePayoutProcessLevel3
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillDevProcess
-<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UnpdateTubeMoney
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMoney
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UnpdateTubeMoney
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsErrorState
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMoney
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispChaxunPage
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangerMoney
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillCoinCtr
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
-<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTradeParam
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTradeParam
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationMallocFailedHook
-<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationStackOverflowHook
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTradeParam
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTradeParam
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationMallocFailedHook
+<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationStackOverflowHook
 </UL>
 
 <P><STRONG><a name="[13]"></a>UART0_IRQHandler</STRONG> (Thumb, 146 bytes, Stack size 8 bytes, uart0.o(i.UART0_IRQHandler))
@@ -2177,7 +2194,7 @@ Global Symbols
 <P><STRONG><a name="[15]"></a>UART2_IRQHandler</STRONG> (Thumb, 238 bytes, Stack size 16 bytes, mdb.o(i.UART2_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = UART2_IRQHandler &rArr; MdbPutCh
 </UL>
-<BR>[Calls]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbPutCh
+<BR>[Calls]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbPutCh
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_lpc17xx.o(RESET)
 </UL>
@@ -2185,21 +2202,21 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_COM_RecBufferIsNotEmpty
 </UL>
 
-<P><STRONG><a name="[11f]"></a>Uart0PutChar</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, uart0.o(i.Uart0PutChar))
+<P><STRONG><a name="[122]"></a>Uart0PutChar</STRONG> (Thumb, 20 bytes, Stack size 0 bytes, uart0.o(i.Uart0PutChar))
 <BR><BR>[Called By]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 </UL>
 
-<P><STRONG><a name="[120]"></a>UnpdateTubeMoney</STRONG> (Thumb, 98 bytes, Stack size 16 bytes, vendservice.o(i.UnpdateTubeMoney))
+<P><STRONG><a name="[123]"></a>UnpdateTubeMoney</STRONG> (Thumb, 112 bytes, Stack size 16 bytes, vendservice.o(i.UnpdateTubeMoney))
 <BR><BR>[Stack]<UL><LI>Max Depth = 488 + Unknown Stack Size
 <LI>Call Chain = UnpdateTubeMoney &rArr; BillCoinCtr &rArr; BillDevProcess &rArr; API_MDB_Escrow_BillDevice &rArr; API_MDB_Stacker_BillDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbGetCoinValue
+<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbGetCoinValue
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinGetTubeStatus
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillCoinCtr
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 </UL>
-<BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<BR>[Called By]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[3b]"></a>VendService</STRONG> (Thumb, 98 bytes, Stack size 0 bytes, vendservice.o(i.VendService))
@@ -2214,10 +2231,10 @@ Global Symbols
 <LI><a href="#[a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_FRAM_Init
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_COM_Init
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_BUZZER_Buzzer
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingIdle
-<LI><a href="#[fe]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
-<LI><a href="#[fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTradeParam
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingIdle
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
+<LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTradeParam
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> main.o(i.main)
 </UL>
@@ -2233,54 +2250,54 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 408 + Unknown Stack Size
 <LI>Call Chain = main &rArr; vTaskStartScheduler &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
-<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<BR>[Calls]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
 </UL>
 
-<P><STRONG><a name="[144]"></a>pvPortMalloc</STRONG> (Thumb, 198 bytes, Stack size 24 bytes, heap.o(i.pvPortMalloc))
+<P><STRONG><a name="[147]"></a>pvPortMalloc</STRONG> (Thumb, 198 bytes, Stack size 24 bytes, heap.o(i.pvPortMalloc))
 <BR><BR>[Stack]<UL><LI>Max Depth = 304 + Unknown Stack Size
 <LI>Call Chain = pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
-<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationMallocFailedHook
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
-<LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvHeapInit
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationMallocFailedHook
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
+<LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvHeapInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
-<LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
-</UL>
-
-<P><STRONG><a name="[14e]"></a>pvTaskIncrementMutexHeldCount</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, tasks.o(i.pvTaskIncrementMutexHeldCount))
-<BR><BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
 </UL>
 
-<P><STRONG><a name="[13e]"></a>pxPortInitialiseStack</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, port.o(i.pxPortInitialiseStack))
-<BR><BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<P><STRONG><a name="[151]"></a>pvTaskIncrementMutexHeldCount</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, tasks.o(i.pvTaskIncrementMutexHeldCount))
+<BR><BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
-<P><STRONG><a name="[129]"></a>uxListRemove</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, list.o(i.uxListRemove))
-<BR><BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPriorityInherit
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
-<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
+<P><STRONG><a name="[141]"></a>pxPortInitialiseStack</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, port.o(i.pxPortInitialiseStack))
+<BR><BR>[Called By]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 
-<P><STRONG><a name="[147]"></a>vApplicationMallocFailedHook</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, freertoshooks.o(i.vApplicationMallocFailedHook))
+<P><STRONG><a name="[12c]"></a>uxListRemove</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, list.o(i.uxListRemove))
+<BR><BR>[Called By]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
+<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPriorityInherit
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
+</UL>
+
+<P><STRONG><a name="[14a]"></a>vApplicationMallocFailedHook</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, freertoshooks.o(i.vApplicationMallocFailedHook))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280 + Unknown Stack Size
 <LI>Call Chain = vApplicationMallocFailedHook &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 </UL>
-<BR>[Called By]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 </UL>
 
-<P><STRONG><a name="[148]"></a>vApplicationStackOverflowHook</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, freertoshooks.o(i.vApplicationStackOverflowHook))
+<P><STRONG><a name="[14b]"></a>vApplicationStackOverflowHook</STRONG> (Thumb, 32 bytes, Stack size 0 bytes, freertoshooks.o(i.vApplicationStackOverflowHook))
 <BR><BR>[Stack]<UL><LI>Max Depth = 280 + Unknown Stack Size
 <LI>Call Chain = vApplicationStackOverflowHook &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2289,100 +2306,100 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSwitchContext
 </UL>
 
-<P><STRONG><a name="[152]"></a>vApplicationTickHook</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, freertoshooks.o(i.vApplicationTickHook))
-<BR><BR>[Called By]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<P><STRONG><a name="[155]"></a>vApplicationTickHook</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, freertoshooks.o(i.vApplicationTickHook))
+<BR><BR>[Called By]<UL><LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 </UL>
 
-<P><STRONG><a name="[13f]"></a>vListInitialise</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, list.o(i.vListInitialise))
-<BR><BR>[Called By]<UL><LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
-<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseTaskLists
+<P><STRONG><a name="[142]"></a>vListInitialise</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, list.o(i.vListInitialise))
+<BR><BR>[Called By]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseTaskLists
 </UL>
 
-<P><STRONG><a name="[13d]"></a>vListInitialiseItem</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, list.o(i.vListInitialiseItem))
-<BR><BR>[Called By]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<P><STRONG><a name="[140]"></a>vListInitialiseItem</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, list.o(i.vListInitialiseItem))
+<BR><BR>[Called By]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
 </UL>
 
-<P><STRONG><a name="[12b]"></a>vListInsert</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, list.o(i.vListInsert))
+<P><STRONG><a name="[12e]"></a>vListInsert</STRONG> (Thumb, 52 bytes, Stack size 8 bytes, list.o(i.vListInsert))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = vListInsert
 </UL>
-<BR>[Called By]<UL><LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
-<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
+<BR>[Called By]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
 
-<P><STRONG><a name="[12a]"></a>vListInsertEnd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, list.o(i.vListInsertEnd))
-<BR><BR>[Called By]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPriorityInherit
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
-<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
+<P><STRONG><a name="[12d]"></a>vListInsertEnd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, list.o(i.vListInsertEnd))
+<BR><BR>[Called By]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
+<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPriorityInherit
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
 
-<P><STRONG><a name="[12d]"></a>vPortEnterCritical</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, port.o(i.vPortEnterCritical))
-<BR><BR>[Called By]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
-<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
-<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<P><STRONG><a name="[130]"></a>vPortEnterCritical</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, port.o(i.vPortEnterCritical))
+<BR><BR>[Called By]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
+<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
 
-<P><STRONG><a name="[12f]"></a>vPortExitCritical</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, port.o(i.vPortExitCritical))
-<BR><BR>[Called By]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
-<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
-<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<P><STRONG><a name="[132]"></a>vPortExitCritical</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, port.o(i.vPortExitCritical))
+<BR><BR>[Called By]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
+<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
 
-<P><STRONG><a name="[138]"></a>vPortFree</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, heap.o(i.vPortFree))
+<P><STRONG><a name="[13b]"></a>vPortFree</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, heap.o(i.vPortFree))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
-<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInsertBlockIntoFreeList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
+<BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
 </UL>
 
-<P><STRONG><a name="[14c]"></a>vPortSetupTimerInterrupt</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, port.o(i.vPortSetupTimerInterrupt))
-<BR><BR>[Called By]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<P><STRONG><a name="[14f]"></a>vPortSetupTimerInterrupt</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, port.o(i.vPortSetupTimerInterrupt))
+<BR><BR>[Called By]<UL><LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
 </UL>
 
 <P><STRONG><a name="[c2]"></a>vTaskDelay</STRONG> (Thumb, 46 bytes, Stack size 16 bytes, tasks.o(i.vTaskDelay))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
-<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
+<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MDBConversation
 <LI><a href="#[be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_MDB_Escrow_BillDevice
 <LI><a href="#[e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillTypeEanbleOrDisable
-<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
+<LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenTradeLog
 <LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenTradeConfig
 <LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevTest
 <LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevInfo
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevConfig
-<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
+<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
 <LI><a href="#[f6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnterMaintenance
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinTypeEanbleOrDisable
-<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
 <LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinGetTubeStatus
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePayoutProcessLevel3
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillDevProcess
-<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UnpdateTubeMoney
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMoney
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UnpdateTubeMoney
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMoney
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispSalePage
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispQuhuoPage
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispQuChangePage
@@ -2392,206 +2409,206 @@ Global Symbols
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispChuhuoPage
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispChhuoFailPage
 <LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLrBusinessText
-<LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
-<LI><a href="#[122]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingIdle
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
-<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTradeParam
-<LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
+<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingIdle
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTradeParam
+<LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Maintenance
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMInit
 </UL>
 
-<P><STRONG><a name="[143]"></a>vTaskMissedYield</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, tasks.o(i.vTaskMissedYield))
-<BR><BR>[Called By]<UL><LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<P><STRONG><a name="[146]"></a>vTaskMissedYield</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, tasks.o(i.vTaskMissedYield))
+<BR><BR>[Called By]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 </UL>
 
-<P><STRONG><a name="[149]"></a>vTaskPlaceOnEventList</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, tasks.o(i.vTaskPlaceOnEventList))
+<P><STRONG><a name="[14c]"></a>vTaskPlaceOnEventList</STRONG> (Thumb, 28 bytes, Stack size 16 bytes, tasks.o(i.vTaskPlaceOnEventList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
-<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
+<BR>[Calls]<UL><LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
+<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddCurrentTaskToDelayedList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
-<P><STRONG><a name="[14a]"></a>vTaskPriorityInherit</STRONG> (Thumb, 164 bytes, Stack size 16 bytes, tasks.o(i.vTaskPriorityInherit))
+<P><STRONG><a name="[14d]"></a>vTaskPriorityInherit</STRONG> (Thumb, 164 bytes, Stack size 16 bytes, tasks.o(i.vTaskPriorityInherit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = vTaskPriorityInherit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
-</UL>
-
-<P><STRONG><a name="[14f]"></a>vTaskSetTimeOutState</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, tasks.o(i.vTaskSetTimeOutState))
-<BR><BR>[Called By]<UL><LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
-<P><STRONG><a name="[127]"></a>vTaskStartScheduler</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, tasks.o(i.vTaskStartScheduler))
+<P><STRONG><a name="[152]"></a>vTaskSetTimeOutState</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, tasks.o(i.vTaskSetTimeOutState))
+<BR><BR>[Called By]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
+<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+</UL>
+
+<P><STRONG><a name="[12a]"></a>vTaskStartScheduler</STRONG> (Thumb, 72 bytes, Stack size 16 bytes, tasks.o(i.vTaskStartScheduler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 392 + Unknown Stack Size
 <LI>Call Chain = vTaskStartScheduler &rArr; xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
-<LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
+<BR>[Calls]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xPortStartScheduler
 </UL>
 <BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[131]"></a>vTaskSuspendAll</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, tasks.o(i.vTaskSuspendAll))
+<P><STRONG><a name="[134]"></a>vTaskSuspendAll</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, tasks.o(i.vTaskSuspendAll))
 <BR><BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
 </UL>
 
 <P><STRONG><a name="[74]"></a>vTaskSwitchContext</STRONG> (Thumb, 132 bytes, Stack size 16 bytes, tasks.o(i.vTaskSwitchContext))
 <BR><BR>[Stack]<UL><LI>Max Depth = 296 + Unknown Stack Size
 <LI>Call Chain = vTaskSwitchContext &rArr; vApplicationStackOverflowHook &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationStackOverflowHook
+<BR>[Calls]<UL><LI><a href="#[14b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationStackOverflowHook
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PendSV_Handler
 </UL>
 
-<P><STRONG><a name="[14b]"></a>xPortStartScheduler</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, port.o(i.xPortStartScheduler))
+<P><STRONG><a name="[14e]"></a>xPortStartScheduler</STRONG> (Thumb, 42 bytes, Stack size 8 bytes, port.o(i.xPortStartScheduler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = xPortStartScheduler
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortSetupTimerInterrupt
-<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__asm___6_port_c_39a90d8d__prvStartFirstTask
+<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortSetupTimerInterrupt
+<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__asm___6_port_c_39a90d8d__prvStartFirstTask
 </UL>
-<BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 </UL>
 
-<P><STRONG><a name="[108]"></a>xQueueGenericCreate</STRONG> (Thumb, 56 bytes, Stack size 32 bytes, queue.o(i.xQueueGenericCreate))
+<P><STRONG><a name="[10b]"></a>xQueueGenericCreate</STRONG> (Thumb, 56 bytes, Stack size 32 bytes, queue.o(i.xQueueGenericCreate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 336 + Unknown Stack Size
 <LI>Call Chain = xQueueGenericCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewQueue
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<BR>[Calls]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewQueue
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardInit
 </UL>
 
-<P><STRONG><a name="[11b]"></a>xQueueGenericReceive</STRONG> (Thumb, 342 bytes, Stack size 56 bytes, queue.o(i.xQueueGenericReceive))
+<P><STRONG><a name="[11e]"></a>xQueueGenericReceive</STRONG> (Thumb, 342 bytes, Stack size 56 bytes, queue.o(i.xQueueGenericReceive))
 <BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = xQueueGenericReceive &rArr; vTaskPlaceOnEventList &rArr; prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[150]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
-<LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSetTimeOutState
-<LI><a href="#[14a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPriorityInherit
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
-<LI><a href="#[14e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvTaskIncrementMutexHeldCount
-<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
-<LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
-<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataFromQueue
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<BR>[Calls]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCheckForTimeOut
+<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSetTimeOutState
+<LI><a href="#[14d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPriorityInherit
+<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvTaskIncrementMutexHeldCount
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIsQueueEmpty
+<LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataFromQueue
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ReadKeyValue
 </UL>
 
-<P><STRONG><a name="[13b]"></a>xQueueGenericReset</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, queue.o(i.xQueueGenericReset))
+<P><STRONG><a name="[13e]"></a>xQueueGenericReset</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, queue.o(i.xQueueGenericReset))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = xQueueGenericReset &rArr; xTaskRemoveFromEventList
 </UL>
-<BR>[Calls]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
+<BR>[Calls]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
 </UL>
-<BR>[Called By]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewQueue
+<BR>[Called By]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewQueue
 </UL>
 
-<P><STRONG><a name="[11d]"></a>xQueueGenericSendFromISR</STRONG> (Thumb, 134 bytes, Stack size 40 bytes, queue.o(i.xQueueGenericSendFromISR))
+<P><STRONG><a name="[120]"></a>xQueueGenericSendFromISR</STRONG> (Thumb, 134 bytes, Stack size 40 bytes, queue.o(i.xQueueGenericSendFromISR))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = xQueueGenericSendFromISR &rArr; prvCopyDataToQueue &rArr; xTaskPriorityDisinherit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
+<BR>[Calls]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER3_IRQHandler
 <LI><a href="#[10]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIMER1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[150]"></a>xTaskCheckForTimeOut</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, tasks.o(i.xTaskCheckForTimeOut))
+<P><STRONG><a name="[153]"></a>xTaskCheckForTimeOut</STRONG> (Thumb, 84 bytes, Stack size 16 bytes, tasks.o(i.xTaskCheckForTimeOut))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = xTaskCheckForTimeOut
 </UL>
-<BR>[Calls]<UL><LI><a href="#[14f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSetTimeOutState
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<BR>[Calls]<UL><LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSetTimeOutState
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
-<P><STRONG><a name="[126]"></a>xTaskCreate</STRONG> (Thumb, 96 bytes, Stack size 72 bytes, tasks.o(i.xTaskCreate))
+<P><STRONG><a name="[129]"></a>xTaskCreate</STRONG> (Thumb, 96 bytes, Stack size 72 bytes, tasks.o(i.xTaskCreate))
 <BR><BR>[Stack]<UL><LI>Max Depth = 376 + Unknown Stack Size
 <LI>Call Chain = xTaskCreate &rArr; pvPortMalloc &rArr; vApplicationMallocFailedHook &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
-<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<BR>[Calls]<UL><LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseNewTask
+<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
+<BR>[Called By]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskStartScheduler
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[11c]"></a>xTaskIncrementTick</STRONG> (Thumb, 252 bytes, Stack size 24 bytes, tasks.o(i.xTaskIncrementTick))
+<P><STRONG><a name="[11f]"></a>xTaskIncrementTick</STRONG> (Thumb, 252 bytes, Stack size 24 bytes, tasks.o(i.xTaskIncrementTick))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
-<LI><a href="#[152]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationTickHook
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[155]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationTickHook
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
 </UL>
-<BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
 <LI><a href="#[d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
-<P><STRONG><a name="[137]"></a>xTaskPriorityDisinherit</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, tasks.o(i.xTaskPriorityDisinherit))
+<P><STRONG><a name="[13a]"></a>xTaskPriorityDisinherit</STRONG> (Thumb, 122 bytes, Stack size 16 bytes, tasks.o(i.xTaskPriorityDisinherit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = xTaskPriorityDisinherit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 </UL>
-<BR>[Called By]<UL><LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
+<BR>[Called By]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCopyDataToQueue
 </UL>
 
-<P><STRONG><a name="[142]"></a>xTaskRemoveFromEventList</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, tasks.o(i.xTaskRemoveFromEventList))
+<P><STRONG><a name="[145]"></a>xTaskRemoveFromEventList</STRONG> (Thumb, 104 bytes, Stack size 16 bytes, tasks.o(i.xTaskRemoveFromEventList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = xTaskRemoveFromEventList
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
-<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
-<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
+<BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
+<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvUnlockQueue
 </UL>
 
-<P><STRONG><a name="[132]"></a>xTaskResumeAll</STRONG> (Thumb, 196 bytes, Stack size 16 bytes, tasks.o(i.xTaskResumeAll))
+<P><STRONG><a name="[135]"></a>xTaskResumeAll</STRONG> (Thumb, 196 bytes, Stack size 16 bytes, tasks.o(i.xTaskResumeAll))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
-<LI><a href="#[151]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<LI><a href="#[154]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvResetNextTaskUnblockTime
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
-<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
 </UL>
 
 <P><STRONG><a name="[68]"></a>_get_lc_numeric</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, lc_numeric_c.o(locale$$code))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _get_lc_numeric
 </UL>
-<BR>[Calls]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<BR>[Calls]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 </UL>
 <BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_lc_numeric_2
 </UL>
@@ -2599,7 +2616,7 @@ Global Symbols
 <P><STRONG><a name="[35]"></a>_get_lc_ctype</STRONG> (Thumb, 44 bytes, Stack size 8 bytes, lc_ctype_c.o(locale$$code))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = _get_lc_ctype
 </UL>
-<BR>[Calls]<UL><LI><a href="#[153]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
+<BR>[Calls]<UL><LI><a href="#[156]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 </UL>
 <BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_lib_init_lc_ctype_2
 </UL>
@@ -2618,7 +2635,7 @@ Global Symbols
 <H3>
 Local Symbols
 </H3>
-<P><STRONG><a name="[122]"></a>VendingIdle</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, vendservice.o(i.VendingIdle))
+<P><STRONG><a name="[125]"></a>VendingIdle</STRONG> (Thumb, 40 bytes, Stack size 8 bytes, vendservice.o(i.VendingIdle))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = VendingIdle &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
@@ -2626,13 +2643,13 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendService
 </UL>
 
-<P><STRONG><a name="[121]"></a>VendingService</STRONG> (Thumb, 896 bytes, Stack size 48 bytes, vendservice.o(i.VendingService))
+<P><STRONG><a name="[124]"></a>VendingService</STRONG> (Thumb, 1384 bytes, Stack size 48 bytes, vendservice.o(i.VendingService))
 <BR><BR>[Stack]<UL><LI>Max Depth = 536 + Unknown Stack Size
 <LI>Call Chain = VendingService &rArr; UnpdateTubeMoney &rArr; BillCoinCtr &rArr; BillDevProcess &rArr; API_MDB_Escrow_BillDevice &rArr; API_MDB_Stacker_BillDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinTypeEanbleOrDisable
-<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
-<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
+<LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinResetAndSetup
+<LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbBillResetAndSetup
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CoinDevProcess
 <LI><a href="#[df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillDevProcess
 <LI><a href="#[c4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_SYSTEM_TimerReadChannelValue
@@ -2640,10 +2657,11 @@ Local Symbols
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_Printf
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_ClearScreen
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_KEY_ReadKey
-<LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UnpdateTubeMoney
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SaleCostMoney
-<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsTuibiAPI
-<LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMoney
+<LI><a href="#[123]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UnpdateTubeMoney
+<LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SaleCostMoney
+<LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsTuibiAPI
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;IsErrorState
+<LI><a href="#[f9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetMoney
 <LI><a href="#[e7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetAmountMoney
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispSalePage
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispQuhuoPage
@@ -2655,8 +2673,9 @@ Local Symbols
 <LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispChuhuoPage
 <LI><a href="#[ec]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispChhuoFailPage
 <LI><a href="#[e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DispChaxunPage
-<LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearDealPar
+<LI><a href="#[128]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ClearDealPar
 <LI><a href="#[e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangerMoney
+<LI><a href="#[e2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CLrBusinessText
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillCoinCtr
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
@@ -2674,10 +2693,19 @@ Local Symbols
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_KEY_ReadKey
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
+<BR>[Called By]<UL><LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Login
 </UL>
 
-<P><STRONG><a name="[111]"></a>Login</STRONG> (Thumb, 364 bytes, Stack size 40 bytes, maintenance.o(i.Login))
+<P><STRONG><a name="[f7]"></a>Errcheck</STRONG> (Thumb, 234 bytes, Stack size 256 bytes, maintenance.o(i.Errcheck))
+<BR><BR>[Stack]<UL><LI>Max Depth = 260<LI>Call Chain = Errcheck &rArr; __aeabi_memclr4
+</UL>
+<BR>[Calls]<UL><LI><a href="#[e4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr4
+<LI><a href="#[f8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcat
+</UL>
+<BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevInfo
+</UL>
+
+<P><STRONG><a name="[114]"></a>Login</STRONG> (Thumb, 364 bytes, Stack size 40 bytes, maintenance.o(i.Login))
 <BR><BR>[Stack]<UL><LI>Max Depth = 272 + Unknown Stack Size
 <LI>Call Chain = Login &rArr; EnterMaintenance &rArr; API_LCM_Printf &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2704,20 +2732,22 @@ Local Symbols
 <LI><a href="#[af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_ClearArea
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_KEY_ReadKey
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> maintenance.o(i.EnterMaintenance)
 </UL>
-<P><STRONG><a name="[36]"></a>MaintenDevInfo</STRONG> (Thumb, 358 bytes, Stack size 56 bytes, maintenance.o(i.MaintenDevInfo))
-<BR><BR>[Stack]<UL><LI>Max Depth = 264 + Unknown Stack Size
-<LI>Call Chain = MaintenDevInfo &rArr; API_LCM_Printf &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[36]"></a>MaintenDevInfo</STRONG> (Thumb, 420 bytes, Stack size 312 bytes, maintenance.o(i.MaintenDevInfo))
+<BR><BR>[Stack]<UL><LI>Max Depth = 572 + Unknown Stack Size
+<LI>Call Chain = MaintenDevInfo &rArr; Errcheck &rArr; __aeabi_memclr4
 </UL>
-<BR>[Calls]<UL><LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_Printf
+<BR>[Calls]<UL><LI><a href="#[f7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Errcheck
+<LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_Printf
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_DrawLine
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_ClearScreen
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_KEY_ReadKey
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> maintenance.o(i.EnterMaintenance)
 </UL>
@@ -2725,8 +2755,8 @@ Local Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 536 + Unknown Stack Size
 <LI>Call Chain = MaintenDevTest &rArr; TestCoinValidator &rArr; ChangePayoutProcessLevel3 &rArr; API_MDB_ExpanPayoutValuePoll_CoinDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
-<LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
+<BR>[Calls]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestCoinValidator
+<LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TestBillValidator
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_Printf
 <LI><a href="#[b3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_DrawLine
 <LI><a href="#[b1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_LCM_ClearScreen
@@ -2746,8 +2776,8 @@ Local Symbols
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_KEY_ReadKey
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
-<LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
-<LI><a href="#[10f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTradeParam
+<LI><a href="#[113]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
+<LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTradeParam
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> maintenance.o(i.EnterMaintenance)
 </UL>
@@ -2763,7 +2793,7 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> maintenance.o(i.EnterMaintenance)
 </UL>
-<P><STRONG><a name="[115]"></a>TestBillValidator</STRONG> (Thumb, 316 bytes, Stack size 56 bytes, maintenance.o(i.TestBillValidator))
+<P><STRONG><a name="[118]"></a>TestBillValidator</STRONG> (Thumb, 316 bytes, Stack size 56 bytes, maintenance.o(i.TestBillValidator))
 <BR><BR>[Stack]<UL><LI>Max Depth = 496 + Unknown Stack Size
 <LI>Call Chain = TestBillValidator &rArr; BillDevProcess &rArr; API_MDB_Escrow_BillDevice &rArr; API_MDB_Stacker_BillDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2774,17 +2804,17 @@ Local Symbols
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PrintfMoney
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevTest
 </UL>
 
-<P><STRONG><a name="[116]"></a>TestCoinValidator</STRONG> (Thumb, 578 bytes, Stack size 64 bytes, maintenance.o(i.TestCoinValidator))
+<P><STRONG><a name="[119]"></a>TestCoinValidator</STRONG> (Thumb, 578 bytes, Stack size 64 bytes, maintenance.o(i.TestCoinValidator))
 <BR><BR>[Stack]<UL><LI>Max Depth = 512 + Unknown Stack Size
 <LI>Call Chain = TestCoinValidator &rArr; ChangePayoutProcessLevel3 &rArr; API_MDB_ExpanPayoutValuePoll_CoinDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbGetCoinValue
+<BR>[Calls]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbGetCoinValue
 <LI><a href="#[e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbCoinTypeEanbleOrDisable
 <LI><a href="#[e8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CoinDevProcess
 <LI><a href="#[e3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ChangePayoutProcessLevel3
@@ -2794,234 +2824,234 @@ Local Symbols
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 <LI><a href="#[ea]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PrintfMoney
-<LI><a href="#[114]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
+<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strlen
 <LI><a href="#[eb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcpy
 </UL>
 <BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenDevTest
 </UL>
 
-<P><STRONG><a name="[134]"></a>prvCopyDataFromQueue</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, queue.o(i.prvCopyDataFromQueue))
+<P><STRONG><a name="[137]"></a>prvCopyDataFromQueue</STRONG> (Thumb, 42 bytes, Stack size 16 bytes, queue.o(i.prvCopyDataFromQueue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = prvCopyDataFromQueue
 </UL>
-<BR>[Calls]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<BR>[Calls]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
-<P><STRONG><a name="[136]"></a>prvCopyDataToQueue</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, queue.o(i.prvCopyDataToQueue))
+<P><STRONG><a name="[139]"></a>prvCopyDataToQueue</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, queue.o(i.prvCopyDataToQueue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = prvCopyDataToQueue &rArr; xTaskPriorityDisinherit
 </UL>
-<BR>[Calls]<UL><LI><a href="#[137]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
-<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
+<BR>[Calls]<UL><LI><a href="#[13a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskPriorityDisinherit
+<LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
+<BR>[Called By]<UL><LI><a href="#[120]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericSendFromISR
 </UL>
 
-<P><STRONG><a name="[13a]"></a>prvInitialiseNewQueue</STRONG> (Thumb, 42 bytes, Stack size 24 bytes, queue.o(i.prvInitialiseNewQueue))
+<P><STRONG><a name="[13d]"></a>prvInitialiseNewQueue</STRONG> (Thumb, 42 bytes, Stack size 24 bytes, queue.o(i.prvInitialiseNewQueue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = prvInitialiseNewQueue &rArr; xQueueGenericReset &rArr; xTaskRemoveFromEventList
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
+<BR>[Calls]<UL><LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReset
 </UL>
-<BR>[Called By]<UL><LI><a href="#[108]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
+<BR>[Called By]<UL><LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericCreate
 </UL>
 
-<P><STRONG><a name="[140]"></a>prvIsQueueEmpty</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, queue.o(i.prvIsQueueEmpty))
+<P><STRONG><a name="[143]"></a>prvIsQueueEmpty</STRONG> (Thumb, 26 bytes, Stack size 16 bytes, queue.o(i.prvIsQueueEmpty))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = prvIsQueueEmpty
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<BR>[Calls]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
-<P><STRONG><a name="[141]"></a>prvUnlockQueue</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, queue.o(i.prvUnlockQueue))
+<P><STRONG><a name="[144]"></a>prvUnlockQueue</STRONG> (Thumb, 126 bytes, Stack size 16 bytes, queue.o(i.prvUnlockQueue))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = prvUnlockQueue &rArr; xTaskRemoveFromEventList
 </UL>
-<BR>[Calls]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
-<LI><a href="#[143]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskMissedYield
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<BR>[Calls]<UL><LI><a href="#[145]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskRemoveFromEventList
+<LI><a href="#[146]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskMissedYield
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
 </UL>
-<BR>[Called By]<UL><LI><a href="#[11b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
+<BR>[Called By]<UL><LI><a href="#[11e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xQueueGenericReceive
 </UL>
 
-<P><STRONG><a name="[128]"></a>prvAddCurrentTaskToDelayedList</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, tasks.o(i.prvAddCurrentTaskToDelayedList))
+<P><STRONG><a name="[12b]"></a>prvAddCurrentTaskToDelayedList</STRONG> (Thumb, 124 bytes, Stack size 24 bytes, tasks.o(i.prvAddCurrentTaskToDelayedList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = prvAddCurrentTaskToDelayedList &rArr; vListInsert
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[12b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
-<LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsert
+<LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
 </UL>
 <BR>[Called By]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
-<LI><a href="#[149]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
+<LI><a href="#[14c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskPlaceOnEventList
 </UL>
 
-<P><STRONG><a name="[12c]"></a>prvAddNewTaskToReadyList</STRONG> (Thumb, 156 bytes, Stack size 8 bytes, tasks.o(i.prvAddNewTaskToReadyList))
+<P><STRONG><a name="[12f]"></a>prvAddNewTaskToReadyList</STRONG> (Thumb, 156 bytes, Stack size 8 bytes, tasks.o(i.prvAddNewTaskToReadyList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = prvAddNewTaskToReadyList &rArr; prvInitialiseTaskLists
 </UL>
-<BR>[Calls]<UL><LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[12e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseTaskLists
+<BR>[Calls]<UL><LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInsertEnd
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvInitialiseTaskLists
 </UL>
-<BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 
-<P><STRONG><a name="[130]"></a>prvCheckTasksWaitingTermination</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, tasks.o(i.prvCheckTasksWaitingTermination))
+<P><STRONG><a name="[133]"></a>prvCheckTasksWaitingTermination</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, tasks.o(i.prvCheckTasksWaitingTermination))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = prvCheckTasksWaitingTermination &rArr; prvDeleteTCB &rArr; vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
-<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[131]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
-<LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
-<LI><a href="#[12d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
-<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
+<BR>[Calls]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uxListRemove
+<LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskSuspendAll
+<LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortExitCritical
+<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortEnterCritical
+<LI><a href="#[136]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvDeleteTCB
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvIdleTask
 </UL>
 
-<P><STRONG><a name="[133]"></a>prvDeleteTCB</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, tasks.o(i.prvDeleteTCB))
+<P><STRONG><a name="[136]"></a>prvDeleteTCB</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, tasks.o(i.prvDeleteTCB))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = prvDeleteTCB &rArr; vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<BR>[Calls]<UL><LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
 </UL>
-<BR>[Called By]<UL><LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<BR>[Called By]<UL><LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
 </UL>
 
 <P><STRONG><a name="[3e]"></a>prvIdleTask</STRONG> (Thumb, 36 bytes, Stack size 0 bytes, tasks.o(i.prvIdleTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = prvIdleTask &rArr; prvCheckTasksWaitingTermination &rArr; prvDeleteTCB &rArr; vPortFree &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
 </UL>
-<BR>[Calls]<UL><LI><a href="#[139]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationIdleHook
-<LI><a href="#[130]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
+<BR>[Calls]<UL><LI><a href="#[13c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vApplicationIdleHook
+<LI><a href="#[133]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvCheckTasksWaitingTermination
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> tasks.o(i.vTaskStartScheduler)
 </UL>
-<P><STRONG><a name="[13c]"></a>prvInitialiseNewTask</STRONG> (Thumb, 144 bytes, Stack size 40 bytes, tasks.o(i.prvInitialiseNewTask))
+<P><STRONG><a name="[13f]"></a>prvInitialiseNewTask</STRONG> (Thumb, 144 bytes, Stack size 40 bytes, tasks.o(i.prvInitialiseNewTask))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40 + Unknown Stack Size
 <LI>Call Chain = prvInitialiseNewTask
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialiseItem
-<LI><a href="#[13e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pxPortInitialiseStack
+<BR>[Calls]<UL><LI><a href="#[140]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialiseItem
+<LI><a href="#[141]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pxPortInitialiseStack
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
 </UL>
-<BR>[Called By]<UL><LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
+<BR>[Called By]<UL><LI><a href="#[129]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskCreate
 </UL>
 
-<P><STRONG><a name="[12e]"></a>prvInitialiseTaskLists</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, tasks.o(i.prvInitialiseTaskLists))
+<P><STRONG><a name="[131]"></a>prvInitialiseTaskLists</STRONG> (Thumb, 70 bytes, Stack size 8 bytes, tasks.o(i.prvInitialiseTaskLists))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = prvInitialiseTaskLists
 </UL>
-<BR>[Calls]<UL><LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
+<BR>[Calls]<UL><LI><a href="#[142]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vListInitialise
 </UL>
-<BR>[Called By]<UL><LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
+<BR>[Called By]<UL><LI><a href="#[12f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;prvAddNewTaskToReadyList
 </UL>
 
-<P><STRONG><a name="[151]"></a>prvResetNextTaskUnblockTime</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, tasks.o(i.prvResetNextTaskUnblockTime))
-<BR><BR>[Called By]<UL><LI><a href="#[132]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
-<LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
+<P><STRONG><a name="[154]"></a>prvResetNextTaskUnblockTime</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, tasks.o(i.prvResetNextTaskUnblockTime))
+<BR><BR>[Called By]<UL><LI><a href="#[135]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskResumeAll
+<LI><a href="#[11f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskIncrementTick
 </UL>
 
 <P><STRONG><a name="[3d]"></a>prvTaskExitError</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, port.o(i.prvTaskExitError))
 <BR>[Address Reference Count : 1]<UL><LI> port.o(i.pxPortInitialiseStack)
 </UL>
-<P><STRONG><a name="[145]"></a>prvHeapInit</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, heap.o(i.prvHeapInit))
+<P><STRONG><a name="[148]"></a>prvHeapInit</STRONG> (Thumb, 78 bytes, Stack size 8 bytes, heap.o(i.prvHeapInit))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = prvHeapInit
 </UL>
-<BR>[Called By]<UL><LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<BR>[Called By]<UL><LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 </UL>
 
-<P><STRONG><a name="[146]"></a>prvInsertBlockIntoFreeList</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, heap.o(i.prvInsertBlockIntoFreeList))
+<P><STRONG><a name="[149]"></a>prvInsertBlockIntoFreeList</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, heap.o(i.prvInsertBlockIntoFreeList))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = prvInsertBlockIntoFreeList
 </UL>
-<BR>[Called By]<UL><LI><a href="#[138]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
-<LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
+<BR>[Called By]<UL><LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vPortFree
+<LI><a href="#[147]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;pvPortMalloc
 </UL>
 
-<P><STRONG><a name="[10e]"></a>LCMPutChar</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, lcm.o(i.LCMPutChar))
+<P><STRONG><a name="[111]"></a>LCMPutChar</STRONG> (Thumb, 24 bytes, Stack size 16 bytes, lcm.o(i.LCMPutChar))
 <BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = LCMPutChar &rArr; LCMSetXY &rArr; PutCmdIntoLcmController
 </UL>
-<BR>[Calls]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMSetXY
-<LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutDataIntoLcmController
+<BR>[Calls]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMSetXY
+<LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutDataIntoLcmController
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ba]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMPrintfOneChinese16x16
 <LI><a href="#[b9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMPrintfOneAscIICh32x16
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMPrintfOneAscIICh16x8
 </UL>
 
-<P><STRONG><a name="[11a]"></a>PutByteIntoSimSpiBus</STRONG> (Thumb, 112 bytes, Stack size 0 bytes, lcm.o(i.PutByteIntoSimSpiBus))
-<BR><BR>[Called By]<UL><LI><a href="#[10a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutDataIntoLcmController
-<LI><a href="#[10b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutCmdIntoLcmController
+<P><STRONG><a name="[11d]"></a>PutByteIntoSimSpiBus</STRONG> (Thumb, 112 bytes, Stack size 0 bytes, lcm.o(i.PutByteIntoSimSpiBus))
+<BR><BR>[Called By]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutDataIntoLcmController
+<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutCmdIntoLcmController
 </UL>
 
-<P><STRONG><a name="[10b]"></a>PutCmdIntoLcmController</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, lcm.o(i.PutCmdIntoLcmController))
+<P><STRONG><a name="[10e]"></a>PutCmdIntoLcmController</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, lcm.o(i.PutCmdIntoLcmController))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = PutCmdIntoLcmController
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutByteIntoSimSpiBus
+<BR>[Calls]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutByteIntoSimSpiBus
 </UL>
-<BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMSetXY
+<BR>[Called By]<UL><LI><a href="#[10c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMSetXY
 <LI><a href="#[b6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMInit
 </UL>
 
-<P><STRONG><a name="[10a]"></a>PutDataIntoLcmController</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, lcm.o(i.PutDataIntoLcmController))
+<P><STRONG><a name="[10d]"></a>PutDataIntoLcmController</STRONG> (Thumb, 96 bytes, Stack size 8 bytes, lcm.o(i.PutDataIntoLcmController))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = PutDataIntoLcmController
 </UL>
-<BR>[Calls]<UL><LI><a href="#[11a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutByteIntoSimSpiBus
+<BR>[Calls]<UL><LI><a href="#[11d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PutByteIntoSimSpiBus
 </UL>
 <BR>[Called By]<UL><LI><a href="#[b4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMDrawline
 <LI><a href="#[b2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMClearScreen
 <LI><a href="#[b0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMClearArea
-<LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMPutChar
+<LI><a href="#[111]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCMPutChar
 </UL>
 
-<P><STRONG><a name="[104]"></a>ClrAllKeyRow</STRONG> (Thumb, 124 bytes, Stack size 0 bytes, key.o(i.ClrAllKeyRow))
+<P><STRONG><a name="[107]"></a>ClrAllKeyRow</STRONG> (Thumb, 124 bytes, Stack size 0 bytes, key.o(i.ClrAllKeyRow))
 <BR><BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardInit
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardCtrl
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyBoardScan
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardCtrl
+<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyBoardScan
 </UL>
 
-<P><STRONG><a name="[101]"></a>GPIOChangeDirectionDelay</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, key.o(i.GPIOChangeDirectionDelay))
-<BR><BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyBoardScan
-<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAKeyColOutputLow
+<P><STRONG><a name="[104]"></a>GPIOChangeDirectionDelay</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, key.o(i.GPIOChangeDirectionDelay))
+<BR><BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyBoardScan
+<LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetAKeyColOutputLow
 </UL>
 
-<P><STRONG><a name="[103]"></a>GetAKeyRowValue</STRONG> (Thumb, 134 bytes, Stack size 0 bytes, key.o(i.GetAKeyRowValue))
-<BR><BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyBoardScan
+<P><STRONG><a name="[106]"></a>GetAKeyRowValue</STRONG> (Thumb, 134 bytes, Stack size 0 bytes, key.o(i.GetAKeyRowValue))
+<BR><BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyBoardScan
 </UL>
 
 <P><STRONG><a name="[f5]"></a>NVIC_DisableIRQ</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, key.o(i.NVIC_DisableIRQ))
-<BR><BR>[Called By]<UL><LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardCtrl
+<BR><BR>[Called By]<UL><LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardCtrl
 <LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EINT1_IRQHandler
 </UL>
 
-<P><STRONG><a name="[107]"></a>NVIC_EnableIRQ</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, key.o(i.NVIC_EnableIRQ))
+<P><STRONG><a name="[10a]"></a>NVIC_EnableIRQ</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, key.o(i.NVIC_EnableIRQ))
 <BR><BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardInit
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardCtrl
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardCtrl
 </UL>
 
-<P><STRONG><a name="[102]"></a>SetAKeyColOutputLow</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, key.o(i.SetAKeyColOutputLow))
+<P><STRONG><a name="[105]"></a>SetAKeyColOutputLow</STRONG> (Thumb, 100 bytes, Stack size 8 bytes, key.o(i.SetAKeyColOutputLow))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = SetAKeyColOutputLow
 </UL>
-<BR>[Calls]<UL><LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOChangeDirectionDelay
+<BR>[Calls]<UL><LI><a href="#[104]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOChangeDirectionDelay
 </UL>
-<BR>[Called By]<UL><LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyBoardScan
+<BR>[Called By]<UL><LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyBoardScan
 </UL>
 
-<P><STRONG><a name="[105]"></a>SetAllkeyColInput</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, key.o(i.SetAllkeyColInput))
+<P><STRONG><a name="[108]"></a>SetAllkeyColInput</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, key.o(i.SetAllkeyColInput))
 <BR><BR>[Called By]<UL><LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardInit
-<LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardCtrl
-<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyBoardScan
+<LI><a href="#[109]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardCtrl
+<LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyBoardScan
 </UL>
 
-<P><STRONG><a name="[f9]"></a>NVIC_EnableIRQ</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, timer.o(i.NVIC_EnableIRQ))
+<P><STRONG><a name="[fb]"></a>NVIC_EnableIRQ</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, timer.o(i.NVIC_EnableIRQ))
 <BR><BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTimer
 </UL>
 
-<P><STRONG><a name="[fa]"></a>NVIC_SetPriority</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, timer.o(i.NVIC_SetPriority))
+<P><STRONG><a name="[fc]"></a>NVIC_SetPriority</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, timer.o(i.NVIC_SetPriority))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = NVIC_SetPriority
 </UL>
 <BR>[Called By]<UL><LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTimer
 </UL>
 
-<P><STRONG><a name="[f8]"></a>Wait_I2C0_End</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, i2c.o(i.Wait_I2C0_End))
+<P><STRONG><a name="[fa]"></a>Wait_I2C0_End</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, i2c.o(i.Wait_I2C0_End))
 <BR><BR>[Called By]<UL><LI><a href="#[aa]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C0WrNByte
 <LI><a href="#[a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;I2C0RdNByte
 </UL>
@@ -3029,23 +3059,23 @@ Local Symbols
 <P><STRONG><a name="[d4]"></a>MdbBufferClr</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, mdb.o(i.MdbBufferClr))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = MdbBufferClr
 </UL>
-<BR>[Calls]<UL><LI><a href="#[fd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
+<BR>[Calls]<UL><LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MDBConversation
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_MDB_UartInit
 </UL>
 
-<P><STRONG><a name="[112]"></a>MdbPutCh</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, mdb.o(i.MdbPutCh))
+<P><STRONG><a name="[115]"></a>MdbPutCh</STRONG> (Thumb, 86 bytes, Stack size 16 bytes, mdb.o(i.MdbPutCh))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = MdbPutCh
 </UL>
-<BR>[Calls]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbSetParityMode
+<BR>[Calls]<UL><LI><a href="#[11c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbSetParityMode
 </UL>
 <BR>[Called By]<UL><LI><a href="#[bc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MDBConversation
 <LI><a href="#[15]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART2_IRQHandler
 </UL>
 
-<P><STRONG><a name="[119]"></a>MdbSetParityMode</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, mdb.o(i.MdbSetParityMode))
-<BR><BR>[Called By]<UL><LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbPutCh
+<P><STRONG><a name="[11c]"></a>MdbSetParityMode</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, mdb.o(i.MdbSetParityMode))
+<BR><BR>[Called By]<UL><LI><a href="#[115]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MdbPutCh
 </UL>
 
 <P><STRONG><a name="[34]"></a>_printf_input_char</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, _printf_char_common.o(.text))
