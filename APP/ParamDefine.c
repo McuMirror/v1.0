@@ -387,7 +387,7 @@ extern void InitTotalLog(void)
 		Crc = CrcCheck(Temp,208);
 		TotalTradeLog.TotalCoinPayIn    = (((unsigned int)Temp[0]  << 24) + ((unsigned int)Temp[1]  << 16) + ((unsigned int)Temp[2]  << 8) + (unsigned int)Temp[3]);
 		TotalTradeLog.TotalCoinPayout   = (((unsigned int)Temp[4]  << 24) + ((unsigned int)Temp[5]  << 16) + ((unsigned int)Temp[6]  << 8) + (unsigned int)Temp[7]);
-		TotalTradeLog.TotalCoinPayIn    = (((unsigned int)Temp[8]  << 24) + ((unsigned int)Temp[9]  << 16) + ((unsigned int)Temp[10] << 8) + (unsigned int)Temp[11]);
+		TotalTradeLog.TotalBillPayIn    = (((unsigned int)Temp[8]  << 24) + ((unsigned int)Temp[9]  << 16) + ((unsigned int)Temp[10] << 8) + (unsigned int)Temp[11]);
 		TotalTradeLog.TotalVendNumber   = (((unsigned int)Temp[12] << 24) + ((unsigned int)Temp[13] << 16) + ((unsigned int)Temp[14] << 8) + (unsigned int)Temp[15]);
 		TotalTradeLog.TotalSuccesNumber = (((unsigned int)Temp[16] << 24) + ((unsigned int)Temp[17] << 16) + ((unsigned int)Temp[18] << 8) + (unsigned int)Temp[19]);
 		TotalTradeLog.TotalErrorNumber  = (((unsigned int)Temp[20] << 24) + ((unsigned int)Temp[21] << 16) + ((unsigned int)Temp[22] << 8) + (unsigned int)Temp[23]);
@@ -399,9 +399,18 @@ extern void InitTotalLog(void)
 			Trace("InitTotalLog():Read ok but data is err,Reload data\r\n");
 			#endif
 		}
+		#ifdef APP_DBG_FRAM
+		Trace("InitTotalLog():ok\r\n");
+		Trace("\r\n TotalCoinPayIn=%d.%d,TotalBillPayIn=%d.%d,TotalCoinPayout=%d.%d,TotalSuccesNumber=%d",TotalTradeLog.TotalCoinPayIn/10,TotalTradeLog.TotalCoinPayIn%10,
+		TotalTradeLog.TotalBillPayIn/10,TotalTradeLog.TotalBillPayIn%10,TotalTradeLog.TotalCoinPayout/10,TotalTradeLog.TotalCoinPayout%10,
+		TotalTradeLog.TotalSuccesNumber);
+		#endif
 	}
 	else
 	{
+		#ifdef APP_DBG_FRAM
+		Trace("InitTotalLog():Caution ,Total Read false! \r\n");
+		#endif
 		TotalTradeLog.TotalCoinPayIn = 0x00;
 		TotalTradeLog.TotalCoinPayout = 0x00;
 		TotalTradeLog.TotalBillPayIn = 0x00;
@@ -452,6 +461,12 @@ extern void LoadNewTotalLog(void)
 	Crc = CrcCheck(Temp,28);
 	Temp[28] = (unsigned char)(Crc >> 8);
 	Temp[29] = (unsigned char)Crc;
+	#ifdef APP_DBG_FRAM
+	Trace("LoadTotalLog():ok\r\n");
+	Trace("\r\n TotalCoinPayIn=%d.%d,TotalBillPayIn=%d.%d,TotalCoinPayout=%d.%d,TotalSuccesNumber=%d",TotalTradeLog.TotalCoinPayIn/10,TotalTradeLog.TotalCoinPayIn%10,
+	TotalTradeLog.TotalBillPayIn/10,TotalTradeLog.TotalBillPayIn%10,TotalTradeLog.TotalCoinPayout/10,TotalTradeLog.TotalCoinPayout%10,
+	TotalTradeLog.TotalSuccesNumber);
+	#endif
 	err = API_FRAM_WriteFram(VMC_FRAM_ADDR,VMC_TLOG_PAGE_S,Temp,30);
 	if(err == 0x00)
 	{

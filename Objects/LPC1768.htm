@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\LPC1768.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\LPC1768.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Sat Nov 12 22:06:24 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Sat Nov 12 23:08:27 2016
 <BR><P>
 <H3>Maximum Stack Usage =        572 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1754,16 +1754,17 @@ Global Symbols
 <LI><a href="#[ac]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;KeyboardInit
 </UL>
 
-<P><STRONG><a name="[100]"></a>InitTotalLog</STRONG> (Thumb, 322 bytes, Stack size 48 bytes, paramdefine.o(i.InitTotalLog))
-<BR><BR>[Stack]<UL><LI>Max Depth = 328 + Unknown Stack Size
-<LI>Call Chain = InitTotalLog &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[100]"></a>InitTotalLog</STRONG> (Thumb, 424 bytes, Stack size 88 bytes, paramdefine.o(i.InitTotalLog))
+<BR><BR>[Stack]<UL><LI>Max Depth = 456 + Unknown Stack Size
+<LI>Call Chain = InitTotalLog &rArr; LoadNewTotalLog &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_FRAM_ReadFram
 <LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTotalLog
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CrcCheck
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendService
+<BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenTradeLog
+<LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendService
 </UL>
 
 <P><STRONG><a name="[103]"></a>InitTradeParam</STRONG> (Thumb, 360 bytes, Stack size 176 bytes, paramdefine.o(i.InitTradeParam))
@@ -1939,10 +1940,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
 </UL>
 
-<P><STRONG><a name="[102]"></a>LoadNewTotalLog</STRONG> (Thumb, 300 bytes, Stack size 48 bytes, paramdefine.o(i.LoadNewTotalLog))
-<BR><BR>[Stack]<UL><LI>Max Depth = 104<LI>Call Chain = LoadNewTotalLog &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
+<P><STRONG><a name="[102]"></a>LoadNewTotalLog</STRONG> (Thumb, 396 bytes, Stack size 88 bytes, paramdefine.o(i.LoadNewTotalLog))
+<BR><BR>[Stack]<UL><LI>Max Depth = 368 + Unknown Stack Size
+<LI>Call Chain = LoadNewTotalLog &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
+<LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
 <LI><a href="#[a9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_FRAM_WriteFram
 <LI><a href="#[101]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CrcCheck
 </UL>
@@ -1982,7 +1985,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[119]"></a>LogClearAPI</STRONG> (Thumb, 22 bytes, Stack size 8 bytes, log.o(i.LogClearAPI))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = LogClearAPI &rArr; LoadNewTotalLog &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
+<BR><BR>[Stack]<UL><LI>Max Depth = 376 + Unknown Stack Size
+<LI>Call Chain = LogClearAPI &rArr; LoadNewTotalLog &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTotalLog
 </UL>
@@ -1990,7 +1994,8 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[11a]"></a>LogEndAPI</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, log.o(i.LogEndAPI))
-<BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = LogEndAPI &rArr; LoadNewTotalLog &rArr; vTaskDelay &rArr; xTaskResumeAll &rArr; xTaskIncrementTick
+<BR><BR>[Stack]<UL><LI>Max Depth = 376 + Unknown Stack Size
+<LI>Call Chain = LogEndAPI &rArr; LoadNewTotalLog &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTotalLog
 </UL>
@@ -2256,6 +2261,7 @@ Global Symbols
 <LI><a href="#[12c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 <LI><a href="#[118]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
 <LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTradeParam
+<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTotalLog
 <LI><a href="#[106]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadDefaultVmcParam
 <LI><a href="#[105]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
 <LI><a href="#[103]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTradeParam
@@ -2865,9 +2871,9 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> maintenance.o(i.EnterMaintenance)
 </UL>
-<P><STRONG><a name="[3a]"></a>MaintenTradeLog</STRONG> (Thumb, 856 bytes, Stack size 48 bytes, maintenance.o(i.MaintenTradeLog))
-<BR><BR>[Stack]<UL><LI>Max Depth = 328 + Unknown Stack Size
-<LI>Call Chain = MaintenTradeLog &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+<P><STRONG><a name="[3a]"></a>MaintenTradeLog</STRONG> (Thumb, 860 bytes, Stack size 48 bytes, maintenance.o(i.MaintenTradeLog))
+<BR><BR>[Stack]<UL><LI>Max Depth = 504 + Unknown Stack Size
+<LI>Call Chain = MaintenTradeLog &rArr; InitTotalLog &rArr; LoadNewTotalLog &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
 <BR>[Calls]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LogClearAPI
 <LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PwdCheck
@@ -2877,6 +2883,7 @@ Local Symbols
 <LI><a href="#[ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;API_KEY_ReadKey
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
+<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTotalLog
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> maintenance.o(i.EnterMaintenance)
 </UL>

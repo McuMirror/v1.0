@@ -2265,9 +2265,11 @@ static void MaintenTradeConfig(void)
 ************************************************************************************************************************************************************************************/
 static void MaintenTradeLog(void)
 {
-	uint16_t TotalCoinPayIn=(TotalTradeLog.TotalCoinPayIn + TotalTradeLog.TotalCashlessPayIn + TotalTradeLog.TotalBillPayIn);
+	uint16_t TotalCoinPayIn;
 	unsigned char key;
-	
+
+	InitTotalLog();
+	TotalCoinPayIn=(TotalTradeLog.TotalCoinPayIn + TotalTradeLog.TotalCashlessPayIn + TotalTradeLog.TotalBillPayIn);
 	API_LCM_ClearScreen();
 	API_LCM_Printf(0,0,0,0,TradeLog.Theme[VMCParam.Language]);
 	API_LCM_DrawLine(0,2);

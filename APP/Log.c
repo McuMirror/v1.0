@@ -25,7 +25,7 @@
 *********************************************************************************************************/
 void LogGetMoneyAPI(uint32_t InValue,uint8_t MoneyType)
 {
-	uint16_t money=(InValue/10);
+	uint16_t money=(InValue/10);	
 	//更新明细交易记录
 	if(MoneyType == 1)
 		TotalTradeLog.TotalCoinPayIn += money;

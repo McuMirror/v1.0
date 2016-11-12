@@ -1,7 +1,17 @@
----- CHINESE16X16LIB 匹配 (6 in 2 文件) ----
-Lcm.c (drivers):extern const unsigned char CHINESE16X16LIB[];
-Lcm.c (drivers):			LCMPutChar(x+i,y,~CHINESE16X16LIB[AddOffSet++]);
-Lcm.c (drivers):			LCMPutChar(x+i,y+1,~CHINESE16X16LIB[AddOffSet++]);
-Lcm.c (drivers):			LCMPutChar(x+i,y,CHINESE16X16LIB[AddOffSet++]);
-Lcm.c (drivers):			LCMPutChar(x+i,y+1,CHINESE16X16LIB[AddOffSet++]);
-Lib.c (drivers):const unsigned char CHINESE16X16LIB[] =
+---- InitTotalLog 匹配 (17 in 5 文件) ----
+LPC1768.htm (objects):<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTotalLog
+LPC1768.htm (objects):<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTotalLog
+LPC1768.htm (objects):<P><STRONG><a name="[100]"></a>InitTotalLog</STRONG> (Thumb, 424 bytes, Stack size 88 bytes, paramdefine.o(i.InitTotalLog))
+LPC1768.htm (objects):<LI>Call Chain = InitTotalLog &rArr; LoadNewTotalLog &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+LPC1768.htm (objects):<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTotalLog
+LPC1768.htm (objects):<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTotalLog
+LPC1768.htm (objects):<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTotalLog
+LPC1768.htm (objects):<LI>Call Chain = MaintenTradeLog &rArr; InitTotalLog &rArr; LoadNewTotalLog &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+LPC1768.htm (objects):<LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTotalLog
+Maintenance.c (app):	InitTotalLog();
+ParamDefine.c (app):extern void InitTotalLog(void)
+ParamDefine.c (app):			Trace("InitTotalLog():Read ok but data is err,Reload data\r\n");
+ParamDefine.c (app):		Trace("InitTotalLog():ok\r\n");
+ParamDefine.c (app):		Trace("InitTotalLog():Caution ,Total Read false! \r\n");
+ParamDefine.h (app):extern void InitTotalLog(void);
+Vendservice.c (app):	InitTotalLog();
