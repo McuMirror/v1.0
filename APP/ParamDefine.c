@@ -41,33 +41,13 @@ extern void InitSysErrCode(void)
 extern void InitVmcParam(void)
 {
 	unsigned char err,Temp[19 + 2 * (MAXARRAY)];
-	unsigned short i,Crc;
+	unsigned short i,j,Crc;
 	err = API_FRAM_ReadFram(VMC_FRAM_ADDR,VMC_PARA_PAGE_S,Temp,(19 + 2 * MAXARRAY));
 	if(err)
 	{
 		Crc = CrcCheck(Temp,17 + 2 * MAXARRAY);
 		if((Temp[18 + 2 * MAXARRAY] == (unsigned char)Crc) && (Temp[17 + 2 * MAXARRAY] == (unsigned char)(Crc >> 8)))
 		{
-			for(i=0;i<MAXARRAY;i++)
-			{
-				VMCParam.GoodsChannelArray[i] = Temp[i];
-			}
-			for(i=MAXARRAY;i<2 * MAXARRAY;i++)
-			{
-				VMCParam.GoodsMaxCapacity[i] = Temp[i + MAXARRAY];
-			}
-			for(i=2 * MAXARRAY;i<(2 * MAXARRAY + 7);i++)
-			{
-				VMCParam.VMCID[i] = Temp[2 * MAXARRAY + i];
-			}
-			for(i=(2 * MAXARRAY + 7);i<(2 * MAXARRAY + 13);i++)
-			{
-				VMCParam.Password[i] = Temp[(2 * MAXARRAY + 7) + i];
-			}
-			VMCParam.Language = Temp[2 * MAXARRAY + 13];
-			VMCParam.MdbBillDeviceEAB = Temp[2 * MAXARRAY + 14];
-			VMCParam.MdbCoinDeviceEAB =Temp[2 * MAXARRAY + 15];
-			VMCParam.MdbCashlessDeviceEAB =Temp[2 * MAXARRAY + 16];
 			#ifdef APP_DBG_FRAM
 			Trace("InitVmcParam():Read OK(%04X):\r\n",Crc);
 			for(i=0;i<19 + 2 * MAXARRAY;i++)
@@ -89,6 +69,59 @@ extern void InitVmcParam(void)
 					Trace(" --Coin\r\n");
 				if(i == 112)
 					Trace(" --Cashless\r\n");
+			}
+			Trace("\r\n");
+			#endif
+			
+			for(i=0,j=0;i<MAXARRAY;i++,j++)
+			{
+				VMCParam.GoodsChannelArray[j] = Temp[i];
+				//Trace(" i=%02X,j=%02X,GoodsChannelArray=%02X,Temp=%02X",i,j,VMCParam.GoodsChannelArray[j],Temp[i]);
+			}
+			for(i=MAXARRAY,j=0;i<2 * MAXARRAY;i++,j++)
+			{
+				VMCParam.GoodsMaxCapacity[j] = Temp[i];
+				//Trace(" i=%02X,j=%02X,GoodsMaxCapacity=%02X,Temp=%02X",i,j,VMCParam.GoodsMaxCapacity[j],Temp[i]);
+			}
+			for(i=2 * MAXARRAY,j=0;i<(2 * MAXARRAY + 7);i++,j++)
+			{
+				VMCParam.VMCID[j] = Temp[i];
+				//Trace(" i=%02X,j=%02X,VMCID=%02X,Temp=%02X",i,j,VMCParam.VMCID[j],Temp[i]);
+			}
+			for(i=(2 * MAXARRAY + 7),j=0;i<(2 * MAXARRAY + 13);i++,j++)
+			{
+				VMCParam.Password[j] = Temp[i];
+			}
+			VMCParam.Language = Temp[2 * MAXARRAY + 13];
+			VMCParam.MdbBillDeviceEAB = Temp[2 * MAXARRAY + 14];
+			VMCParam.MdbCoinDeviceEAB =Temp[2 * MAXARRAY + 15];
+			VMCParam.MdbCashlessDeviceEAB =Temp[2 * MAXARRAY + 16];
+			
+			#ifdef APP_DBG_FRAM
+			Trace("GoodsChannelArray:\r\n");
+			for(i=0;i<MAXARRAY;i++)
+			{
+				Trace(" %02X",VMCParam.GoodsChannelArray[i]);
+			}
+			Trace("\r\n");
+
+			Trace("GoodsMaxCapacity:\r\n");
+			for(i=0;i<MAXARRAY;i++)
+			{
+				Trace(" %02X",VMCParam.GoodsMaxCapacity[i]);
+			}
+			Trace("\r\n");
+
+			Trace("VMCID:\r\n");
+			for(i=0;i<7;i++)
+			{
+				Trace(" %02X",VMCParam.VMCID[i]);
+			}
+			Trace("\r\n");
+			Trace("Password:\r\n");
+			for(i=0;i<6;i++)
+			{
+				Trace(" %02X",VMCParam.Password[i]);
 			}
 			Trace("\r\n");
 			#endif

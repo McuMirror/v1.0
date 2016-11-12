@@ -413,7 +413,7 @@ void DispChaxunPage(uint8_t *keyValue)
 			API_LCM_Printf(10,13,0,0,UIMenu.column[VMCParam.Language],"--");
 			vmcStatus = VMC_SALE;
 		}
-		//货道当前存货数量,维护页面设置后没法保存???
+		//货道当前存货数量
 		else if(TradeParam.RemainGoods[vmcColumn]==0)	
 		{
 			ClearDealPar();
