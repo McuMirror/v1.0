@@ -18,6 +18,7 @@
 #include "Menu.h"
 #include "MdbBillDeviceOperation.h"
 #include "MdbCoinDeviceOperation.h"
+#include "Log.h"
 static void Login(void);
 static void EnterMaintenance(void);
 static void MaintenDevInfo(void);
@@ -147,6 +148,7 @@ static uint8_t PwdCheck(void)
 		}
 		vTaskDelay(10);
 	}
+	return 0;
 }
 /************************************************************************************************************************************************************************************
 ** @APP Function name:   Maintenance
@@ -852,16 +854,28 @@ static void MaintenDevTest(void)
 						API_LCM_Printf(0,14,0,0,DevTest.Exit[VMCParam.Language]);
 						break;
 					case 'C':
-						while(1)//∂¡ø®∆˜≤‚ ‘
-						{
-							vTaskDelay(20);
-						}
+						//∂¡ø®∆˜≤‚ ‘
+						TestCoinValidator();
+						API_LCM_ClearScreen();
+						API_LCM_Printf(0,0,0,0,DevTest.Theme[VMCParam.Language]);
+						API_LCM_DrawLine(0,2);
+						API_LCM_Printf(16,3,0,0,DevTest.TBill[VMCParam.Language]);
+						API_LCM_Printf(16,5,0,0,DevTest.TCoin[VMCParam.Language]);
+						API_LCM_Printf(16,7,0,0,DevTest.TCashless[VMCParam.Language]);
+						API_LCM_Printf(16,9,0,0,DevTest.TGdsChnl[VMCParam.Language]);
+						API_LCM_Printf(0,14,0,0,DevTest.Exit[VMCParam.Language]);
 						break;
 					case 'D':
-						while(1)//ªıµ¿≤‚ ‘
-						{
-							vTaskDelay(20);
-						}
+						//ªıµ¿≤‚ ‘
+						TestCoinValidator();
+						API_LCM_ClearScreen();
+						API_LCM_Printf(0,0,0,0,DevTest.Theme[VMCParam.Language]);
+						API_LCM_DrawLine(0,2);
+						API_LCM_Printf(16,3,0,0,DevTest.TBill[VMCParam.Language]);
+						API_LCM_Printf(16,5,0,0,DevTest.TCoin[VMCParam.Language]);
+						API_LCM_Printf(16,7,0,0,DevTest.TCashless[VMCParam.Language]);
+						API_LCM_Printf(16,9,0,0,DevTest.TGdsChnl[VMCParam.Language]);
+						API_LCM_Printf(0,14,0,0,DevTest.Exit[VMCParam.Language]);
 						break;
 					default:
 						break;
@@ -929,7 +943,7 @@ static void TestBillValidator(void)
 static void TestCoinValidator(void)
 {
 	unsigned char key;
-	uint8_t  billOpt = 0,billOptBack = 0;
+	uint8_t  billOptBack = 0;
 	uint32_t InValue = 0;
 	uint32_t OutValue = 0;
 	uint8_t Billtype = 0;

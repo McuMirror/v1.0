@@ -22,7 +22,6 @@ void MdbCoinResetAndSetup(void)
 {
 	unsigned char err,i,MDBAck[36],MDBAckLen;	
 	uint16_t CoinDecimal;		 //10^小数位数
-	uint16_t CoinRouting;		 //Bit is set to indicate a coin type can be routed to the tube
 	
 	//Param
 	memset((void *)MDBCoinDevice.ManufacturerCode,0x00,3);
@@ -120,7 +119,6 @@ void MdbCoinResetAndSetup(void)
 		   CoinDecimal /= 10;
 	      }
 		CoinScale = MDBAck[3] * CoinDecimal;
-		CoinRouting	= (((uint16_t)MDBAck[5]) << 8) | MDBAck[6];
 		MDBCoinDevice.CoinTypeRouting[0] = MDBAck[5];
 		MDBCoinDevice.CoinTypeRouting[1] = MDBAck[6];
 		for(i=0;i<(MDBAckLen - 7);i++)
@@ -541,8 +539,8 @@ unsigned char MdbCoinPayout(uint32_t PayoutValue,uint32_t *AcuPayout)
 *********************************************************************************************************/
 unsigned char ChangePayoutProcessLevel3(uint32_t PayMoney,uint32_t *PayoutMoney)
 {
-	unsigned char CoinRdBuff[36],CoinRdLen,ComStatus,VMCValue[2]={0},VMCPoll[1]={0};
-	uint32_t coinscale,dispenseValue,Payed=0;
+	unsigned char CoinRdBuff[36],CoinRdLen,ComStatus;
+	uint32_t dispenseValue,Payed=0;
 	uint8_t  i;
 	uint8_t tempdispenseValue;
 	
@@ -566,8 +564,6 @@ unsigned char ChangePayoutProcessLevel3(uint32_t PayMoney,uint32_t *PayoutMoney)
 			tempdispenseValue=(dispenseValue>200)?200:dispenseValue;
 			dispenseValue-=tempdispenseValue;
 			Trace("\r\nDrvChangedispense = %d,%d", dispenseValue,tempdispenseValue);
-			VMCValue[0] = 0x02;
-			VMCValue[1] = tempdispenseValue;
 			//1发送找币指令
 			ComStatus = API_MDB_ExpanPayout_CoinDevice(tempdispenseValue);
 			if(ComStatus == 1)
@@ -576,7 +572,6 @@ unsigned char ChangePayoutProcessLevel3(uint32_t PayMoney,uint32_t *PayoutMoney)
 				while(API_SYSTEM_TimerReadChannelValue(0))
 				{					
 					//2发送扩展poll指令，检测找币是否完成
-					VMCPoll[0] = 0x04;
 					ComStatus = API_MDB_ExpanPayoutValuePoll_CoinDevice(&CoinRdBuff[0]);
 					//找零进行时，CoinRdLen=1 找零完成后，CoinRdLen = 0
 					if( ComStatus == 0 )
@@ -584,7 +579,6 @@ unsigned char ChangePayoutProcessLevel3(uint32_t PayMoney,uint32_t *PayoutMoney)
 						memset(CoinRdBuff,0,sizeof(CoinRdBuff));
 						//CoinRdLen = 0;
 						//3发送扩展指令，检测本次找币各通道找多少枚
-						VMCPoll[0] = 0x03;
 						ComStatus =API_MDB_ExpanPayoutStatus_CoinDevice(&CoinRdBuff[0],&CoinRdLen);
 						if( ComStatus > 0 )
 						{

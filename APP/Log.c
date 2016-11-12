@@ -61,6 +61,17 @@ void LogChangeAPI(uint32_t InValue)
 	uint16_t money=(InValue/10);
 	//更新区域交易记录
 	TotalTradeLog.TotalCoinPayout += money;
+}
+
+/*********************************************************************************************************
+** Function name:       LogChangeAPI
+** Descriptions:        找零时更新日志
+** input parameters:    InValue找零的金额
+** output parameters:   无
+** Returned value:      无
+*********************************************************************************************************/
+void LogEndAPI()
+{	
 	LoadNewTotalLog();
 }
 

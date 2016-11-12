@@ -13,6 +13,7 @@
 extern void LogGetMoneyAPI(uint32_t InValue,uint8_t MoneyType);
 extern void LogTransactionAPI(int type);
 extern void LogChangeAPI(uint32_t InValue);
+extern void LogEndAPI(void);
 extern void LogClearAPI(void);
 #endif
 /**************************************End Of File*******************************************************/

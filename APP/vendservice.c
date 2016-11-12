@@ -19,6 +19,7 @@
 #include "MdbCashlessDeviceOperation.h"
 #include "MdbCoinDeviceOperation.h"
 #include "Menu.h"
+#include "Log.h"
 #define VMC_FREE		  0                         //空闲状态
 #define VMC_CHAXUN	      1							//货道查询状态
 #define VMC_CHAXUNHEFANG  2							//盒饭柜号查询状态
@@ -43,7 +44,6 @@
 
 
 char     	ChannelNum[3] = {0};//选择货道值
-char     	BinNum[2] = {0};//选择盒饭箱柜值
 uint8_t	    channelInput = 0;
 uint8_t	 	vmcStatus = VMC_FREE;//当前状态
 uint8_t	 	vmcChangeLow = 0;//零钱是否不够找1不够找,0够找
@@ -307,9 +307,7 @@ void BillCoinCtr(uint8_t billCtr,uint8_t coinCtr,uint8_t readerCtr)
 void ClearDealPar()
 {
 	channelInput = 0;
-	memset(BinNum,0,sizeof(BinNum));
 	memset(ChannelNum,0,sizeof(ChannelNum));
-	//g_Amount = 0;	
 }
 
 /*********************************************************************************************************
@@ -321,7 +319,7 @@ void ClearDealPar()
 *********************************************************************************************************/
 void CLrBusinessText()
 {	
-	API_LCM_ClearArea(10,13,400,14);
+	API_LCM_ClearArea(10,13,240,14);
 	vTaskDelay(2);	
 }
 
@@ -378,11 +376,6 @@ void DispFreePage()
 *********************************************************************************************************/
 void DispChaxunPage(uint8_t *keyValue)
 {
-	char strlanguage[30] = {0},streng[30] = {0};
-	uint8_t columnState=0,isColumn=0;
-	uint16_t columnNo=0;
-	uint32_t debtMoney=0;
-	uint8_t channel_id=0;
 	unsigned char layer = 0x00,channel = 0x00;
 	char    *pstr;
 	char	strMoney[10];
@@ -391,14 +384,10 @@ void DispChaxunPage(uint8_t *keyValue)
 	//取消
 	if(*keyValue == '>')
 	{
-		channelInput = 0;
-		memset(ChannelNum,0,sizeof(ChannelNum));
+		ClearDealPar();
 		CLrBusinessText();
 		API_LCM_Printf(10,13,0,0,UIMenu.column[VMCParam.Language],"--");
-		if(GetAmountMoney() > 0)
-		{				
-			vmcStatus = VMC_SALE;
-		}
+		vmcStatus = VMC_SALE;
 		return;
 	}		
 	
@@ -416,15 +405,21 @@ void DispChaxunPage(uint8_t *keyValue)
 			//货道未开启
 			(VMCParam.GoodsChannelArray[vmcColumn]==0)
 			//货道单价为0
-		    ||(TradeParam.GoodsPrice[vmcColumn]==0)
-			//货道当前存货数量,维护页面设置后没法保存???
-		    ||(TradeParam.RemainGoods[vmcColumn]==0)		   
+		    ||(TradeParam.GoodsPrice[vmcColumn]==0)			
 		)
 		{
-			channelInput = 0;
-			memset(ChannelNum,0,sizeof(ChannelNum));
+			ClearDealPar();
 			CLrBusinessText();
 			API_LCM_Printf(10,13,0,0,UIMenu.column[VMCParam.Language],"--");
+			vmcStatus = VMC_SALE;
+		}
+		//货道当前存货数量,维护页面设置后没法保存???
+		else if(TradeParam.RemainGoods[vmcColumn]==0)	
+		{
+			ClearDealPar();
+			CLrBusinessText();
+			API_LCM_Printf(10,13,0,0,UIMenu.column[VMCParam.Language],"货道已售完");
+			vmcStatus = VMC_SALE;
 		}
 		else
 		{
@@ -432,9 +427,14 @@ void DispChaxunPage(uint8_t *keyValue)
 			pstr = PrintfMoney(vmcPrice);
 			strcpy(strMoney, pstr);
 			API_LCM_Printf(10,13,0,0,UIMenu.price[VMCParam.Language],ChannelNum,strMoney);
+			ClearDealPar();
 			if(GetAmountMoney()>=vmcPrice)
 			{
 				vmcStatus = VMC_CHUHUO;
+			}
+			else
+			{				
+				vmcStatus = VMC_SALE;
 			}
 		}
 	}
@@ -471,6 +471,7 @@ void DispSalePage()
 *********************************************************************************************************/
 void DispChuhuoPage()
 {
+	CLrBusinessText();
 	API_LCM_Printf(10,13,0,0,UIMenu.dispense[VMCParam.Language]);
 	vTaskDelay(500*3);
 }
@@ -516,6 +517,7 @@ void DispPayoutPage()
 	char    *pstr;
 	char	strMoney[10];
 
+	CLrBusinessText();
 	pstr = PrintfMoney(GetAmountMoney());
 	strcpy(strMoney, pstr);
 	API_LCM_Printf(10,13,0,0,UIMenu.payout[VMCParam.Language],strMoney);
@@ -530,6 +532,7 @@ void DispPayoutPage()
 *********************************************************************************************************/
 void DispQuChangePage()
 {
+	CLrBusinessText();
 	API_LCM_Printf(10,13,0,0,UIMenu.takemoney[VMCParam.Language]);
 	vTaskDelay(500*3);
 }
@@ -546,6 +549,7 @@ void DispIOUPage(uint32_t debtMoney)
 	char    *pstr;
 	char	strMoney[10];
 
+	CLrBusinessText();
 	pstr = PrintfMoney(debtMoney);
 	strcpy(strMoney, pstr);
 	API_LCM_Printf(10,13,0,0,UIMenu.IOU[VMCParam.Language],strMoney);
@@ -560,7 +564,6 @@ void DispIOUPage(uint32_t debtMoney)
 *********************************************************************************************************/
 void DispEndPage()
 {
-	char strlanguage[30] = {0};
 	API_LCM_ClearScreen();	
 	vTaskDelay(20);
 	API_LCM_Printf(60,6,0,0,UIMenu.end[VMCParam.Language]);
@@ -574,10 +577,10 @@ void DispEndPage()
 ** output parameters:   无
 ** Returned value:      无
 *********************************************************************************************************/
-uint8_t UnpdateTubeMoney()
+void UnpdateTubeMoney()
 {
 	uint32_t coinMoney=0;	
-	uint8_t i,j=0;
+	uint8_t i;
 	MdbCoinGetTubeStatus();
 	for(i=0;i<16;i++)
 	{
@@ -660,6 +663,7 @@ uint8_t GetMoney()
 			}
 		}
 	}
+	return 0;
 }
 
 /*********************************************************************************************************
@@ -672,20 +676,17 @@ uint8_t GetMoney()
 uint32_t ChangerMoney(void)
 {	
 	uint32_t tempmoney=0,backmoney=0;
-	unsigned char ComStatus;
+	
 
 	Trace("\r\n AppChange=%d",GetAmountMoney());
 	tempmoney=GetAmountMoney();
 	//找零硬币
 	if(GetAmountMoney())
 	{		
-		ComStatus = ChangePayoutProcessLevel3(GetAmountMoney(),&backmoney);	
+		ChangePayoutProcessLevel3(GetAmountMoney(),&backmoney);	
 		Trace("\r\n Appbackmoney=%d",backmoney);
 	}	
-	else
-	{
-		ComStatus = 1;
-	}
+	
 
 	LogChangeAPI(backmoney);//记录日志
 	//找零失败
@@ -813,13 +814,12 @@ static void VendingService(void)
 	BillPayin = BillPayin;
 	BillPayout = BillPayout;
 	*/
-	uint8_t  billOpt = 0,billOptBack = 0;
+	uint8_t  billOptBack = 0;
 	uint32_t InValue = 0;
 	uint8_t Billtype = 0;
 
 	uint8_t keyValue = 0;//按键值
 	uint8_t moneyGet = 0;//是否已经有钱了
-	uint8_t haveSale = 0;//0第一次购买,1第二次以上购买	
 	uint32_t debtMoney;	
 	uint8_t ChuhuoRst = 0;
 	
@@ -970,6 +970,7 @@ static void VendingService(void)
 						Trace("\r\n AppKey1=%d",keyValue);
 						API_SYSTEM_TimerChannelSet(3,5 * 100);
 						vmcStatus = VMC_CHAXUN;	
+						CLrBusinessText();
 						break;
 					}
 				}
@@ -984,8 +985,7 @@ static void VendingService(void)
 				break;
 			case VMC_CHUHUO:
 				BillCoinCtr(2,2,0);
-				vTaskDelay(500*3);
-				CLrBusinessText();
+				vTaskDelay(500*3);				
 				DispChuhuoPage();				
 				//ChuhuoRst = ChannelAPIProcess(vmcColumn);	
 				ChuhuoRst=1;
@@ -1039,8 +1039,8 @@ static void VendingService(void)
 				break;
 			case VMC_END:				
 				DispEndPage();
+				LogEndAPI();
 				ClearDealPar();
-				haveSale = 0;
 				transMul = 0;
 				vmcColumn = 0;	
 				BillCoinCtr(1,1,0);				

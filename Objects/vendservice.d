@@ -31,3 +31,4 @@
 .\objects\vendservice.o: APP\MdbCashlessDeviceOperation.h
 .\objects\vendservice.o: APP\MdbCoinDeviceOperation.h
 .\objects\vendservice.o: APP\Menu.h
+.\objects\vendservice.o: APP\Log.h

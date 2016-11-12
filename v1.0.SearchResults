@@ -1,21 +1,7 @@
----- LoadNewVmcParam 匹配 (21 in 4 文件) ----
-LPC1768.htm (objects):<BR>[Called By]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
-LPC1768.htm (objects):<BR>[Called By]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
-LPC1768.htm (objects):<P><STRONG><a name="[117]"></a>LoadNewVmcParam</STRONG> (Thumb, 326 bytes, Stack size 136 bytes, paramdefine.o(i.LoadNewVmcParam))
-LPC1768.htm (objects):<LI>Call Chain = LoadNewVmcParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
-LPC1768.htm (objects):<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
-LPC1768.htm (objects):<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
-LPC1768.htm (objects):<LI>Call Chain = MaintenDevConfig &rArr; LoadNewVmcParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
-LPC1768.htm (objects):<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
-LPC1768.htm (objects):<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
-Maintenance.c (app):									LoadNewVmcParam();
-Maintenance.c (app):									LoadNewVmcParam();
-Maintenance.c (app):									LoadNewVmcParam();
-Maintenance.c (app):									LoadNewVmcParam();
-Maintenance.c (app):										LoadNewVmcParam();
-Maintenance.c (app):																	LoadNewVmcParam();
-Maintenance.c (app):																		LoadNewVmcParam();
-ParamDefine.c (app):extern void LoadNewVmcParam(void)
-ParamDefine.c (app):		Trace("LoadNewVmcParam():err\r\n");
-ParamDefine.c (app):		Trace("LoadNewVmcParam():\r\n");
-ParamDefine.h (app):extern void LoadNewVmcParam(void);
+---- CHINESE16X16LIB 匹配 (6 in 2 文件) ----
+Lcm.c (drivers):extern const unsigned char CHINESE16X16LIB[];
+Lcm.c (drivers):			LCMPutChar(x+i,y,~CHINESE16X16LIB[AddOffSet++]);
+Lcm.c (drivers):			LCMPutChar(x+i,y+1,~CHINESE16X16LIB[AddOffSet++]);
+Lcm.c (drivers):			LCMPutChar(x+i,y,CHINESE16X16LIB[AddOffSet++]);
+Lcm.c (drivers):			LCMPutChar(x+i,y+1,CHINESE16X16LIB[AddOffSet++]);
+Lib.c (drivers):const unsigned char CHINESE16X16LIB[] =
