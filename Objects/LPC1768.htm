@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\LPC1768.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\LPC1768.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Sat Nov 12 15:31:39 2016
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060020: Last Updated: Sat Nov 12 17:25:56 2016
 <BR><P>
 <H3>Maximum Stack Usage =        572 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1561,7 +1561,7 @@ Global Symbols
 <LI><a href="#[ff]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitTotalLog
 </UL>
 
-<P><STRONG><a name="[ea]"></a>DispChaxunPage</STRONG> (Thumb, 404 bytes, Stack size 128 bytes, vendservice.o(i.DispChaxunPage))
+<P><STRONG><a name="[ea]"></a>DispChaxunPage</STRONG> (Thumb, 414 bytes, Stack size 128 bytes, vendservice.o(i.DispChaxunPage))
 <BR><BR>[Stack]<UL><LI>Max Depth = 408 + Unknown Stack Size
 <LI>Call Chain = DispChaxunPage &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -1955,6 +1955,7 @@ Global Symbols
 <LI><a href="#[100]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CrcCheck
 </UL>
 <BR>[Called By]<UL><LI><a href="#[39]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MaintenTradeConfig
+<LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendingService
 </UL>
 
 <P><STRONG><a name="[117]"></a>LoadNewVmcParam</STRONG> (Thumb, 326 bytes, Stack size 136 bytes, paramdefine.o(i.LoadNewVmcParam))
@@ -2713,7 +2714,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendService
 </UL>
 
-<P><STRONG><a name="[12a]"></a>VendingService</STRONG> (Thumb, 1398 bytes, Stack size 48 bytes, vendservice.o(i.VendingService))
+<P><STRONG><a name="[12a]"></a>VendingService</STRONG> (Thumb, 1438 bytes, Stack size 48 bytes, vendservice.o(i.VendingService))
 <BR><BR>[Stack]<UL><LI>Max Depth = 536 + Unknown Stack Size
 <LI>Call Chain = VendingService &rArr; UnpdateTubeMoney &rArr; BillCoinCtr &rArr; BillDevProcess &rArr; API_MDB_Escrow_BillDevice &rArr; API_MDB_Stacker_BillDevice &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>
@@ -2750,6 +2751,7 @@ Local Symbols
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BillCoinCtr
 <LI><a href="#[c2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;vTaskDelay
 <LI><a href="#[bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Trace
+<LI><a href="#[116]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewTradeParam
 </UL>
 <BR>[Called By]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;VendService
 </UL>
@@ -2836,7 +2838,7 @@ Local Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> maintenance.o(i.EnterMaintenance)
 </UL>
-<P><STRONG><a name="[39]"></a>MaintenTradeConfig</STRONG> (Thumb, 8362 bytes, Stack size 104 bytes, maintenance.o(i.MaintenTradeConfig))
+<P><STRONG><a name="[39]"></a>MaintenTradeConfig</STRONG> (Thumb, 8586 bytes, Stack size 104 bytes, maintenance.o(i.MaintenTradeConfig))
 <BR><BR>[Stack]<UL><LI>Max Depth = 560 + Unknown Stack Size
 <LI>Call Chain = MaintenTradeConfig &rArr; LoadNewTradeParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
 </UL>

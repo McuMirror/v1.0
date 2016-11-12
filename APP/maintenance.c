@@ -2027,7 +2027,15 @@ static void MaintenTradeConfig(void)
 												if(key == 'B')
 												{
 													//全部添满货道
+													for(layer='A';layer<='F';layer++)
+													{
+														for(channel=1;channel<=8;channel++)
+														{
+															TradeParam.RemainGoods[(layer - 0x41)*8 + (channel - 1)] = VMCParam.GoodsMaxCapacity[(layer - 0x41)*8 + (channel - 1)];
+														}
+													}
 													API_LCM_Printf(31,10,0,0,"添满货道成功!");
+													LoadNewTradeParam();
 													vTaskDelay(400);
 													Lev2 = 0x01;
 													break;
@@ -2077,7 +2085,12 @@ static void MaintenTradeConfig(void)
 																	if(key == 'B')
 																	{
 																		//填满该层
+																		for(channel=1;channel<=8;channel++)
+																		{
+																			TradeParam.RemainGoods[(layer - 0x41)*8 + (channel - 1)] = VMCParam.GoodsMaxCapacity[(layer - 0x41)*8 + (channel - 1)];
+																		}																		
 																		API_LCM_Printf(31,10,0,0,"添满%C层成功!",layer);
+																		LoadNewTradeParam();
 																		vTaskDelay(400);
 																		Lev2 = 0x01;
 																		break;
@@ -2143,6 +2156,7 @@ static void MaintenTradeConfig(void)
 													{
 														Lev3 = 0x00;
 														API_LCM_Printf(15,4,0,0,TradeConfigAddGoods.EnterNumb[VMCParam.Language],layer,channel);
+														API_LCM_Printf(15,8,0,0,TradeConfigAddGoods.CurrentNumb[VMCParam.Language],layer,channel,TradeParam.RemainGoods[(layer - 0x41)*8 + (channel - 1)]);
 														i = 0x00;
 														while(1)
 														{
@@ -2161,6 +2175,7 @@ static void MaintenTradeConfig(void)
 																		TradeParam.RemainGoods[(layer - 0x41)*8 + (channel - 1)] = cNumb;
 																		API_LCM_Printf(15,8,0,0,TradeConfigAddGoods.NoteP[VMCParam.Language]);
 																	}
+																	LoadNewTradeParam();
 																	vTaskDelay(300);
 																}
 																Lev3 = 0x01;

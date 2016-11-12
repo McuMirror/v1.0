@@ -256,7 +256,8 @@ const TRADECONFIG_ADD_GOODS TradeConfigAddGoods =
 	{"请输入货道%C%d数量:%d","Enter<%C%d>Numb:%d"},
 	{"已按系统设定值添满","Set as system def."},
 	{"添货成功","Set Ok"},
-	{"A.取消  B.确认","A.Cancel  B.OK"}
+	{"A.取消  B.确认","A.Cancel  B.OK"},
+	{"当前货道%C%d数量:%d","current<%C%d>Numb:%d"}
 };
 /*********************************************************************************************************
 ** @Menu Define name:   TradeConfig

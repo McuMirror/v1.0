@@ -274,6 +274,7 @@ typedef struct
 	char *NoteP[MAXLAGUAGENUBER];
 	char *NoteOk[MAXLAGUAGENUBER];
 	char *CancelOrEnter[MAXLAGUAGENUBER];
+	char *CurrentNumb[MAXLAGUAGENUBER];
 } TRADECONFIG_ADD_GOODS;
 extern const TRADECONFIG_ADD_GOODS TradeConfigAddGoods;
 /********************************************************************************************************

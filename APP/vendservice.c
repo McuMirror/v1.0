@@ -418,7 +418,7 @@ void DispChaxunPage(uint8_t *keyValue)
 			//货道单价为0
 		    ||(TradeParam.GoodsPrice[vmcColumn]==0)
 			//货道当前存货数量,维护页面设置后没法保存???
-		    //||(TradeParam.RemainGoods[vmcColumn]==0)		   
+		    ||(TradeParam.RemainGoods[vmcColumn]==0)		   
 		)
 		{
 			channelInput = 0;
@@ -992,6 +992,12 @@ static void VendingService(void)
 				if(ChuhuoRst==1)
 				{
 					Trace("\r\n chuhuosuc\r\n");	
+					//货道存货数量递减
+					if(TradeParam.RemainGoods[vmcColumn]>0)
+					{
+						TradeParam.RemainGoods[vmcColumn]--;
+						LoadNewTradeParam();
+					}
 					DispQuhuoPage();	
 					SaleCostMoney(vmcPrice);//扣款				
 					Trace("\r\n nowmoney=%d\r\n",GetAmountMoney());						

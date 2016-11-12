@@ -1,15 +1,21 @@
----- InitVmcParam 匹配 (15 in 4 文件) ----
-LPC1768.htm (objects):<BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
-LPC1768.htm (objects):<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
-LPC1768.htm (objects):<P><STRONG><a name="[102]"></a>InitVmcParam</STRONG> (Thumb, 334 bytes, Stack size 136 bytes, paramdefine.o(i.InitVmcParam))
-LPC1768.htm (objects):<LI>Call Chain = InitVmcParam &rArr; LoadDefaultVmcParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
-LPC1768.htm (objects):<BR>[Called By]<UL><LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
-LPC1768.htm (objects):<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
-LPC1768.htm (objects):<LI>Call Chain = VendService &rArr; InitVmcParam &rArr; LoadDefaultVmcParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
-LPC1768.htm (objects):<LI><a href="#[102]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;InitVmcParam
-ParamDefine.c (app):extern void InitVmcParam(void)
-ParamDefine.c (app):			Trace("InitVmcParam():Read OK(%04X):\r\n",Crc);
-ParamDefine.c (app):			Trace("InitVmcParam():Read ok but data is err\r\n");
-ParamDefine.c (app):		Trace("InitVmcParam():Read ERR\r\n");
-ParamDefine.h (app):extern void InitVmcParam(void);
-Vendservice.c (app):	InitVmcParam();
+---- LoadNewVmcParam 匹配 (21 in 4 文件) ----
+LPC1768.htm (objects):<BR>[Called By]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
+LPC1768.htm (objects):<BR>[Called By]<UL><LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
+LPC1768.htm (objects):<P><STRONG><a name="[117]"></a>LoadNewVmcParam</STRONG> (Thumb, 326 bytes, Stack size 136 bytes, paramdefine.o(i.LoadNewVmcParam))
+LPC1768.htm (objects):<LI>Call Chain = LoadNewVmcParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+LPC1768.htm (objects):<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
+LPC1768.htm (objects):<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
+LPC1768.htm (objects):<LI>Call Chain = MaintenDevConfig &rArr; LoadNewVmcParam &rArr; Trace &rArr; __c89vsprintf &rArr; _printf_char_common &rArr; __printf
+LPC1768.htm (objects):<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
+LPC1768.htm (objects):<LI><a href="#[117]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LoadNewVmcParam
+Maintenance.c (app):									LoadNewVmcParam();
+Maintenance.c (app):									LoadNewVmcParam();
+Maintenance.c (app):									LoadNewVmcParam();
+Maintenance.c (app):									LoadNewVmcParam();
+Maintenance.c (app):										LoadNewVmcParam();
+Maintenance.c (app):																	LoadNewVmcParam();
+Maintenance.c (app):																		LoadNewVmcParam();
+ParamDefine.c (app):extern void LoadNewVmcParam(void)
+ParamDefine.c (app):		Trace("LoadNewVmcParam():err\r\n");
+ParamDefine.c (app):		Trace("LoadNewVmcParam():\r\n");
+ParamDefine.h (app):extern void LoadNewVmcParam(void);
