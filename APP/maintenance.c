@@ -28,6 +28,7 @@ static void MaintenTradeConfig(void);
 static void MaintenTradeLog(void);
 static void TestBillValidator(void);
 static void TestCoinValidator(void);
+static void TestColumn(void);
 
 static char *Errcheck()
 {
@@ -867,7 +868,7 @@ static void MaintenDevTest(void)
 						break;
 					case 'D':
 						//货道测试
-						TestCoinValidator();
+						TestColumn();
 						API_LCM_ClearScreen();
 						API_LCM_Printf(0,0,0,0,DevTest.Theme[VMCParam.Language]);
 						API_LCM_DrawLine(0,2);
@@ -1027,6 +1028,66 @@ static void TestCoinValidator(void)
 }
 
 
+static void TestColumn(void)
+{
+	unsigned char layer = 0x00,channel = 0x00,layerOK = 0x00,dataOK = 0x00,Array,key;
+	API_LCM_ClearScreen();
+	API_LCM_Printf(15,3,0,0,TradeConfigGC.GdNumb[VMCParam.Language]);
+	API_LCM_Printf(0,14,0,0,TradeConfigGC.Exit[VMCParam.Language]);							
+	vTaskDelay(20);
+	layer = 0x00;
+	channel = 0x00;
+	layerOK = 0x00;
+	dataOK = 0x00;
+	while(1)//货道配置
+	{
+		key = API_KEY_ReadKey();
+		if(key == '>')
+		{
+			break;
+		}
+		else
+		{
+			if(layerOK == 0x00)
+			{
+				if((key >= 'A') && (key <= 'F'))
+				{
+					layerOK = 0x01;
+					layer = key;
+					API_LCM_Printf(15,3,0,0,TradeConfigGC.GdNumbL[VMCParam.Language],layer);
+				}
+				else
+					dataOK = 0x00;
+			}
+			else
+			{
+				if((key >= '1') && (key <= '8'))
+				{
+					channel = key - 0x30;
+					API_LCM_Printf(15,3,0,0,TradeConfigGC.GdNumbLC[VMCParam.Language],layer,channel);
+					dataOK = 0x01;
+				}
+				else
+					dataOK = 0x00;
+			}
+		}
+		if(dataOK == 0x01)
+		{
+			dataOK = 0x00;
+			layerOK = 0x00;
+			Array = ((layer - 0x41)*8 + (channel - 1));
+			Trace("%c%d column%d\r\n",layer,channel,Array);
+			layer=0;
+			channel=0;
+			API_LCM_ClearScreen();
+			API_LCM_Printf(15,3,0,0,TradeConfigGC.GdNumb[VMCParam.Language]);
+			API_LCM_Printf(0,14,0,0,TradeConfigGC.Exit[VMCParam.Language]);
+		}
+	}
+		
+}
+
+
 /************************************************************************************************************************************************************************************
 ** @APP Function name:   MaintenTradeConfig/交易设置
 ** @APP Input para:      None
@@ -1121,8 +1182,6 @@ static void MaintenTradeConfig(void)
 										API_LCM_ClearArea(0,3,239,4);
 										API_LCM_Printf(15,3,0,0,TradeConfigGC.GdCoinfig[VMCParam.Language],layer,channel);
 										API_LCM_ClearArea(0,6,239,9);
-										Trace("%c%c column%d=%d,%d,%d\r\n",layer,channel,Array,VMCParam.GoodsChannelArray[Array],TradeParam.GoodsPrice[Array],
-												TradeParam.RemainGoods[Array]);
 										API_LCM_Printf(15,6,0,0,TradeConfigGC.Enale[VMCParam.Language],VMCParam.GoodsChannelArray[Array]);
 										API_LCM_Printf(15,8,0,0,TradeConfigGC.MaxCap[VMCParam.Language],VMCParam.GoodsMaxCapacity[Array]);
 										API_LCM_Printf(15,10,0,0,TradeConfigGC.Price[VMCParam.Language],TradeParam.GoodsPrice[Array]/10,TradeParam.GoodsPrice[Array]%10);

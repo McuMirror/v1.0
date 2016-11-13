@@ -457,7 +457,7 @@
             <File>
               <FileName>Log.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Log.c</FilePath>
+              <FilePath>.\APP\Log.c</FilePath>
             </File>
           </Files>
         </Group>

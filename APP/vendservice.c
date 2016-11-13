@@ -352,7 +352,7 @@ void DispFreePage()
 	vTaskDelay(10);
 	API_RTC_Read((void *)Rtc);
 	API_LCM_Printf(40,8,0,0,"%04D/%02D/%02D %02D:%02D",(((unsigned int)Rtc[5] << 8) + Rtc[6]),Rtc[4],Rtc[3],Rtc[2],Rtc[1]);
-	if(API_COM_RecBufferIsNotEmpty(0x00))
+	/*if(API_COM_RecBufferIsNotEmpty(0x00))
 	{
 		Rtc[0] = 0x00;
 		Rtc[1] = 34;
@@ -362,7 +362,7 @@ void DispFreePage()
 		Rtc[5] = 2016 / 256;
 		Rtc[6] = 2016 % 256;
 		API_RTC_Write((void *)Rtc);
-	}
+	}*/
 }
 
 /*********************************************************************************************************
